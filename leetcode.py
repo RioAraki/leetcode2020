@@ -34,3 +34,36 @@ def judgeCircle(self, moves):
         return True
     return False
 
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-45/problems/find-k-closest-elements/
+    def findClosestElements(self, arr, k, x):
+        """
+        :type arr: List[int]
+        :type k: int
+        :type x: int
+        :rtype: List[int]
+        """
+        diffList = self.listModify(arr, x)
+        result_list = []
+
+        # lambda ->
+        # diffList = diffList.sort(key= lambda tup: tup[0])
+        diffList.sort(key=lambda tup: tup[0])
+
+        for num in range(k):
+            result_list.append(diffList[num][2])
+        result_list.sort()
+
+        return result_list
+
+    def listModify(self, arr, x):
+        result = []
+        smallest = 999999999999
+        curr_index = 0
+        for element in arr:
+            new_ele = abs(x - element)
+            result.append((new_ele, curr_index, element))
+            if new_ele < smallest:
+                smallest = new_ele
+            curr_index += 1
+        return result
