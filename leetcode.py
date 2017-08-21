@@ -79,3 +79,65 @@ def listModify(self, arr, x):
 
 #TODO: Use the way in http://bookshadow.com/weblog/2017/08/13/leetcode-find-k-closest-elements/ and resolve the problem!
 ############################################################################################
+
+# https://leetcode.com/contest/leetcode-weekly-contest-46/problems/image-smoother/
+# Stupid solution
+def imageSmoother(self, M):
+    """
+    :type M: List[List[int]]
+    :rtype: List[List[int]]
+    """
+
+    def check_remove(list, val):
+        if val in list:
+            list.remove(val)
+
+    # try pass by reference?
+    # result_matrix = M
+    width, height = len(M), len(M[0])
+    result_matrix = [[0 for i in range(width)] for j in range(height)]
+
+    for row in range(width):
+        for pixel in range(height):
+            sur = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            if pixel - 1 < 0:
+                check_remove(sur, 1)
+                check_remove(sur, 4)
+                check_remove(sur, 7)
+            if pixel + 1 > height - 1:
+                check_remove(sur, 3)
+                check_remove(sur, 6)
+                check_remove(sur, 9)
+            if row - 1 < 0:
+                check_remove(sur, 1)
+                check_remove(sur, 2)
+                check_remove(sur, 3)
+            if row + 1 > width - 1:
+                check_remove(sur, 7)
+                check_remove(sur, 8)
+                check_remove(sur, 9)
+
+            result = 0
+
+            for num in sur:
+                if num == 1:
+                    result += M[row - 1][pixel - 1]
+                if num == 2:
+                    result += M[row - 1][pixel]
+                if num == 3:
+                    result += M[row - 1][pixel + 1]
+                if num == 4:
+                    result += M[row][pixel - 1]
+                if num == 5:
+                    result += M[row][pixel]
+                if num == 6:
+                    result += M[row][pixel + 1]
+                if num == 7:
+                    result += M[row + 1][pixel - 1]
+                if num == 8:
+                    result += M[row + 1][pixel]
+                if num == 9:
+                    result += M[row + 1][pixel + 1]
+
+            result_matrix[row][pixel] = int(result / len(sur))
+    return result_matrix
