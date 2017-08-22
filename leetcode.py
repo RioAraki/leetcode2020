@@ -163,3 +163,9 @@ def imageSmootherXuenanGuo(self, M):
                     cnt += 1
             ans[i][j] /= cnt
     return ans
+
+############################################################################################
+# We can figure out how many elements could there be in each level (level1 -> 1; level2 -> 2; level3 -> 4; level4 -> 8)
+# We can figure out which spot does the current element in each level -> leftchild = parent*2-1;rightchild = parent*2
+# Get the biggest and smallest number in the list
+# traverse through the list and find number in each level?
