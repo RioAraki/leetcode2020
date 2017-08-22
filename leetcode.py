@@ -141,3 +141,25 @@ def imageSmoother(self, M):
 
             result_matrix[row][pixel] = int(result / len(sur))
     return result_matrix
+
+############################################################################################
+# solution from leetcode user XuenanGuo
+
+def imageSmootherXuenanGuo(self, M):
+
+    # use map to use len function once only
+    m,n = map(len, [M, M[0]])
+
+    # smart way to copy the original list by value, avoid points to original variable.
+    ans = [[M[i][j] for j in range(n)] for i in range(m)]
+    for i in range(m):
+        for j in range(n):
+            cnt = 1
+            # zip to get x y coordinate together, dont need to get 0 0 value since we already included it
+            for dx, dy in zip([1, 1, 1, 0, 0, -1, -1, -1], [1, 0, -1, 1, -1, 1, 0, -1]):
+                x, y = i+dx, j + dy
+                if 0 <= x < m and 0 <= y < n:
+                    ans[i][j] += M[x][y]
+                    cnt += 1
+            ans[i][j] /= cnt
+    return ans
