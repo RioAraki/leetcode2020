@@ -231,3 +231,7 @@ class Solution(object):
         check_partition(root)
 
         return root_sum in sublist
+
+# Still not good at solving tree related problem -> not good at writing recursion, need more practice
+
+############################################################################################
