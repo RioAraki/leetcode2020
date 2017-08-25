@@ -235,3 +235,30 @@ class Solution(object):
 # Still not good at solving tree related problem -> not good at writing recursion, need more practice
 
 ############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-45/problems/split-array-into-consecutive-subsequences/
+# Probably workable way, but exceed time limit because the two for loop and sorted function!
+
+
+    def isPossible(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        lists = []
+        lengths = []
+
+        for num in nums:
+            put_in = False
+            for list in lists:
+                if not put_in:
+                    if num - 1 == list[-1]:
+                        put_in = True
+                        list.append(num)
+            if not put_in:
+                lists.append([num])
+            lists = sorted(lists, key=len)
+            # print lists
+            # print sorted(lists, key = len)
+
+        return len(lists[0]) >= 3
+
