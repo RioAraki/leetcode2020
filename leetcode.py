@@ -262,3 +262,43 @@ class Solution(object):
 
         return len(lists[0]) >= 3
 
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-45/problems/remove-9/
+# go through each number, if 9 is detected, skip it
+# time limit exceeded, this way definitely work but need a more efficient solution
+    def newInteger(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        count = 0
+        num = 0
+
+        last = []
+        mid = []
+        current = []
+
+        while count < n + 1:
+
+            list_num = list(str(num))
+            if '9' not in list_num:
+                count += 1
+            num += 1
+            last = mid
+            mid = current
+            current = [num, count]
+        if current[1] == n:
+            return current[0]
+        elif mid[1] == n:
+            return mid[0]
+        elif last[1] == n:
+            return last[0]
+
+# Better solution, 9 base:
+# change n to 9 base
+    def newInteger(self, n):
+        ans = ''
+        while n:
+            ans = str(n%9) + ans
+            n /= 9
+        return int(ans)
