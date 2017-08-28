@@ -319,3 +319,26 @@ class Solution(object):
                 return True
             nums_list = nums[:]
         return False
+
+# delete each number of the decsending pair and see if the modified list is a non-descending one
+    def checkPossibility(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+
+        nums_list1 = nums[:]
+        nums_list2 = nums[:]
+        count = 0
+
+        for index in range(len(nums)):
+
+            if index + 1 <= len(nums) - 1:
+                # print index, index + 1, nums_list[index], nums_list[index+1]
+                if nums[index] > nums[index + 1]:
+                    nums_list1.pop(index)
+                    nums_list2.pop(index + 1)
+                    if nums_list1 == sorted(nums_list1) or nums_list2 == sorted(nums_list2):
+                        return True
+                    return False
+        return True
