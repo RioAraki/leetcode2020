@@ -344,6 +344,7 @@ class Solution(object):
 		
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-47/problems/path-sum-iv/
+# recurse from each leaf, go up one level each time and add it to a sum
 	def pathSum(self, nums):
 	        """
 	        :type nums: List[int]
@@ -385,3 +386,6 @@ class Solution(object):
 	                            sum += val
 	                            break
 	        return sum
+			
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-47/problems/beautiful-arrangement-ii/
