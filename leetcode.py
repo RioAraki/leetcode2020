@@ -305,3 +305,17 @@ class Solution(object):
 
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-47/problems/non-decreasing-array/
+
+# Time limit Exceeded
+    def checkPossibility(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        nums_list = nums[:]
+        for index in range(len(nums_list)):
+            nums_list.pop(index)
+            if nums_list == sorted(nums_list):
+                return True
+            nums_list = nums[:]
+        return False
