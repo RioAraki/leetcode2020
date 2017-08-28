@@ -142,7 +142,6 @@ class Solution(object):
                 result_matrix[row][pixel] = int(result / len(sur))
         return result_matrix
 
-############################################################################################
 # solution from leetcode user XuenanGuo
 
     def imageSmootherXuenanGuo(self, M):
