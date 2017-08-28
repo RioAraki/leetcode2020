@@ -302,3 +302,6 @@ class Solution(object):
             ans = str(n%9) + ans
             n /= 9
         return int(ans)
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-47/problems/non-decreasing-array/
