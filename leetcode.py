@@ -341,3 +341,47 @@ class Solution(object):
                         return True
                     return False
         return True
+		
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-47/problems/path-sum-iv/
+	def pathSum(self, nums):
+	        """
+	        :type nums: List[int]
+	        :rtype: int
+	        """
+	        last = get_pos(nums[-1],0)
+	        sum = 0
+	        
+	        def get_pos(num,pos):
+	            return int(str(num)[pos])
+	      
+	        def is_leaf(num, nums):
+	            depth = get_pos(num,0)
+	            pos = get_pos(num,1)
+	            child_val_left = (depth+1)*100 + (2*pos-1)*10
+	            child_val_right = (depth+1)*100 + (2*pos)*10      
+	            for element in nums:
+	                if child_val_left <= element < child_val_left + 10 or child_val_right <= element < child_val_right + 10:
+	                    return False
+	            return True
+	                    
+	        for num in nums:
+	            if is_leaf(num, nums):
+	                print("now in leaf: " + str(num))
+	                depth = get_pos(num,0)
+	                pos = get_pos(num,1)
+	                val = get_pos(num,2)
+	                next_depth = depth - 1
+	                next_pos = int((pos+1)/2)
+	                sum += val
+	                while depth > 0:
+	                    depth = next_depth
+	                    pos = next_pos
+	                    for num1 in nums:
+	                        if (depth*100 + pos*10) <= num1 < (depth*100 + pos*10 + 10): 
+	                            val = get_pos(num1,2)
+	                            next_depth = depth-1
+	                            next_pos = int((pos+1)/2)
+	                            sum += val
+	                            break
+	        return sum
