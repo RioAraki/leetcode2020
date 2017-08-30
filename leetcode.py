@@ -411,3 +411,47 @@ class Solution(object):
         else:
             res.extend(range(r, l - 1, -1))
         return res
+
+############################################################################################
+# https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/
+# Get the number of counts of each number from 1 in the table and find the kth one
+# TLE, the answer is not good enough since I tracked the whole thing from 1, I only need to know there the kth answer is, would figure out how to do it later.
+    def findKthNumber(self, m, n, k):
+        """
+        :type m: int
+        :type n: int
+        :type k: int
+        :rtype: int
+        """
+        def get_factor(num):
+            myList = []
+            for i in range(1, int(num ** 0.5 + 1)):
+                if num % i == 0:
+                    if (i != num/i):
+                        myList.append([i, int(num/i)])
+                        
+                    else:
+                        myList.append([i,i])
+            return myList 
+        
+        num = 1
+        res = []
+        
+        while len(res) < k:
+            table = get_factor(num)
+            count = 0
+            # print ("current number: " + str(num) + ", current list: " + str(table))
+            for pair in table:
+                # if both elements in pair are smaller than m, n -> count 2 times
+                if pair[0] <= m and pair[1] <= n:
+                    count += 1
+                if pair[1] <= m and pair[0] <= n and pair[0] != pair[1]:
+                    count += 1
+            
+            res += count * [num]
+            num += 1
+            # print ("this number's count: " + str(count))
+            # print ("current result list: " + str(res))
+            
+        return res[k-1]
+            
