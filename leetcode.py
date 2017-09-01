@@ -454,4 +454,7 @@ class Solution(object):
             # print ("current result list: " + str(res))
             
         return res[k-1]
-            
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-44/problems/two-sum-iv-input-is-a-bst/
+# maintain a list while traverse through the tree, if found the needed value in the list return false
