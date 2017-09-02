@@ -479,3 +479,11 @@ class Solution(object):
                 add_to_list(node.right)
         add_to_list(root)
         return self.flag
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-44/problems/maximum-binary-tree/
+# 1. find largest number in the list, divide two subarray
+# 2. make it the node value of tree, recursively build left and right child
+
+
+
