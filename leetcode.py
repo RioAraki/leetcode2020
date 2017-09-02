@@ -458,3 +458,24 @@ class Solution(object):
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-44/problems/two-sum-iv-input-is-a-bst/
 # maintain a list while traverse through the tree, if found the needed value in the list return false
+
+ def findTarget(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: bool
+        """
+        self.flag = False
+        supplement = []
+        
+        def add_to_list(node):
+            if node.val in supplement:
+                
+                self.flag = True
+            supplement.append(k - node.val)
+            if node.left:
+                add_to_list(node.left)
+            if node.right:
+                add_to_list(node.right)
+        add_to_list(root)
+        return self.flag
