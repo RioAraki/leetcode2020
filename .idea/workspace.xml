@@ -21,8 +21,8 @@
       <file leaf-file-name="leetcode.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="472" column="16" lean-forward="true" selection-start-line="472" selection-start-column="16" selection-end-line="472" selection-end-column="16" />
+            <state relative-caret-position="594">
+              <caret line="502" column="47" lean-forward="false" selection-start-line="502" selection-start-column="47" selection-end-line="502" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -276,7 +276,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1932" height="1087" extended-state="1" />
+    <frame x="-7" y="0" width="1932" height="1087" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -413,6 +413,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../get-pip.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -437,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="472" column="16" lean-forward="true" selection-start-line="472" selection-start-column="16" selection-end-line="472" selection-end-column="16" />
+        <state relative-caret-position="594">
+          <caret line="502" column="47" lean-forward="false" selection-start-line="502" selection-start-column="47" selection-end-line="502" selection-end-column="47" />
           <folding />
         </state>
       </provider>

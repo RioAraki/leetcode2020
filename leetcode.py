@@ -459,31 +459,60 @@ class Solution(object):
 # https://leetcode.com/contest/leetcode-weekly-contest-44/problems/two-sum-iv-input-is-a-bst/
 # maintain a list while traverse through the tree, if found the needed value in the list return false
 
- def findTarget(self, root, k):
-        """
-        :type root: TreeNode
-        :type k: int
-        :rtype: bool
-        """
-        self.flag = False
-        supplement = []
-        
-        def add_to_list(node):
-            if node.val in supplement:
-                
-                self.flag = True
-            supplement.append(k - node.val)
-            if node.left:
-                add_to_list(node.left)
-            if node.right:
-                add_to_list(node.right)
-        add_to_list(root)
-        return self.flag
+     def findTarget(self, root, k):
+            """
+            :type root: TreeNode
+            :type k: int
+            :rtype: bool
+            """
+            self.flag = False
+            supplement = []
+
+            def add_to_list(node):
+                if node.val in supplement:
+
+                    self.flag = True
+                supplement.append(k - node.val)
+                if node.left:
+                    add_to_list(node.left)
+                if node.right:
+                    add_to_list(node.right)
+            add_to_list(root)
+            return self.flag
 
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-44/problems/maximum-binary-tree/
 # 1. find largest number in the list, divide two subarray
 # 2. make it the node value of tree, recursively build left and right child
 
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-48/problems/second-minimum-node-in-a-binary-tree/
+    def findSecondMinimumValue(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+
+        def compare(node):
+            if node.left:
+                if node.left.val != node.right.val:
+                    if node.left.val == node.val:
+                        second_list.append(node.right.val)
+                        compare(node.left)
+                    else:
+                        second_list.append(node.left.val)
+                        compare(node.right)
+                else:
+                    compare(node.left)
+                    compare(node.right)
+
+        second_list = []
+        compare(root)
+        second_list = sorted(second_list)
+
+        if len(second_list):
+            return second_list[0]
+        else:
+            return -1
 
 
