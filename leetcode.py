@@ -542,3 +542,45 @@ class Solution(object):
 
         return trim(root, L, R)
 
+############################################################################################
+# https://leetcode.com/problems/maximum-swap/description/
+    def maximumSwap(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+
+        def check_desc(num):
+            num_list_des = sorted(num_list, reverse=True)
+            for index in range(len(num_list)):
+                if num_list[index] != num_list_des[index]:
+                    return index
+            return -1
+
+        num_list = list(str(num))
+        init = check_desc(num)
+
+        if init == -1:
+            result = num
+        else:
+            safe_list = num_list[:init]
+            work_list = num_list[init:]
+
+            largest = 0
+            l_index = 0
+            for index in range(len(work_list)):
+                if work_list[index] >= largest:
+                    largest = work_list[index]
+                    l_index = index
+            if l_index != 0:
+                work_list[l_index] = work_list[0]
+                work_list[0] = largest
+
+            position = 1
+            result = 0
+            # print work_list
+            result_list = safe_list + work_list
+            for pos in reversed(result_list):
+                result += position * int(pos)
+                position = position * 10
+        return result
