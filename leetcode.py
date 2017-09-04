@@ -488,8 +488,7 @@ class Solution(object):
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-48/problems/second-minimum-node-in-a-binary-tree/
     def findSecondMinimumValue(self, root):
-        """
-        :type root: TreeNode
+        """:type root: TreeNode
         :rtype: int
         """
 
@@ -514,5 +513,3 @@ class Solution(object):
             return second_list[0]
         else:
             return -1
-
-
