@@ -513,3 +513,32 @@ class Solution(object):
             return second_list[0]
         else:
             return -1
+
+############################################################################################
+# https://leetcode.com/problems/trim-a-binary-search-tree/description/
+    def trimBST(self, root, L, R):
+        """
+        :type root: TreeNode
+        :type L: int
+        :type R: int
+        :rtype: TreeNode
+        """
+
+        def trim(node, L, R):
+            if node.val < L:
+                node = trim(node.right, L, R)
+            if node.val > R:
+                node = trim(node.left, L, R)
+            if L <= node.val <= R:
+                while node.left and node.left.val < L:
+                    node.left = node.left.right
+                while node.right and node.right.val > R:
+                    node.right = node.right.left
+                if node.left:
+                    trim(node.left, L, R)
+                if node.right:
+                    trim(node.right, L, R)
+            return node
+
+        return trim(root, L, R)
+
