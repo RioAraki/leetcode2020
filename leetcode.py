@@ -484,6 +484,32 @@ class Solution(object):
 # https://leetcode.com/contest/leetcode-weekly-contest-44/problems/maximum-binary-tree/
 # 1. find largest number in the list, divide two subarray
 # 2. make it the node value of tree, recursively build left and right child
+    def constructMaximumBinaryTree(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: TreeNode
+        """
+
+        def max_in_tree(num_list):
+            max = -1
+            max_idx = -1
+            for index in range(len(num_list)):
+                if num_list[index] > max:
+                    max_idx = index
+                    max = num_list[index]
+            return max_idx, num_list[:max_idx], num_list[max_idx + 1:]
+
+        def solve(nums):
+            idx, first, second = max_in_tree(nums)
+            if idx != -1:
+                node = TreeNode(nums[idx])  # TreeNode is defined in leetcode
+                node.left, node.right = solve(first), solve(second)
+            else:
+                node = None
+            return node
+
+        return solve(nums)
+
 
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-48/problems/second-minimum-node-in-a-binary-tree/
