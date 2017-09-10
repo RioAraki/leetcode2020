@@ -25,3 +25,32 @@ def singleNumber(self, nums):
         else:
             no_duplicate_list.remove(i)
     return no_duplicate_list.pop()
+
+# Time complexity : O(n^2) -> 能否更好？ 比如O(n)？只要能想到即可
+# Space complexity : O(n)
+
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hash_table = {}
+        for i in nums:
+            try:
+                hash_table.pop(i)
+            except:
+                hash_table[i] = 1
+        return hash_table.popitem()[0]
+
+
+# 2. [Medium] Maximum Swap
+# Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. Return the maximum valued number you could get.
+#
+# Example 1:
+# Input: 2736
+# Output: 7236
+# Explanation: Swap the number 2 and the number 7.
+# Example 2:
+# Input: 9973
+# Output: 9973
+# Explanation: No swap.
