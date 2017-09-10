@@ -635,4 +635,62 @@ class Solution(object):
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-43/problems/find-duplicate-subtrees/
 
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-49/problems/longest-continuous-increasing-subsequence/
 
+    def findLengthOfLCIS(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        longest = 0
+        temp = []
+        for num in nums:
+            # print num
+            if len(temp) == 0:
+                temp.append(num)
+            else:
+                if num > temp[-1]:
+                    temp.append(num)
+                else:
+                    if longest < len(temp):
+                        longest = len(temp)
+                    temp = [num]
+        if len(temp) > longest:
+            longest = len(temp)
+        return longest
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-49/problems/implement-magic-dictionary/
+    class MagicDictionary(object):
+        def __init__(self):
+            """
+            Initialize your data structure here.
+            """
+            self.diction = []
+
+        def buildDict(self, dict):
+            """
+            Build a dictionary through a list of words
+            :type dict: List[str]
+            :rtype: void
+            """
+            for word in dict:
+                self.diction.append(word)
+
+        def search(self, word):
+            """
+            Returns if there is any word in the trie that equals to the given word after modifying exactly one character
+            :type word: str
+            :rtype: bool
+            """
+
+            for w in self.diction:
+                if len(w) == len(word):
+                    counter = 0
+                    for index in range(len(w)):
+                        if w[index] == word[index]:
+                            counter += 1
+                    if counter + 1 == len(w):
+                        return True
+            return False
