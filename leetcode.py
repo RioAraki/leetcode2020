@@ -711,11 +711,12 @@ def cutOffTree(self, forest):
             for row_idx in range(len(forest)):
                 for tree_idx in range(len(forest[row_idx])):
                     if forest[row_idx][tree_idx] > 1:
-                        tree_list.append([forest[row_idx][tree_idx],(row_idx, tree_idx)])
+                        tree_list.append([forest[row_idx][tree_idx],(tree_idx, row_idx)])
             tree_list.sort(key = lambda ele: ele[0])
         
         # astar search from a beginning point to a ending point
         def astar(start, end):
+            print ("=====Now in astar=====")
             unvisit = PriorityQueue() 
             unvisit.put(start, 0)
             came_from = {}
@@ -724,16 +725,27 @@ def cutOffTree(self, forest):
             cost_so_far[start] = 0
             while not unvisit.empty():
                 current = unvisit.get()
+                print 'current'
+                print current
+                
                 if current == end:
                     break
                 neighbour = find_neighbour(current)
+                print 'neighbour'
+                print neighbour
                 for ele in neighbour:
+                    print 'current neigh'
+                    print ele
+                    print 'to neigh cost: ' + str(cost_so_far[current]) + ' ' + str(next_cost(ele))
                     new_cost = cost_so_far[current] + next_cost(ele)
                     if ele not in cost_so_far or new_cost < cost_so_far[ele]:
                         cost_so_far[ele] = new_cost
                         priority = new_cost + heuristic(ele, end)
+                        print 'priority'
+                        print priority
                         unvisit.put(ele, priority)
                         came_from[ele] = current
+            print ("===== end of astar=====")
             return came_from, cost_so_far 
         
         # find the manhatten distance between two position
@@ -746,30 +758,40 @@ def cutOffTree(self, forest):
         def find_neighbour(pos):
             output = []
             if pos[0] > 0:
-                output.append((pos[0]-1, pos[1]))
+                if forest[pos[1]][pos[0]-1] != 0:
+                    output.append((pos[0]-1, pos[1]))
             if pos[0] < len(forest[0]) -1:
-                output.append((pos[0]+1, pos[1]))
+                if forest[pos[1]][pos[0]+1] != 0:
+                    output.append((pos[0]+1, pos[1]))
             if pos[1] > 0:
-                output.append((pos[0], pos[1]-1))
+                if forest[pos[1]-1][pos[0]] != 0:
+                    output.append((pos[0], pos[1]-1))
             if pos[1] < len(forest) -1:
-                output.append((pos[0], pos[1]+1))
+                if forest[pos[1]+1][pos[0]] != 0:
+                    output.append((pos[0], pos[1]+1))
             return output
         
         # find the cost from current to next
         def next_cost(ele):
-            if forest[ele[0]][ele[1]] > 0:
+            if forest[ele[1]][ele[0]] > 0:
                 return 1
             # want to return inf actually
             return 99999
                 
         
         scan()
+        print tree_list
         cur = (0,0)
         total_cost = 0
         for pos in tree_list:
-            print(str(cur))
             nxt = pos[1]
+            print(str(cur) + ', ' + str(nxt))
             path, cost = astar(cur,nxt)
-            total_cost += cost
+            if nxt not in cost:
+                return -1
+            print path
+            print cost, cost[nxt]
+            total_cost += cost[nxt]
             cur = nxt
         return total_cost
+            
