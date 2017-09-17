@@ -694,3 +694,7 @@ class Solution(object):
                     if counter + 1 == len(w):
                         return True
             return False
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-50/problems/valid-palindrome-ii/
+
