@@ -801,3 +801,26 @@ def cutOffTree(self, forest):
 
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-50/problems/valid-palindrome-ii/
+
+# stupid way, run time exceeded
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        for i in xrange(len(s)):
+            t = s[:i] + s[i + 1:]
+            if t == t[::-1]: return True
+
+        return s == s[::-1]
+
+    def validPalindrome2(self, s):
+        def is_pali_range(i, j):
+            return all(s[k] == s[j - k + i] for k in range(i, j))
+
+        for i in xrange(len(s) / 2):
+            if s[i] != s[~i]:
+                j = len(s) - 1 - i
+                return is_pali_range(i + 1, j) or is_pali_range(i, j - 1)
+        return True
+
