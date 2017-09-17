@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bc2d464-a606-4532-9357-5b90b67eba03" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode.py" afterPath="$PROJECT_DIR$/leetcode.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="leetcode.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="698" column="87" lean-forward="true" selection-start-line="698" selection-start-column="87" selection-end-line="698" selection-end-column="87" />
+            <state relative-caret-position="218">
+              <caret line="788" column="29" lean-forward="true" selection-start-line="788" selection-start-column="29" selection-end-line="788" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -83,6 +82,11 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\LYRBQ\Documents\Interview_prep" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.hw0pr2b">
     <configuration default="false" name="get-pip" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -290,7 +294,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1924" height="1084" extended-state="0" />
+    <frame x="-8" y="-8" width="1924" height="1084" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -583,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="698" column="87" lean-forward="true" selection-start-line="698" selection-start-column="87" selection-end-line="698" selection-end-column="87" />
+        <state relative-caret-position="218">
+          <caret line="788" column="29" lean-forward="true" selection-start-line="788" selection-start-column="29" selection-end-line="788" selection-end-column="29" />
           <folding />
         </state>
       </provider>
