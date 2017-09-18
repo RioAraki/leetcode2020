@@ -857,5 +857,44 @@ def cutOffTree(self, forest):
                 # print "total count is: " + str(count) 
         return count
 
+############################################################################################
+#https://leetcode.com/contest/leetcode-weekly-contest-50/problems/valid-parenthesis-string/
+    def checkValidString(self, s):
+	"""
+	:type s: str
+	:rtype: bool
+	"""
+	left = []
+	magic = []
+	char_list = list(s)
+	for idx in range(len(char_list)):
+	    # print 'now in index: ' + str(idx) + ' with symbol: ' + s[idx]
+	    if char_list[idx] == '(':
+		# print '('
+		left.append(idx) 
+		# print 'left list: ' + str(left)
+	    if char_list[idx] == ')':
+		# print ')'
+		if len(left) > 0:
+		    left = left[:-1]
+		    # print 'remove left, now left list is ' + str(left)
+		else:
+		    if len(magic) > 0:
+			magic = magic[:-1]
+			# print 'remove magic, now magic list is ' + str(magic)
+		    else:
+			return False
 
+	    if char_list[idx] == '*':
+		# print '*'
+		magic.append(idx)
+		# print 'magic list: ' + str(magic)
 
+	# print 'loop end, current left: ' + str(left) + ' , current magic: ' + str(magic)
+	if len(left) > 0:
+	    for leftp in left[::-1]:
+		if len(magic) == 0 or leftp > magic[-1]:
+		    return False
+		else:
+		    magic = magic[:-1]
+	return True
