@@ -824,3 +824,38 @@ def cutOffTree(self, forest):
                 return is_pali_range(i + 1, j) or is_pali_range(i, j - 1)
         return True
 
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-50/problems/map-sum-pairs/
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.dict = {}
+
+    def insert(self, key, val):
+        """
+        :type key: str
+        :type val: int
+        :rtype: void
+        """
+        self.dict[key] = val
+
+    def sum(self, prefix):
+        """
+        :type prefix: str
+        :rtype: int
+        """
+        count = 0
+        # print "The current prefix is: " + prefix
+        # print "The whole dictionary is: " + str(self.dict)
+        for word in self.dict:
+            
+            if prefix == word[:len(prefix)]:
+                # print "prefix " + prefix + " is in " + word
+                
+                count += self.dict[word]
+                # print "total count is: " + str(count) 
+        return count
+
+
+
