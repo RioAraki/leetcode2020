@@ -898,3 +898,27 @@ def cutOffTree(self, forest):
 		else:
 		    magic = magic[:-1]
 	return True
+
+############################################################################################
+# https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        tree_list = []
+        def print_tree(node):
+            if node.left:
+                print_tree(node.left)
+            tree_list.append(node.val)
+            if node.right:
+                print_tree(node.right)
+            return tree_list
+        
+        if not root:
+            return []
+        print_tree(root)
+        return tree_list
+            
