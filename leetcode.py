@@ -341,7 +341,7 @@ class Solution(object):
                         return True
                     return False
         return True
-		
+
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-47/problems/path-sum-iv/
 # recurse from each leaf, go up one level each time and add it to a sum
@@ -386,7 +386,7 @@ class Solution(object):
                             sum += val
                             break
         return sum
-			
+
 ############################################################################################
 # https://leetcode.com/contest/leetcode-weekly-contest-47/problems/beautiful-arrangement-ii/
 # In a pattern 1 n 2 n-1 3 n-2 ...
@@ -429,14 +429,14 @@ class Solution(object):
                 if num % i == 0:
                     if (i != num/i):
                         myList.append([i, int(num/i)])
-                        
+
                     else:
                         myList.append([i,i])
-            return myList 
-        
+            return myList
+
         num = 1
         res = []
-        
+
         while len(res) < k:
             table = get_factor(num)
             count = 0
@@ -447,12 +447,12 @@ class Solution(object):
                     count += 1
                 if pair[1] <= m and pair[0] <= n and pair[0] != pair[1]:
                     count += 1
-            
+
             res += count * [num]
             num += 1
             # print ("this number's count: " + str(count))
             # print ("current result list: " + str(res))
-            
+
         return res[k-1]
 
 ############################################################################################
@@ -704,9 +704,9 @@ def cutOffTree(self, forest):
         :rtype: int
         """
         from Queue import PriorityQueue
-        
+
         tree_list = []
-        
+
         # scan the whole forest and sort it by length of tree
         def scan():
             for row_idx in range(len(forest)):
@@ -714,11 +714,11 @@ def cutOffTree(self, forest):
                     if forest[row_idx][tree_idx] > 1:
                         tree_list.append([forest[row_idx][tree_idx],(tree_idx, row_idx)])
             tree_list.sort(key = lambda ele: ele[0])
-        
+
         # astar search from a beginning point to a ending point
         def astar(start, end):
             # print ("=====Now in astar=====")
-            unvisit = PriorityQueue() 
+            unvisit = PriorityQueue()
             unvisit.put((0, start))
             came_from = {}
             cost_so_far = {}
@@ -728,7 +728,7 @@ def cutOffTree(self, forest):
                 current = unvisit.get()[1]
                 # print 'current'
                 # print current
-                
+
                 if current == end:
                     break
                 neighbour = find_neighbour(current)
@@ -749,14 +749,14 @@ def cutOffTree(self, forest):
                         # print unvisit
                         came_from[ele] = current
             # print ("===== end of astar=====")
-            return came_from, cost_so_far 
-        
+            return came_from, cost_so_far
+
         # find the manhatten distance between two position
         def heuristic(a, b):
             (x1, y1) = a
             (x2, y2) = b
             return abs(x1 - x2) + abs(y1 - y2)
-        
+
         # find availble neighbor of a position
         def find_neighbour(pos):
             output = []
@@ -773,15 +773,15 @@ def cutOffTree(self, forest):
                 if forest[pos[1]+1][pos[0]] != 0:
                     output.append((pos[0], pos[1]+1))
             return output
-        
+
         # find the cost from current to next
         def next_cost(ele):
             if forest[ele[1]][ele[0]] > 0:
                 return 1
             # want to return inf actually
             return 99999
-                
-        
+
+
         scan()
         # print tree_list
         cur = (0,0)
@@ -849,12 +849,12 @@ def cutOffTree(self, forest):
         # print "The current prefix is: " + prefix
         # print "The whole dictionary is: " + str(self.dict)
         for word in self.dict:
-            
+
             if prefix == word[:len(prefix)]:
                 # print "prefix " + prefix + " is in " + word
-                
+
                 count += self.dict[word]
-                # print "total count is: " + str(count) 
+                # print "total count is: " + str(count)
         return count
 
 ############################################################################################
@@ -871,7 +871,7 @@ def cutOffTree(self, forest):
 	    # print 'now in index: ' + str(idx) + ' with symbol: ' + s[idx]
 	    if char_list[idx] == '(':
 		# print '('
-		left.append(idx) 
+		left.append(idx)
 		# print 'left list: ' + str(left)
 	    if char_list[idx] == ')':
 		# print ')'
@@ -899,7 +899,7 @@ def cutOffTree(self, forest):
 		    magic = magic[:-1]
 	return True
 
-############################################################################################
+################################################################################
 # https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 
 class Solution(object):
@@ -916,9 +916,30 @@ class Solution(object):
             if node.right:
                 print_tree(node.right)
             return tree_list
-        
+
         if not root:
             return []
         print_tree(root)
         return tree_list
-            
+
+
+################################################################################
+# https://leetcode.com/problems/baseball-game/description/
+def calPoints(self, ops):
+        """
+        :type ops: List[str]
+        :rtype: int
+        """
+
+        lst = []
+
+        for op in ops:
+            if op == 'C':
+                lst.pop()
+            elif op == 'D':
+                lst.append(lst[-1]*2)
+            elif op == '+':
+                lst.append(lst[-1] + lst[-2])
+            else:
+                lst.append(int(op))
+        return sum(lst)
