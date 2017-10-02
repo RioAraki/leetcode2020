@@ -926,20 +926,40 @@ class Solution(object):
 ################################################################################
 # https://leetcode.com/problems/baseball-game/description/
 def calPoints(self, ops):
-        """
-        :type ops: List[str]
-        :rtype: int
-        """
+	"""
+	:type ops: List[str]
+	:rtype: int
+	"""
 
-        lst = []
+	lst = []
 
-        for op in ops:
-            if op == 'C':
-                lst.pop()
-            elif op == 'D':
-                lst.append(lst[-1]*2)
-            elif op == '+':
-                lst.append(lst[-1] + lst[-2])
-            else:
-                lst.append(int(op))
-        return sum(lst)
+	for op in ops:
+		if op == 'C':
+			lst.pop()
+		elif op == 'D':
+			lst.append(lst[-1]*2)
+		elif op == '+':
+			lst.append(lst[-1] + lst[-2])
+		else:
+			lst.append(int(op))
+	return sum(lst)
+		
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-52/problems/repeated-string-match/
+def repeatedStringMatch(self, A, B):
+	"""
+	:type A: str
+	:type B: str
+	:rtype: int
+	"""
+	
+	len_a, len_b = len(A), len(B)
+	multi = len_b/len_a
+	
+	if B in A*multi:
+		return multi
+	elif B in A*(multi+1):
+		return multi+1
+	elif B in A*(multi+2):
+		return multi + 2
+	return -1
