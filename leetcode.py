@@ -963,3 +963,29 @@ def repeatedStringMatch(self, A, B):
 	elif B in A*(multi+2):
 		return multi + 2
 	return -1
+
+############################################################################################
+# https://leetcode.com/contest/leetcode-weekly-contest-53/problems/binary-number-with-alternating-bits/
+
+    def hasAlternatingBits(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+
+        binary = bin(n)[2:]
+        for bit_idx in range(len(binary)):
+            if bit_idx % 2 == 0:
+                if binary[bit_idx] != "1":
+                    return False
+            if bit_idx % 2 == 1:
+                if binary[bit_idx] != "0":
+                    return False
+        return True
+
+    # answer from discuss
+
+    def hasAlternatingBits(self, n):
+        bits = bin(n)
+        return all(bits[i] != bits[i + 1]
+                   for i in xrange(len(bits) - 1))
