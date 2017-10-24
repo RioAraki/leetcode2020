@@ -8,6 +8,10 @@ Follow CLRS as guide + leetcode weekly contest for normal practice
 ### Role of algorithms in computing
 
 
+## By Topic
+
+### Dynamic programming
+
 ## Leetcode
 
 ### Weekly contest XX
