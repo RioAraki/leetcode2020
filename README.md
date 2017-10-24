@@ -10,7 +10,7 @@ Follow CLRS as guide + leetcode weekly contest for normal practice
 
 ## By Topic
 
-### Dynamic programming
+### [Dynamic programming] (https://github.com/RioAraki/Interview_prep/tree/master/dp)
 
 ## Leetcode
 
