@@ -1,16 +1,13 @@
 # Interview_prep
 My preparation for potential 2019 interview
 
-Follow CLRS as guide + leetcode weekly contest for normal practice
+Review whole CLRS as a guidence + leetcode for normal and topical practice
 
-## CLRS
-
-### Role of algorithms in computing
-
+## [CLRS Notes](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/clrs.md)
 
 ## By Topic
 
-### [Dynamic programming] (https://github.com/RioAraki/Interview_prep/tree/master/dp)
+### [Dynamic programming](https://github.com/RioAraki/Interview_prep/tree/master/dp)
 
 ## Leetcode
 
