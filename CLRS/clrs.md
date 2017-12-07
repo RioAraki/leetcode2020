@@ -111,3 +111,98 @@ Monotocity/ Floors and ceilings/ modular arithemtic/ polynomials (**x**^c)/ expo
 大多是高中数学概念，不展开了。
 
 ### **4. Divide-and-Conquer**
+
+进一步讨论 divide-and-conquer，提出 recurrsive case/ base case。三种计算 recurrence 的方法： 
+* **substitution method**: guess a bound then use mathematical induction to prove our guess correct
+* **recursion-tree method**: convert recursion into a tree whose nodes represent the costs incurred at various levels of recursion.Use techniques for bounding summations to solve recurrence.
+* **master method**
+
+**Technicalities in recurrences**
+
+Omit floor/ ceiling/ boundary conditions，这些内容从宏观层面来说对判断算法复杂度无关紧要，故舍弃。
+
+#### 4.1 The maximum-subarray problem
+
+用 divide-and-conquer 思路解答这个问题：maximum-subarray 一定存在于这个 array 的左半边/ 右半边/ 横穿两边。考虑这三种情况，在左半边/ 右半边的情况就是 recursive case 了，因为你要做的事情是一样的，只不过 array 本身长度变成了一半。而位于中间时则是一个不同的问题，从中间的点开始不断朝左右延展找到最大的差值。最后比较三种情况，并取其最大者作为答案。
+
+```
+def find_max_crossing_subarray(A, low, mid, high):
+    left_sum, right_sum = -float("inf"), -float("inf")
+    sum_ = 0
+    for i in reversed(range(low, mid+1)):
+        sum_ += A[i]
+        if sum_ > left_sum:
+            left_sum = sum_
+            max_left = i
+    sum_ = 0
+    for j in range(mid+1, high+1):
+        sum_ += A[j]
+        if sum_ > right_sum:
+            right_sum = sum_
+            max_right = j
+    return (max_left, max_right, left_sum + right_sum)
+```
+在 python 里 range(0:4) 只包含 [0,1,2,3]，非常容易搞错。无论如何以上实现了从中间一点查找两边的 max subarray的情况。接下来则是 recursion 部分：
+```
+def find_maximum_subarray(A,low,high):
+    if high == low:
+        return (low, high, A[low])
+    else:
+        mid = math.floor((low+high)/2)
+        (left_low, left_high, left_sum) = find_maximum_subarray(A, low, mid)
+        (right_low, right_high, right_sum) = find_maximum_subarray(A, mid, high)
+        (cross_low, cross_high, cross_sum) = find_max_crossing_subarray(A, low, mid, high)
+    if right_sum > left_sum and right_sum > cross_sum:
+        return (right_low, right_high, right_sum)
+    elif left_sum > right_sum and left_sum > cross_sum:
+        return (left_low, left_high, left_sum)
+    else:
+        return (cross_low, cross_high, cross_sum)
+```
+
+**Analyzing the divide-and-conquer algorithm**
+
+逐行分析需要的 runtime，由于每次 subcase 会变成原来长度的一半，所以 T(n) = 2T(n/2) + θ(n)。最终结果是 T(n) = θ(nlogn)，比需要 n^2 的 brutal force 情况好上不少。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
