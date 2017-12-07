@@ -80,11 +80,36 @@ def find_maximum_subarray(A,low,high):
     else:
         return (cross_low, cross_high, cross_sum)
 
-print (find_max_crossing_subarray([3,-1,2,6,-9,11,-10],0,3,6))
+# print (find_max_crossing_subarray([3,-1,2,6,-9,11,-10],0,3,6))
 
+def square_matrix_multiply(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = 0
+            for k in range(n):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
 
+def square_matrix_multiply_recursive(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    if n == 1:
+        C[0][0] = A[0][0]*B[0][0]
+    else:
+        C[0][0] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][:len(A)/2])
+        C[0][1] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][len(A)/2:])
+        C[1][0] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
+                  square_matrix_multiply_recursive(A[len(A)/2:][len(A)/2:], B[len(A)/2:][:len(A)/2])
+        C[1][1] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[len(A)/2:][len(A)/2:])
+    return C
 
-
+def strassen_algo(A, B):
+    
 
 
 # print (merge_sort([8,2,4,1,7,6,0,9,3],0,7))

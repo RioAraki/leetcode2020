@@ -162,12 +162,67 @@ def find_maximum_subarray(A,low,high):
 
 **Analyzing the divide-and-conquer algorithm**
 
-逐行分析需要的 runtime，由于每次 subcase 会变成原来长度的一半，所以 T(n) = 2T(n/2) + θ(n)。最终结果是 T(n) = θ(nlogn)，比需要 n^2 的 brutal force 情况好上不少。
+逐行分析需要的 runtime，由于每次 subcase 会变成原来长度的一半，所以 T(n) = 2T(n/2) + θ(n)。最终结果是 T(n) = θ(nlogn)，比需要 n^2 的 brutal force 情况好上不少，不写详细了。
 
 
+#### 4.2 Strassen's algorithm for matrix multiplication
 
+如何计算两个方形矩阵相乘，按照矩阵相乘的数学原理来看：
+```
+def square_matrix_multiplicy(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = 0
+            for k in range(n):
+                C[i][j] += A[i][k] * B[k][j]
+    return C
+```
+以上是从数学角度计算，可以看出有三个 for loop 嵌套，整体 runtime 应该在 n^3，并不高效。这里介绍了一种用 divide-and-conquer 的方法，见图：
 
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/41c6337190684aff7b69f124226d6e62d79ebca5)
 
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/480fbf677c5973cedb5218c69501a41e1b325a1a)
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/8d91fa79d27697a5c6551698c1a83a3d5837c57b)
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/a08bea24eec9422cda82e6e04af1d96fc6822038)
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/7adffe97db091ce8ba231352b3721bbe261985ca)
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/8b40ed74cf54465d8e54d09b8492e50689928313)
+
+按照这个思路，我们可以写出：
+
+```
+def square_matrix_multiply_recursive(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    if n == 1:
+        C[0][0] = A[0][0]*B[0][0]
+    else:
+        C[0][0] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][:len(A)/2])
+        C[0][1] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][len(A)/2:])
+        C[1][0] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
+                  square_matrix_multiply_recursive(A[len(A)/2:][len(A)/2:], B[len(A)/2:][:len(A)/2])
+        C[1][1] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
+                  square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[len(A)/2:][len(A)/2:])
+    return C
+```
+而 runtime是 T(n) = 8T(n/2) + θ(n^2)，每次的 subcase size 都是原本的一半 （**？这里对书存个疑，如果是两个矩阵相乘的情况，当两个矩阵长宽都是之前的一半时整体input size不应该是之前的 1/16 嘛，为什么是一半呢？**），其实复杂度还是 θ(n^3)，并没有什么改善。
+
+**Strassen's method**
+
+核心: instead of performing **8** recursive n/2 * n/2 multiplications, perform only **7**
+
+具体过程其实也十分有意思，但太数学了，可以看 wiki [相关页面](https://en.wikipedia.org/wiki/Strassen_algorithm)。
+
+**4.2 Exercise**
+
+4.2-2 是说 strassen's algorithm 的算法实现，如下：
 
 
 
