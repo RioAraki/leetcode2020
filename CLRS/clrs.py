@@ -92,25 +92,79 @@ def square_matrix_multiply(A, B):
                 C[i][j] += A[i][k] * B[k][j]
     return C
 
+def matrix_add(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] + B[i][j]
+    return C
+
 def square_matrix_multiply_recursive(A, B):
     n = len(A)
     C = [[0 for x in range(n)] for y in range(n)]
     if n == 1:
         C[0][0] = A[0][0]*B[0][0]
     else:
-        C[0][0] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][:len(A)/2])
-        C[0][1] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][len(A)/2:])
-        C[1][0] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
-                  square_matrix_multiply_recursive(A[len(A)/2:][len(A)/2:], B[len(A)/2:][:len(A)/2])
-        C[1][1] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[len(A)/2:][len(A)/2:])
+        half = len(A/2)
+        C[:half][:half] = matrix_add(square_matrix_multiply_recursive(A[:half][:half], B[:half][:half]),
+                                     square_matrix_multiply_recursive(A[:half][half:], B[half:][:half]))
+        C[:half][half:] = matrix_add(square_matrix_multiply_recursive(A[:half][:half], B[:half][half:]),
+                                     square_matrix_multiply_recursive(A[:half][half:], B[half:][half:]))
+        C[half:][:half] = matrix_add(square_matrix_multiply_recursive(A[half:][:half], B[:half][:half]),
+                                     square_matrix_multiply_recursive(A[half:][half:], B[half:][:half]))
+        C[half:][half:] = matrix_add(square_matrix_multiply_recursive(A[half:][:half], B[:half][half:]),
+                                     square_matrix_multiply_recursive(A[:half][:half], B[half:][half:]))
     return C
 
+def matrix_add(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] + B[i][j]
+    return C
+
+def matrix_sub(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] - B[i][j]
+    return C
+
+
+    return
+
 def strassen_algo(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    if n == 1:
+        C[0][0] = A[0][0] * B[0][0]
+    else:
+        half = len(A)/2
+        A11 = A[:half][:half]
+        A12 = A[:half][half:]
+        A21 = A[half:][:half]
+        A22 = A[half:][half:]
+        B11 = B[:half][:half]
+        B12 = B[:half][half:]
+        B21 = B[half:][:half]
+        B22 = B[half:][half:]
 
+        M1 = strassen_algo(matrix_add(A11, A22), matrix_add(B11, B22))
+        M2 = strassen_algo(matrix_add(A21, A22), B11)
+        M3 = strassen_algo(A11, matrix_sub(B12, B22))
+        M4 = strassen_algo(A22, matrix_sub(B21, B11))
+        M5 = strassen_algo(matrix_add(A11, A12), B22)
+        M6 = strassen_algo(matrix_sub(A21, A11), matrix_add(B11, B12))
+        M7 = strassen_algo(matrix_sub(A12, A22), matrix_add(B21, B22))
 
+        C[:half][:half] = matrix_add(matrix_sub(matrix_add(M1, M4), M5), M7)
+        C[:half][half:] = matrix_add(M3, M5)
+        C[half:][:half] = matrix_add(M2, M4)
+        C[half:][half:] = matrix_add(matrix_add(matrix_sub(M1, M2), M3), M6)
+    return C
 
 # print (merge_sort([8,2,4,1,7,6,0,9,3],0,7))
 # print(selection_sort([3,4,2,5,1]))

@@ -196,20 +196,30 @@ def square_matrix_multiplicy(A, B):
 按照这个思路，我们可以写出：
 
 ```
+
+def matrix_add(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] + B[i][j]
+    return C
+
 def square_matrix_multiply_recursive(A, B):
     n = len(A)
     C = [[0 for x in range(n)] for y in range(n)]
     if n == 1:
         C[0][0] = A[0][0]*B[0][0]
     else:
-        C[0][0] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][:len(A)/2])
-        C[0][1] = square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][len(A)/2:], B[len(A)/2:][len(A)/2:])
-        C[1][0] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][:len(A)/2]) + \
-                  square_matrix_multiply_recursive(A[len(A)/2:][len(A)/2:], B[len(A)/2:][:len(A)/2])
-        C[1][1] = square_matrix_multiply_recursive(A[len(A)/2:][:len(A)/2], B[:len(A)/2][len(A)/2:]) + \
-                  square_matrix_multiply_recursive(A[:len(A)/2][:len(A)/2], B[len(A)/2:][len(A)/2:])
+        half = len(A/2)
+        C[:half][:half] = matrix_add(square_matrix_multiply_recursive(A[:half][:half], B[:half][:half]),
+                                     square_matrix_multiply_recursive(A[:half][half:], B[half:][:half]))
+        C[:half][half:] = matrix_add(square_matrix_multiply_recursive(A[:half][:half], B[:half][half:]),
+                                     square_matrix_multiply_recursive(A[:half][half:], B[half:][half:]))
+        C[half:][:half] = matrix_add(square_matrix_multiply_recursive(A[half:][:half], B[:half][:half]),
+                                     square_matrix_multiply_recursive(A[half:][half:], B[half:][:half]))
+        C[half:][half:] = matrix_add(square_matrix_multiply_recursive(A[half:][:half], B[:half][half:]),
+                                     square_matrix_multiply_recursive(A[:half][:half], B[half:][half:]))
     return C
 ```
 而 runtime是 T(n) = 8T(n/2) + θ(n^2)，每次的 subcase size 都是原本的一半 （**？这里对书存个疑，如果是两个矩阵相乘的情况，当两个矩阵长宽都是之前的一半时整体input size不应该是之前的 1/16 嘛，为什么是一半呢？**），其实复杂度还是 θ(n^3)，并没有什么改善。
@@ -223,15 +233,79 @@ def square_matrix_multiply_recursive(A, B):
 **4.2 Exercise**
 
 4.2-2 是说 strassen's algorithm 的算法实现，如下：
+```
+def matrix_add(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] + B[i][j]
+    return C
+
+def matrix_sub(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    for i in range(n):
+        for j in range(n):
+            C[i][j] = A[i][j] - B[i][j]
+    return C
 
 
+    return
+
+def strassen_algo(A, B):
+    n = len(A)
+    C = [[0 for x in range(n)] for y in range(n)]
+    if n == 1:
+        C[0][0] = A[0][0] * B[0][0]
+    else:
+        half = len(A)/2
+        A11 = A[:half][:half]
+        A12 = A[:half][half:]
+        A21 = A[half:][:half]
+        A22 = A[half:][half:]
+        B11 = B[:half][:half]
+        B12 = B[:half][half:]
+        B21 = B[half:][:half]
+        B22 = B[half:][half:]
+
+        M1 = strassen_algo(matrix_add(A11, A22), matrix_add(B11, B22))
+        M2 = strassen_algo(matrix_add(A21, A22), B11)
+        M3 = strassen_algo(A11, matrix_sub(B12, B22))
+        M4 = strassen_algo(A22, matrix_sub(B21, B11))
+        M5 = strassen_algo(matrix_add(A11, A12), B22)
+        M6 = strassen_algo(matrix_sub(A21, A11), matrix_add(B11, B12))
+        M7 = strassen_algo(matrix_sub(A12, A22), matrix_add(B21, B22))
+
+        C[:half][:half] = matrix_add(matrix_sub(matrix_add(M1, M4), M5), M7)
+        C[:half][half:] = matrix_add(M3, M5)
+        C[half:][:half] = matrix_add(M2, M4)
+        C[half:][half:] = matrix_add(matrix_add(matrix_sub(M1, M2), M3), M6)
+    return C
+
+```
+
+#### 4.3 The substitution method for solving recurrences
+
+用 substitution method 来计算 recurrence 的 runtime, 包含两步：
+1. Guess the form of the solution
+2. Use mathematical induction to find the constants and show that the solution works
+
+由于这个方法先要靠猜测一个答案再验证的方法来实践，非常不系统，暂时跳过。
 
 
+#### 4.4 The recursion-tree method for solving recurrences
 
 
+把 recursion 的过程用 tree 的形式分成不同阶层表达出来。总结每一个阶层的 runtime，并最后加到一起做成等式，再化简。找出 tree 的规律不难，难点在于用数学的方法把最后找出的等式化简。
 
 
+#### 4.5 The master method for solving recurrences
 
+只限于 T(n) = aT(n/b) + f(n) 的形式。用 [master theorem](https://en.wikipedia.org/wiki/Master_theorem_(analysis_of_algorithms)) 对号入座。
+
+
+### **5. Probabilistic Analysis and Randomized Algorithms**
 
 
 
