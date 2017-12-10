@@ -166,6 +166,18 @@ def strassen_algo(A, B):
         C[half:][half:] = matrix_add(matrix_add(matrix_sub(M1, M2), M3), M6)
     return C
 
+# assume n is a list of numbers, the larger the number the better the people would be
+def hire_assistant(n):
+    best = -1
+    for i in range(len(n)):
+        # interview i
+        if n[i] > best:
+            best = i
+            # hire i
+
+
+
+
 # print (merge_sort([8,2,4,1,7,6,0,9,3],0,7))
 # print(selection_sort([3,4,2,5,1]))
 

@@ -307,10 +307,44 @@ def strassen_algo(A, B):
 
 ### **5. Probabilistic Analysis and Randomized Algorithms**
 
+Probabilitistic analysis and randomized algorithms，需要有概率学基础。
 
 
+#### 5.1 The hiring problem
 
+See question [here](https://en.wikipedia.org/wiki/Secretary_problem), 最基础的算法实现：
 
+```
+# assume n is a list of numbers, the larger the number the better the people would be
+def hire_assistant(n):
+    best = -1
+    for i in range(len(n)):
+        # interview i
+        if n[i] > best:
+            best = i
+            # hire i
+
+```
+比起分析代码的 runtime 更在意代码的的 cost，设 cost of interviewing = i, cost of hiring = h, total people = n, total people hired = m, 那我们的 runtime 是 O(C<sub>i</sub> m + C<sub>h</sub>m).
+
+**Worst-case analysis**
+
+每一个人都比前一个人更好，雇佣了所有人： O(C<sub>i</sub>n + C<sub>h</sub>n)
+
+**Probabilistic analysis**
+
+但最坏的雇用所有人的情况其实很难出现，我们更应该假设每天前来得人的素质是随机的 ( uniform random permutation) ，而基于这个假设我们能给出算法的 average-case runtime.
+
+**Randomized algorithms**
+
+为了进行 probabilstic analysis, 我们起码要对 input 有所了解，甚至有时即便我们知道 input distribution，我们依然无法根据 input 建模从而进一步分析。在 hiring problem 中，我们希望能对 input 有更多的控制，所以我们改为**每天随机抽取一些候选人进行面试 （而不是面试所有人）**。
+
+We call an algorithm **randomized** if its behavior is determined not only by its input but also by values produced by a random-number generator. 当分析这种 randomized algorithm 时，他的 runtime 和 random number generator 提供的 input value 是息息相关的。
+#### 5.2 Indicator random variables
+
+总的来说是某一事件发生所有情况不同概率的合集
+
+*Lemma 5.1: Given a smaple space S and an event A in the sample space S, let X<sub>A</sub> = I{A}, then E[X<sub>A</sub>] = Pr{A}*
 
 
 
