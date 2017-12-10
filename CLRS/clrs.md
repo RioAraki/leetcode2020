@@ -340,13 +340,16 @@ def hire_assistant(n):
 为了进行 probabilstic analysis, 我们起码要对 input 有所了解，甚至有时即便我们知道 input distribution，我们依然无法根据 input 建模从而进一步分析。在 hiring problem 中，我们希望能对 input 有更多的控制，所以我们改为**每天随机抽取一些候选人进行面试 （而不是面试所有人）**。
 
 We call an algorithm **randomized** if its behavior is determined not only by its input but also by values produced by a random-number generator. 当分析这种 randomized algorithm 时，他的 runtime 和 random number generator 提供的 input value 是息息相关的。
+
 #### 5.2 Indicator random variables
 
-总的来说是某一事件发生所有情况不同概率的合集
+总的来说 indicator random variables 是某一事件发生一种情况的概率？ *（其实这里不是很理解这个东西和单纯的 pr(x) 有什么区别）* 总的来说应该只是一种比较方便的表达方式
 
 *Lemma 5.1: Given a smaple space S and an event A in the sample space S, let X<sub>A</sub> = I{A}, then E[X<sub>A</sub>] = Pr{A}*
 
+**Analysis of the hiring problem using indicator random variables**
 
+4
 
 
 
