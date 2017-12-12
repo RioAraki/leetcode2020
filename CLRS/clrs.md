@@ -3,7 +3,7 @@
 一些阅读笔记，因为已经上了很多算法课，很多基础的内容会十分简略，纯粹写给自己看的，不一定有参考价值，重在查漏补缺和所有pseudocode的实例化（python）。
 
 ## Chapter 1 Foundations
-
+***
 ### **1. Role of algorithms**
 
 #### 1.1/1.2
@@ -349,12 +349,58 @@ We call an algorithm **randomized** if its behavior is determined not only by it
 
 **Analysis of the hiring problem using indicator random variables**
 
-4
+对于 hiring problem，可以假设雇佣的次数为 X，而 X<sub>1</sub>,<sub>2</sub>,<sub>3</sub>,<sub>4...</sub> 表示具体雇佣某个人的 indicator random variable，而因为每个人的质量是随机的，所以第一个人被雇佣的概率为 1（第一个人没人和他抢，必定被雇佣），第二个人为 1/2（一半几率比第一人好，一半几率比第一人差），第三个为 1/3，以此类推。最终总雇佣的次数 X = X<sub>1</sub> + X<sub>2</sub> + ... + X<sub>n</sub> = 1 + 1/2 + 1/3 + 1/4 + ... + 1/n ，可以看出这就是一个 [harmonic series](https://en.wikipedia.org/wiki/Harmonic_series_(mathematics))，而 harmonic series 求和答案为 ln(n)。
+
+*lemma 5.2: Assuming that the candidtaare presented in a random order, algorithm hire-assistant has an average case total hiring cost of O(c<sub>h</sub> ln n)*
+
+#### 5.3 Randomized algorithms
+
+首先要强调的是，**probabilistic analysis 和 randomized algorithms 是连个完全不同的概念。** 具体来说，在我们做 probabilistic analysis 时，我们会先把 input 做随机处理，而算法本身是稳定的，所以在 input 不变的前提下，算法得出的结果也是不变的，。而 randomized algorithm 则强调在算法**内部**去做random，而不是把 input 先 random 好再输入给算法。所以我们每次 run 这个算法时，得到的结果可能都是不一样的。以 hiring problem 为例，我们先在算法中随机排列所有的候选人，然后再进行挑选。书中提供了两种随机排列所有候选人的方法，并作出了十分详细的证明，这里只给出代码示例：
+```
+def permute_by_sorting(A):
+    n = len(A)
+    P = [0 for x in range(n)]
+    dict = {}
+    for i in range(n):
+        P[i] = random.randint(i, n**3) # **3 just because its unlikely there are two same P[i]
+        dict[str(A[i])] =  P[i]
+
+    return sorted(dict, key=dict.get)
+    
+def randomize_in_place(A):
+    n = len(A)
+    for i in range(n):
+        ran = random.randint(i, n)
+        A[i], A[ran] = A[ran], A[i]
+    return A
+```
+有了这两种方法后，我们可以真正实现 randomized algorithm:
+```
+def randomized_hire_assistant(n):
+    n = randomize_in_place(n)
+    # or:
+    # n = permute_by_sorting(n)
+    best = -1
+    for i in range(len(n)):
+        # interview i
+        if n[i] > best:
+            best = i
+            # hire i
+```
+
+#### 5.4 Probabilistic analysis and further uses of indicator random variables
+
+##### 5.4.1 The birthday paradox
+
+##### 5.4.2 Balls and bins
+
+##### 5.4.3 Streaks
+
+##### 5.4.4 The on-line hiring problem
 
 
-
-
-
+## Chapter 2 Sorting and Order Statistics
+***
 
 
 

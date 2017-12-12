@@ -160,7 +160,7 @@ def strassen_algo(A, B):
         M6 = strassen_algo(matrix_sub(A21, A11), matrix_add(B11, B12))
         M7 = strassen_algo(matrix_sub(A12, A22), matrix_add(B21, B22))
 
-        C[:half][:half] = matrix_add(matrix_sub(matrix_add(M1, M4), M5), M7)
+        C[:hlf][:half] = matrix_add(matrix_sub(matrix_add(M1, M4), M5), M7)
         C[:half][half:] = matrix_add(M3, M5)
         C[half:][:half] = matrix_add(M2, M4)
         C[half:][half:] = matrix_add(matrix_add(matrix_sub(M1, M2), M3), M6)
@@ -175,7 +175,36 @@ def hire_assistant(n):
             best = i
             # hire i
 
+import random
 
+def permute_by_sorting(A):
+    n = len(A)
+    P = [0 for x in range(n)]
+    dict = {}
+    for i in range(n):
+        P[i] = random.randint(i, n**3) # **3 just because its unlikely there are two same P[i]
+        dict[str(A[i])] =  P[i]
+
+    return sorted(dict, key=dict.get)
+
+def randomize_in_place(A):
+    n = len(A)
+    for i in range(n):
+        ran = random.randint(i, n)
+        A[i], A[ran] = A[ran], A[i]
+    return A
+
+def randomized_hire_assistant(n):
+    n = randomize_in_place(n)
+    # n = permute_by_sorting(n)
+    best = -1
+    for i in range(len(n)):
+        # interview i
+        if n[i] > best:
+            best = i
+            # hire i
+
+print (permute_by_sorting([2,3,1,4]))
 
 
 # print (merge_sort([8,2,4,1,7,6,0,9,3],0,7))
