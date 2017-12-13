@@ -401,12 +401,47 @@ def randomized_hire_assistant(n):
 
 ## Chapter 2 Sorting and Order Statistics
 ***
+再提供几种 sorting algorithm 的思路，之前介绍了 insertion sort 和 merge sort，本大章会再介绍两种 sorting algorithm （heap sort 和 quick sort）和一些别的。
+![sort runtime](http://www2.hawaii.edu/~nodari/teaching/f15/Notes/Topic-10/comparing-sorts.jpg)
 
+### 6. Heapsort
 
+heap sort 有着 O（n log n）的 running time，并且使用名为 heap 的数据结构。
 
+#### 6.1 Heaps
 
+Heap: heap 的实质就是一个 array，但可以以二叉树的形式的去理解它。二叉树的每一个 node 都对应 array 相同 index 的那个 element。heap 有两个性质： length 和 size， length 为其二叉树形式的高度， size 为其一共有的元素数。
+![heap](http://dotnetlovers.com/images/coolnikhilj22fe9593ef-2e15-46e5-9799-f0965d2bb668.png?2/8/2016%2011:33:06%20PM)
+还有一个算是性质的是，作为二叉树我们可以很轻松的算出 parent node 和 left/ right child 之间 index 的关系，从上面的图也是可以轻易看出来的:
+```
+left_child = parent*2
+right_child = parent*2+1
+```
+Heap 分为 max/min heap 两种，分别满足 
+**max/min heap property：for all nodes i other than the root, A[parent(i)] >= (or <=) A[i]**
 
+#### 6.2 Maintaining the heap property
 
+让一个 array 中的某一个特定 index 的 element 满足 max heap property，保证把这个 index 的 element 放到 array 中正确的位置上:
+```
+# A -> a list of number
+# i -> index i 
+def max_heapify(A, i):
+    l = i*2
+    r = i*2+1
+    if l <= len(A) and A[l] > A[i]:
+        largest = l
+    else:
+        largest = i
+    if r <= len(A) and A[r] > A[largest]:
+        largest = r
+    if largest != i:
+        A[i], A[largest] = A[largest], A[i]
+        max_heapify(A, largest)
+```
+runtime 分析，这是一个典型的 recursion，用 master theorem 可得 T(n) = O(logn)
+
+#### 6.3 Build a heap
 
 
 
