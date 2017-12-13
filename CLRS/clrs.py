@@ -204,10 +204,18 @@ def randomized_hire_assistant(n):
             best = i
             # hire i
 
-print (permute_by_sorting([2,3,1,4]))
-
-
-# print (merge_sort([8,2,4,1,7,6,0,9,3],0,7))
-# print(selection_sort([3,4,2,5,1]))
-
+# A -> a list of number
+# i -> index i
+def max_heapify(A, i):
+    l = i*2
+    r = i*2+1
+    if l <= len(A) and A[l] > A[i]:
+        largest = l
+    else:
+        largest = i
+    if r <= len(A) and A[r] > A[largest]:
+        largest = r
+    if largest != i:
+        A[i], A[largest] = A[largest], A[i]
+        max_heapify(A, largest)
 
