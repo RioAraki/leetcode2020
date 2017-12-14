@@ -412,17 +412,20 @@ heap sort 有着 O（n log n）的 running time，并且使用名为 heap 的数
 
 Heap: heap 的实质就是一个 array，但可以以二叉树的形式的去理解它。二叉树的每一个 node 都对应 array 相同 index 的那个 element。heap 有两个性质： length 和 size， length 为其二叉树形式的高度， size 为其一共有的元素数。
 ![heap](http://dotnetlovers.com/images/coolnikhilj22fe9593ef-2e15-46e5-9799-f0965d2bb668.png?2/8/2016%2011:33:06%20PM)
+
 还有一个算是性质的是，作为二叉树我们可以很轻松的算出 parent node 和 left/ right child 之间 index 的关系，从上面的图也是可以轻易看出来的:
+
 ```
 left_child = parent*2
 right_child = parent*2+1
 ```
-Heap 分为 max/min heap 两种，分别满足 
-**max/min heap property：for all nodes i other than the root, A[parent(i)] >= (or <=) A[i]**
+
+Heap 分为 max/min heap 两种，分别满足 **max/min heap property：for all nodes i other than the root, A[parent(i)] >= (or <=) A[i]**
 
 #### 6.2 Maintaining the heap property
 
 让一个 array 中的某一个特定 index 的 element 满足 max heap property，保证把这个 index 的 element 放到 array 中正确的位置上:
+
 ```
 # A -> a list of number
 # i -> index i 
@@ -439,15 +442,86 @@ def max_heapify(A, i):
         A[i], A[largest] = A[largest], A[i]
         max_heapify(A, largest)
 ```
+
 runtime 分析，这是一个典型的 recursion，用 master theorem 可得 T(n) = O(logn)
 
 #### 6.3 Build a heap
 
+之前的 max-heapify 算法保证针对某一个 element 可以把它调整到 array 中正确的位置，那如果对所有 element 施行 max-heapify 就可以保证整个 array 都满足 max heap property 了。而实际上，并不需要对**所有** element 进行 max-heapify 也能达到 整个 array 满足 max heap property 的效果， 因为所有的 leaves 没有 children node，所以自动满足 max heap property （记得 max heap property 的定义是 parent node >= child node，而 leaf 是没有 child node 的）。那只需要对所有非 leaf 的 node 进行 max-heapify 就行了，代码如下：
 
+```
+# A -> list of number
+def build_max_heap(A):
+    size = len(A)
+    for i in range(size//2-1)[::-1]:
+        max_heapify(A, i)
+```
 
+Running time 是 O(n)，书上有详细的证明
 
+#### 6.4 The heapsort algorithm
 
+首先不能搞混的是，满足 max (min) heap property 的 array 不一定是 sorted 的，只有root是最大的这一点可以肯定。所以哪怕我们有了一个 max/min heap，依然要对其进行 sort，只不过这个过程简单了不少，因为我们知道 root永远是最大的，只要把 root 和末尾 exchange，把末尾排除出 heap，再对第一位进行 max-heapify 就能保证新的 heap 的 root 又是最大的，再将其排除。如此反复，便得到一个由小到大排列的 array 了。代码如下:
 
+```
+# A -> list of number
+def heapsort(A):
+    build_max_heap(A)
+    len = len(A)
+    for i in range(1, len-1)[::-1]:
+        A[0], A[i] = A[i], A[0]
+        len -= 1
+        max_heapify(A,0)
+```
+
+heap sort 的 runtime 是 O(n log n)。
+
+#### 6.5 Priority queues
+
+heap 作为一种 data structure 在很多地方可以用到，比如作为 priority queue.
+**A priority queue is a data structure for maintaining a set S of elements, each with an associated value called a key.** 正常来说一个 priority queue 需要支持一下操作：
+
+  - insert(S,x): 把 element x insert 到 set S 里，runtime 为 O (logn)
+```
+def max_heap_insert(A, key):
+    A.append(-float("inf"))
+    heap_increase_key(A, len(A)-1, key)
+```
+  - maximum(S): return largest key in S，runtime 为 O (1)
+
+```
+def heap_maximum(A):
+    return A[0]
+```
+
+  - extract-max(S): 把拥有最大 key 的 element 抽出来并保证剩下部分的 list 还是 max heap，runtime 为 O (logn)
+
+```
+def heap_extract_max(A):
+    if len(A) < 1:
+        return False
+    max = A[0]
+    A[0] = A[-1]
+    A = A[:-1]
+    max_heapify(A, 0)
+    return max
+```
+
+  - increase-key(S, x, k): increase the value of element x's key to a new value k，runtime 为 O (logn)
+
+```
+def heap_increase_key(A,i,key):
+    if key < A[i]:
+        return False
+    A[i] = key
+    while i > 0 and A[i//2] < A[i]:
+        A[i], A[i//2] = A[i//2], A[i]
+        i = i//2
+```
+
+### 7. Quicksort
+
+#### 7.1 Description of quicksort
 
 
 
