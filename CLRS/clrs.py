@@ -219,3 +219,41 @@ def max_heapify(A, i):
         A[i], A[largest] = A[largest], A[i]
         max_heapify(A, largest)
 
+# A -> list of number
+def build_max_heap(A):
+    size = len(A)
+    for i in range(size//2-1)[::-1]:
+        max_heapify(A, i)
+
+# A -> list of number
+def heapsort(A):
+    build_max_heap(A)
+    len = len(A)
+    for i in range(1, len-1)[::-1]:
+        A[0], A[i] = A[i], A[0]
+        len -= 1
+        max_heapify(A,0)
+
+def heap_maximum(A):
+    return A[0]
+
+def heap_extract_max(A):
+    if len(A) < 1:
+        return False
+    max = A[0]
+    A[0] = A[-1]
+    A = A[:-1]
+    max_heapify(A, 0)
+    return max
+
+def heap_increase_key(A,i,key):
+    if key < A[i]:
+        return False
+    A[i] = key
+    while i > 0 and A[i//2] < A[i]:
+        A[i], A[i//2] = A[i//2], A[i]
+        i = i//2
+
+def max_heap_insert(A, key):
+    A.append(-float("inf"))
+    heap_increase_key(A, len(A)-1, key)
