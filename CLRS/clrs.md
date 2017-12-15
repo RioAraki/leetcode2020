@@ -521,7 +521,12 @@ def heap_increase_key(A,i,key):
 
 ### 7. Quicksort
 
+worst case 的 runtime 只有 O(n<sup>2</sup>)，但在实践中往往是最好的，有着 avg runtime O(n log n)。由于他不占用额外空间 (sort in place) 所以在虚拟内存的环境下也很优秀。
+
 #### 7.1 Description of quicksort
+
+也用 divide and conquer，具体步骤：
+
 
 
 
