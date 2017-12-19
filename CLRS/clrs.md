@@ -527,8 +527,41 @@ worst case 的 runtime 只有 O(n<sup>2</sup>)，但在实践中往往是最好�
 
 也用 divide and conquer，具体步骤：
 
+  * divide: 把 array A[p .. r] 分成两个 subarray A[p .. **q-1**] 所有 element 小于 A[q], A[**q+1** .. r] 所有 element 大于 A[q].
+```
+def partition(A,p,r):
+    x = A[r]
+    i = p-1
+    for j in range(p, r):
+        if A[j] <= x:
+            i += 1  # A[i] > x before swapping
+            A[i], A[j] = A[j], A[i]
+    A[i+1], A[r] = A[r], A[i+1]
+    return i + 1
+```
+可以看到 partition 默认把最后一位作为pivot，使 A 分成比 A[r] 大或小的两个 subarray，但如果 A[r] 正好是array中最大/最小的结果则不如人意。
 
+  * conquer: recursively sort two subarrays by quick sort
 
+  * combine: 两个 subarray 已处于 sorted 状态，所以整个 array 也是 sorted 的。
+```
+def quicksort(A, p, r):
+    if p < r:
+        q = partition(A, p, r)
+        quicksort(A,p,q-1)
+        quicksort(A,q+1,r)
+```
 
+#### 7.2 Performance of quicksort
 
+如之前所说，performance 严重取决 partition 的过程是否 balanced。在 worst case 下， running time 为 θ(n<sup>2</sup>) （相当于做了一个 insertion sort）。在 best case 下，running time 为 O(nlogn) （相当于做了一个 merge sort）。
 
+在 avg case 下的情况是需要着重讨论的：先说结论，其 performance 为 O(n log n)，十分接近 best case。很多人可能不解，这里书上做了一个假设，说每次 partition 都很不巧，分出来的连个 subarray size 都是 1:9，已经是比较unbalance的极端情况了。而在这种情况下，recurrence 为：
+
+**T(n) = T(9n/10) + T(n/10) + cn**
+
+并有如下 recursion tree:
+
+![quick_sort_recurrence_tree](https://www2.hawaii.edu/~janst/311/Notes/Topic-10/Fig-7-4-quicksort-1-9-recursion-tree.jpg)
+
+对于每次都分得 9/10 大小的 subarray 来说，这种情况一共会持续 log<sub>9/10</sub>n 次 （例：n = 100，每次分成 9:1，则第一次分割成 90:10，长度为 90 的 subarray 又分成 9:1，第二次分割成 81:9，之后可能为 73:8，依次类推，直到大的那端接近 1 无法再分割），这是最大 subarray 的情况。在这种情况下的 runtime 可概括为： T(9n/10) = log<sub>9/10</sub>n = θ(logn)，而每次分割又有 cost cn (相当于 parition 的runtime)，所以总体可概括为 θ(nlogn)，asymptotically speaking 和 merge sort 是一致的。这一点的确比较难理解，比较反直觉。用我自己通俗的话来讲，每次 partition 的过程都是把问题大小指数级降低的过程，哪怕分割的非常不平均。假设 input size 是**无限大**的话，分成 5:5 和分成 9:1 甚至 99:1 都是没有本质差别的。需要用 Asymptotic analysis 的思想去理解这个问题。
