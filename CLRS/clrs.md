@@ -565,3 +565,24 @@ def quicksort(A, p, r):
 ![quick_sort_recurrence_tree](https://www2.hawaii.edu/~janst/311/Notes/Topic-10/Fig-7-4-quicksort-1-9-recursion-tree.jpg)
 
 对于每次都分得 9/10 大小的 subarray 来说，这种情况一共会持续 log<sub>9/10</sub>n 次 （例：n = 100，每次分成 9:1，则第一次分割成 90:10，长度为 90 的 subarray 又分成 9:1，第二次分割成 81:9，之后可能为 73:8，依次类推，直到大的那端接近 1 无法再分割），这是最大 subarray 的情况。在这种情况下的 runtime 可概括为： T(9n/10) = log<sub>9/10</sub>n = θ(logn)，而每次分割又有 cost cn (相当于 parition 的runtime)，所以总体可概括为 θ(nlogn)，asymptotically speaking 和 merge sort 是一致的。这一点的确比较难理解，比较反直觉。用我自己通俗的话来讲，每次 partition 的过程都是把问题大小指数级降低的过程，哪怕分割的非常不平均。假设 input size 是**无限大**的话，分成 5:5 和分成 9:1 甚至 99:1 都是没有本质差别的。需要用 Asymptotic analysis 的思想去理解这个问题。
+
+#### 7.3 A randomized version of quicksort
+
+和之前 5.3 一样的思想，之前的 quicksort 有一个问题在于一直取最后一位作为 pivot 可能会一直处于 unbalanced 的状态，为了避免这一情况，我们随机取 array 里的一个数并和最后一位交换，再作为 pivot 做 partition 操作。
+```
+def random_partition(A, p, r):
+    i = random.randint(p,r)
+    A[r], A[i] = A[i], A[r]
+    return partition(A, p, r)
+ 
+ 
+ def random_quicksort(A, p, r):
+    if p < r:
+        q = random_partition(A, p, r)
+        quicksort(A,p,q-1)
+        quicksort(A,q+1,r)   
+```
+
+#### 7.4 Analysis of quicksort
+
+有点懒，总之 worst case 是 θ(n<sup>2</sup>)，而 avg running time 是 θ(n log n)

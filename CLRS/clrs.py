@@ -268,9 +268,20 @@ def partition(A,p,r):
     A[i+1], A[r] = A[r], A[i+1]
     return i + 1
 
+def random_partition(A, p, r):
+    i = random.randint(p,r)
+    A[r], A[i] = A[i], A[r]
+    return partition(A, p, r)
+
 def quicksort(A, p, r):
     if p < r:
         q = partition(A, p, r)
+        quicksort(A,p,q-1)
+        quicksort(A,q+1,r)
+
+def random_quicksort(A, p, r):
+    if p < r:
+        q = random_partition(A, p, r)
         quicksort(A,p,q-1)
         quicksort(A,q+1,r)
 
@@ -278,7 +289,7 @@ def quicksort(A, p, r):
 A = [2,8,7,1,3,5,6,4]
 p = 0
 r = 7
-quicksort(A,p,r)
+random_quicksort(A,p,r)
 print (A)
 #
 # def quicksort(A,p,r):
