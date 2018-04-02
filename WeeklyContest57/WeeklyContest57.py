@@ -13,11 +13,13 @@
         # Algorithm: iterate each grid, try to find if there are 3+ same value grid horizontally/ vertically, if there is, put all of them in a list that is going to be eliminated, we no longer to iterate those grids as well.
         def crushDetect(board):
             # detect up/down/left/right direction for same value grid, some detection could be ignored in corner case
+			crush_set = Set()
             for w in board:
                 for grid in board[w]:
                     if w > 1:
                         if board[w-1][grid] == board[w-2][grid] == board[w][grid]:
-                            
+						crush_list.extend((w-1,grid),(w-2,grid),(w,grid))
+                    if w < len(board)
         
         
         # helper, simply check three grids are same or not
