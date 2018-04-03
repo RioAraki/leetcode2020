@@ -147,6 +147,78 @@ Lesson learnd:
     - syntax sugar: `sum([1 for word in words if stretched(word)])`
     - regex could be slow to parse (so far i cant tell precisely the reason, its relate to the implementation and i dont want to dig too deep right now), maybe try to avoid in code competition
 
+
+Cpp solution:
+```
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <algorithm>
+#include <numeric>
+#include <vector>
+#include <string>
+#include <set>
+#include <map>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <cstring>
+#include <unordered_set>
+#include <unordered_map>
+using namespace std;
+
+#define pb push_back
+#define fst first
+#define snd second
+
+typedef long long ll;
+typedef pair<int,int> pii;
+template<typename T> using min_queue=priority_queue<T,vector<T>,greater<T> >;
+
+const ll MOD=1e9+7;
+
+class Solution {
+public:
+  vector<pair<char,int>> group(string& s){
+    vector<pair<char,int>> res;
+    char cur=0;
+    int k=0;
+    for(int i=0;i<=s.size();i++){
+      if(s[i]!=cur){
+    if(cur) res.pb({cur,k});
+    k=0,cur=s[i];
+      }
+      k++;
+    }
+    return res;
+  }
+    int expressiveWords(string s, vector<string>& ws) {
+      vector<pair<char,int>> v=group(s);
+      int res=0;
+      for(auto& w:ws){
+    auto tmp=group(w);
+    if(tmp.size()!=v.size()) continue;
+    bool good=1;
+    int ext=0;
+    for(int i=0;i<v.size();i++){
+      if(v[i].fst!=tmp[i].fst){
+        good=0;break;
+      }
+      int r=v[i].snd-tmp[i].snd;
+      if(r<0 || r==1&&v[i].snd==2){
+        good=0;break;
+      }else if(r>0){
+        ext++;
+      }
+    }
+    if(good && ext) res++;//,cout<<w<<endl;;
+      }
+      return res;
+    }
+};
+```
+
 ### Q3
 
 ### Q4
