@@ -63,7 +63,85 @@ Better Answer:
 ```
 Lesson learnd: `'string'.join(list)` would concatenate the list with 'string'
 
-### Q2
+### Q2 [809. Expressive Words](https://leetcode.com/contest/weekly-contest-78/problems/expressive-words/)
+
+My Answer - Python:
+use regex on each candidate to judge if its valid
+```
+import re
+
+class Solution(object):
+    def expressiveWords(self, S, words):
+        """
+        :type S: str
+        :type words: List[str]
+        :rtype: int
+        """
+        # (h|h{3,})(e|e{3,})(lll|l{5,})(o|o{3,})$
+        regex = ''
+        result = 0
+        for word in words:
+            word_list = list(word)
+            repeat = 1
+            for i in range (len(word_list)):
+                if i == len(word_list) - 1:
+                    if word_list[i] != word_list[i-1]:
+                        repeat = 1
+                    regex += '({}|{}{{{},}})'.format(word_list[i]*repeat, word_list[i], max(3, repeat)) // error one: misunderstand the meaning of group 
+                else:       
+                    
+                    if word_list[i] != word_list[i+1]:
+                        regex += '({}|{}{{{},}})'.format(word_list[i]*repeat, word_list[i], max(3, repeat))
+                        repeat = 1
+                    elif word_list[i] == word_list[i+1]:
+                        repeat += 1
+            regex += '$'
+            if re.match(regex, S):
+                result += 1
+            regex = ''
+        return result // error two: tle
+```
+Time used: 1.5 hrs
+
+Time Limit Exceeded, need to think about the mechanic of regex and the runtime/ efficiency of it.
+
+Better Answer
+```
+def expressiveWords(self, S, words):
+        def signature(word): # 把word给简化成一个列表，第一位是（不重复的）字母，第二位是字母出现的次数
+            if word=="":
+                return []
+            n = len(word)
+            answer = [word[0],1]
+            for i in range(1,n):
+                if word[i]==word[i-1]: # 相同字母连续出现的情况
+                    answer[-1]+=1
+                else:
+                    answer.extend([word[i],1])
+            return answer
+        
+        sgn = signature(S)    
+                
+        def stretched(word):
+            sgn2 = signature(word) # 做同样操作
+            if len(sgn)!=len(sgn2): # 长度不同说明有字不一样，肯定错
+                return False
+            n = len(sgn)
+            for i in range(n):
+                if i%2==0:
+                    if sgn[i]!=sgn2[i]: # 字不同肯定错
+                        return False
+                if i%2==1: 
+                    if sgn[i]<=2 and sgn2[i]!=sgn[i]: 
+                        return False
+                    elif sgn2[i]>sgn[i]:
+                        return False
+            return True # 排除所有错误情况后得到的正确答案
+
+            
+        return sum([1 for word in words if stretched(word)])
+        # 1 行的 syntax sugar
+```
 
 ### Q3
 
