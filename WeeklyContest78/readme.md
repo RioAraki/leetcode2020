@@ -142,6 +142,9 @@ def expressiveWords(self, S, words):
         return sum([1 for word in words if stretched(word)])
         # 1 行的 syntax sugar
 ```
+Lesson learnd: 
+    - the way he interpret this question is much better than i do, espcially the data structure (list with char and num appeared) and the idea to cut all wrong options to get the correct answer.
+    - syntax sugar: `sum([1 for word in words if stretched(word)])`
 
 ### Q3
 
