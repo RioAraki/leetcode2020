@@ -145,6 +145,7 @@ def expressiveWords(self, S, words):
 Lesson learnd: 
     - the way he interpret this question is much better than i do, espcially the data structure (list with char and num appeared) and the idea to cut all wrong options to get the correct answer.
     - syntax sugar: `sum([1 for word in words if stretched(word)])`
+    - regex could be slow to parse (so far i cant tell precisely the reason, its relate to the implementation and i dont want to dig too deep right now), maybe try to avoid in code competition
 
 ### Q3
 
