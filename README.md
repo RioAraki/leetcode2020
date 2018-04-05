@@ -9,16 +9,14 @@ Review whole CLRS as a guidence + leetcode for normal and topical practice
 
 ### [Dynamic programming](https://github.com/RioAraki/Interview_prep/tree/master/dp)
 
+### Hashmap
+	- #1. Two Sum
+
 ## Leetcode
-
-### Weekly contest XX
-
-### Weekly contest XX
-
-### Weekly contest XX
 
 ### [Weekly contest 54 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest54)
 
 ### [Weekly contest 55 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest55)
 
+### [Weekly contest 78 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest78)
 
