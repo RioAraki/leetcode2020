@@ -585,4 +585,18 @@ def random_partition(A, p, r):
 
 #### 7.4 Analysis of quicksort
 
-有点懒，总之 worst case 是 θ(n<sup>2</sup>)，而 avg running time 是 θ(n log n)
+总之 worst case 是 θ(n<sup>2</sup>)，而 avg running time 是 θ(n log n)
+
+
+
+
+# III  Data Structures
+
+fundamental -> sets, not like the definition in maths, set in algorithm  could grow/ shrink/ change, so dynamic. The following mentioned data structures could be regarded as sets
+
+
+#### Elements of a dynamic set
+
+ operations on dynamic sets
+
+## Chapter 10 Elementary Data Structures
