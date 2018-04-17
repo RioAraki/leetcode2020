@@ -588,15 +588,28 @@ def random_partition(A, p, r):
 总之 worst case 是 θ(n<sup>2</sup>)，而 avg running time 是 θ(n log n)
 
 
-
-
 # III  Data Structures
 
-fundamental -> sets, not like the definition in maths, set in algorithm  could grow/ shrink/ change, so dynamic. The following mentioned data structures could be regarded as sets
+Fundamental data structure -> dynamic sets, could be more complicated like dictionary, min-priority queues. Remember the data structure and the required operations.
 
 
 #### Elements of a dynamic set
 
- operations on dynamic sets
+key/ value (satellite data)/ attributes that are manipulated by set operations/ etc…
+
+#### Operations on dynamic sets
+
+Search/ insert/ delete/ minimum/ maximum/ successor (may be the next larger element)/ predecessor (next smaller)
 
 ## Chapter 10 Elementary Data Structures
+
+### 10.1 Stacks and queues
+
+They are dynamic sets. Stack: LIFO. Queue: FIFO
+
+#### Stacks
+
+Insert -> called PUSH, delete -> called POP.
+Implement by keep track of the top element (most recently added element). When stack empty, S.top = 0; underflow -> when we attempt to pop an empty stack; overflow -> when S.top exceeds the size.
+
+See Stack's implementation in C++
