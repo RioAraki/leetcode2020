@@ -609,7 +609,29 @@ They are dynamic sets. Stack: LIFO. Queue: FIFO
 
 #### Stacks
 
-Insert -> called PUSH, delete -> called POP.
+(main) Operation supported: Insert -> called PUSH, delete -> called POP.
 Implement by keep track of the top element (most recently added element). When stack empty, S.top = 0; underflow -> when we attempt to pop an empty stack; overflow -> when S.top exceeds the size.
 
-See Stack's implementation in C++
+Detailed code implementation please check: Stack's implementation in C++
+
+#### Queues
+
+(main) Operation supported: insert -> called enqueue, delete -> called dequeue.
+Queue has a head and a tail. Enqueue takes place in tail, dequeue takes place in head.
+
+TODO: Detailed code implementation please check: Queue's implementation in C++
+
+### 10.2 Linked lists
+
+Objects are arranged in a linear order. linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object. Linked list provide a simple, flexiable representation for dynamic sets.
+
+Object has attribute: key/ prev/ next, the object may also contain satellite data. head ->, points to first element; tail -> points to last element; head, tail equals null when the linked list is empty.
+
+Linked list could be singly linked or doubly linked, even cirular list (prev pointer of the head points to tail, vice versa). We omit prev pointer in each element for singly linked list. We assume the ordinary linked list is doubly and unsorted.
+
+Operations supported: 
+	- `list-search(k)` : find first element with key k by a simple linear search, returning pointer to this element
+	- `list-insert(x)` : given element x whose key attribute has been set, list-insert insert x onto the front of the linked list.
+	- `list-delete(x)` : given element x from a linked list L, splices x out of list by updating pointers. If we want to delete an element with a given key, we must first call `list-search` to retrieve a pointer to the element.
+	
+TODO: Detailed code implementation please check: Queue's implementation in C++
