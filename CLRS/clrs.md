@@ -619,7 +619,7 @@ Detailed code implementation please check: Stack's implementation in C++
 (main) Operation supported: insert -> called enqueue, delete -> called dequeue.
 Queue has a head and a tail. Enqueue takes place in tail, dequeue takes place in head.
 
-TODO: Detailed code implementation please check: Queue's implementation in C++
+Detailed code implementation please check: Queue's implementation in C++
 
 ### 10.2 Linked lists
 
@@ -634,4 +634,26 @@ Operations supported:
 	- `list-insert(x)` : given element x whose key attribute has been set, list-insert insert x onto the front of the linked list.
 	- `list-delete(x)` : given element x from a linked list L, splices x out of list by updating pointers. If we want to delete an element with a given key, we must first call `list-search` to retrieve a pointer to the element.
 	
-TODO: Detailed code implementation please check: Queue's implementation in C++
+Detailed code implementation please check: Queue's implementation in C++
+
+10.3 Implementing pointers and objects
+
+Ways to implement pointers and objects in language that do not provide them
+
+#### A multiple-array representation of objects
+
+Three dimensional array to keep track of linked list, one array for next/  one array for key/ one array for prev. (in fact we can have one more array for satellite data)
+
+#### A single-array representation of objects
+
+In many programming languages, an object occupies a contiguous set of locations in the computer memory. A pointer is simple the address of the first memory locaiton of the object, add offset get location of other object. So to keep linked list in a single-array, every three slots form an element with key/prev/next.
+
+#### Allocating and freeing objects
+
+To insert a key means we must put it in a currently unused space, so we need to manage the storage of element. In some systems, a garbage collector is reponsible for determining which objects are unused.
+
+Suppose we have multiple-array representation linked list, and we keep free objects in a singly linked list (free list). We can use the 'next' array spot from unused objects to form out free list
+
+Don't see it too meaningful to implement, so skip the implementation part.
+
+### 10.4 Represneting rooted trees
