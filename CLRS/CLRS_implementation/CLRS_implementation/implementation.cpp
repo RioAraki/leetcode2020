@@ -125,7 +125,91 @@ public:
 };
 
 
+
+template<typename T>
+struct Node {
+	int key;
+	T value;
+	Node* next = NULL;
+	Node* prev = NULL;
+	Node(int key, int value) {
+		this->value = value;
+		this->key = key;
+	};
+};
+
+template<typename T>
+class Linkedlist {
+
+	Node<T>* head;
+	Node<T>* tail;
+
+public:
+	Linkedlist() {
+		head = NULL;
+	}
+
+	void LinkInsert(Node<T> x) {
+		x.next = head;
+		if (head != NULL) {
+			head->prev = &x;
+		}
+		head = &x;
+	}
+
+	Node<T> LinkSearch(int k) {
+		Node<T>* x = head;
+		while (x != NULL && x->key != k) {
+			x = x->next;
+		}
+		return *x;
+	}
+
+	void LinkDelete(Node<T> x) {
+		int key = x.key;
+		Node<T> del_node = LinkSearch(key);
+		if (del_node.prev != NULL) {
+			(del_node.prev)->next = del_node.next;
+		}
+		else {
+			head = del_node.next;
+		}
+		if (del_node.next != NULL) {
+			(del_node.next)->prev = del_node.prev;
+		}
+	}
+
+	void print() {
+		Node<T>* x = head;
+		while (x != NULL) {
+			std::cout << x->key << ' ' << x->value << " -> ";
+			x = x->next;
+		}
+		std::cout << std::endl;
+
+	}
+
+};
+
+
 int main() {
+
+	// test linked list
+
+	Node<char> a = Node<char>(1, 'a');
+	Node<char> b = Node<char>(5, 'b');
+	Node<char> c = Node<char>(2, 'c');
+
+	Linkedlist<char> ll;
+
+	ll.LinkInsert(a);
+	ll.LinkInsert(b);
+	ll.LinkInsert(c);
+	ll.print();
+	ll.LinkSearch(5);
+	ll.LinkDelete(c);
+	ll.print();
+
 	// test stack
 	/*better_stack<char> stack;
 	std::cout << stack.push('a') << std::endl;
@@ -138,19 +222,21 @@ int main() {
 	// test queue
 
 	// test linked list
-	Queue<char> queue;
-
-	
-	queue.Enqueue('a');
-	queue.Enqueue('b');
-	queue.Enqueue('c');
-	queue.Enqueue('d');
-	queue.Dequeue();
-	queue.Enqueue('e');
-	queue.Enqueue('f');
-	queue.Enqueue('g');
-	queue.info();
+	//Queue<char> queue;
+	//
+	//queue.Enqueue('a');
+	//queue.Enqueue('b');
+	//queue.Enqueue('c');
+	//queue.Enqueue('d');
+	//queue.Dequeue();
+	//queue.Enqueue('e');
+	//queue.Enqueue('f');
+	//queue.Enqueue('g');
+	//queue.info();
 	std::cin.get();
+
+
+
 }
 
 
