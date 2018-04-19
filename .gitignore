@@ -7,7 +7,7 @@ CLRS/CLRS_implementation/[Dd]ebug/
 CLRS/CLRS_implementation/[Dd]ebugPublic/
 CLRS/CLRS_implementation/[Rr]elease/
 CLRS/CLRS_implementation/[Rr]eleases/
-CLRS/CLRS_implementation/x64/
+CLRS/CLRS_implementation/x64/*
 CLRS/CLRS_implementation/x86/
 CLRS/CLRS_implementation/bld/
 CLRS/CLRS_implementation/[Bb]in/
