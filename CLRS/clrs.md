@@ -669,3 +669,14 @@ Replace pointer left and right to child 1 2 3 … . But what if we do not know h
 	- x.right_sibling points to sibling of x immediately to its right.
 
 #### Other tree representations
+
+Represented as a heap/ a single array plus index of the last node in the heap, a lot of possible ways
+
+Detailed implementation would be done in Binary search tree section.
+
+## Chapter 11 Hash Tables
+
+Dynamic set that supports only dictionary operations like `insert`, `search`, `delete`. Hash table is an effective data structure implmenting dictionaries. In practice search for an element in hash tbale is O(1) with worst case theta(n).
+
+### 11.1 Direct-address tables
+
