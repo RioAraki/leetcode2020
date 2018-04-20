@@ -656,4 +656,16 @@ Suppose we have multiple-array representation linked list, and we keep free obje
 
 Don't see it too meaningful to implement, so skip the implementation part.
 
-### 10.4 Represneting rooted trees
+### 10.4 Representing rooted trees
+
+#### Binary trees 
+
+Attributes: p/ left/ right to store points to parent left child and right child of each node.
+
+#### Rooted trees with unbounded branching
+
+Replace pointer left and right to child 1 2 3 … . But what if we do not know how many children are there (unbounded)?  We have left-child, right-sibling representation: 
+	- x.left_child always points to leftmost child of node x.
+	- x.right_sibling points to sibling of x immediately to its right.
+
+#### Other tree representations
