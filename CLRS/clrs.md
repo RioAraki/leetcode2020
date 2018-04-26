@@ -680,3 +680,23 @@ Dynamic set that supports only dictionary operations like `insert`, `search`, `d
 
 ### 11.1 Direct-address tables
 
+Works well when the universe U of keys is reasonably small. Let's say we need a dynamic set which each element has a key drawn from the universe U = {0,1,…,m-1}, m not too large. No two element has the same key. -> We use array, or direct-address table, in which each slot correspond a key.
+
+![direct_address_table]()
+
+The direct-address table itself can hold the elements in the dynamic set (save space), so we don’t need object external to the direct-address table.
+
+### 11.2 Hash tables
+
+If the universe U is large, storing a table T of size U may be impractical. Furthermore, we don’t want to keep so many slots as the keys used would be so small relative to the universe.
+
+We use hash table to resolve this. Instead of save key k in slot k, we hash k and store in h(k). There might be collision (two keys same spot) since we want to limit the number of spots and there might be many keys. Do our best to make the hash result random and average. 
+
+##### Collision resolution by chaining and some analysis.
+
+In chaining, we place all elements that hash to the same slot into same linked list. An unsuccessful search takes avreage 1+length of chain to find the result, assume the hash is simple and uniform.
+
+Dynamic set that supports only dictionary operations like `insert`, `search`, `delete`. Hash table is an effective data structure implmenting dictionaries. In practice search for an element in hash tbale is O(1) with worst case theta(n).
+
+### 11.1 Direct-address tables
+
