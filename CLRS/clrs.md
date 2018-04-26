@@ -696,7 +696,16 @@ We use hash table to resolve this. Instead of save key k in slot k, we hash k an
 
 In chaining, we place all elements that hash to the same slot into same linked list. An unsuccessful search takes avreage 1+length of chain to find the result, assume the hash is simple and uniform.
 
-Dynamic set that supports only dictionary operations like `insert`, `search`, `delete`. Hash table is an effective data structure implmenting dictionaries. In practice search for an element in hash tbale is O(1) with worst case theta(n).
+### 11.3 Hash functions
 
-### 11.1 Direct-address tables
+##### What makes a good hash function
 
+Simple, uniform hashingh: each is equally likely to hash to any of the slots.It is hard to deal with since we have no clue about the probability distribution of keys.
+
+Sometiomes there are stronger properties we want to match, for example: keys that are close in some sense yield hash values that are far apart.
+
+##### Interpreting keys as natural numbers
+
+A lot of hash function assume keys are numbers, so we want to kinda transfer key to numbers even they are not.
+
+#### The division method
