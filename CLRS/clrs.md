@@ -682,7 +682,7 @@ Dynamic set that supports only dictionary operations like `insert`, `search`, `d
 
 Works well when the universe U of keys is reasonably small. Let's say we need a dynamic set which each element has a key drawn from the universe U = {0,1,…,m-1}, m not too large. No two element has the same key. -> We use array, or direct-address table, in which each slot correspond a key.
 
-![direct_address_table]()
+![direct_address_table](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/img/direct-address-table.png)
 
 The direct-address table itself can hold the elements in the dynamic set (save space), so we don’t need object external to the direct-address table.
 
