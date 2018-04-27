@@ -726,3 +726,19 @@ A collection of hash function H is universal if for each pair of distinct keys a
 
 ### 11.4 open addressing
 
+In open addressing, all elements occupy the hash table itself so no chaining and we avoid pointers altogether and it saves a lot of spaces. Instead of following pointers, we could **compute** the sequence of slots being examined. 
+
+Search:  systematically examine (some) table slots, it would follow the algorithm of hash function to avoid searching all slots and terminate the search when find an empty slot.
+
+Insertion: successively probe the hash table until we find an empty slot in which to put the key. The sequence of positions probed depends upon the key being inserted.
+
+Deletion: we cannot simply mark the slot as empty by storing NIL inside because when doing searching we mark the search as fail when meet an empty slot before finding the result. Instead we use special DELETE value.
+
+Probing techniques:
+
+#### Linear probing
+`h(k,i) = (h'(k) + i) mod m`
+
+#### Quadratic probing
+Uses a hash function of the form:
+h(k,i) = 
