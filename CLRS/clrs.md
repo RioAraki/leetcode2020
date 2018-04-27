@@ -1,6 +1,6 @@
 
 # CLRS Notes
-一些阅读笔记，因为已经上了很多算法课，很多基础的内容会十分简略，纯粹写给自己看的，不一定有参考价值，重在查漏补缺和所有pseudocode的实例化（python）。
+一些阅读笔记，因为已经上了很多算法课，很多基础的内容会十分简略，纯粹写给自己看的，不一定有参考价值，重在查漏补缺和所有pseudocode的实例化和data structure 的 implementation（python/ C++）。
 
 ## Chapter 1 Foundations
 ***
