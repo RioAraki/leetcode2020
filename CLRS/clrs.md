@@ -708,4 +708,21 @@ Sometiomes there are stronger properties we want to match, for example: keys tha
 
 A lot of hash function assume keys are numbers, so we want to kinda transfer key to numbers even they are not.
 
-#### The division method
+#### 11.3.1 The division method
+Say if we have m slots, `h(k) = k mod m`
+
+#### 11.3.2 The multiplication method
+Two steps:
+	1. multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of k A. 
+	2. Then multiply this value by m (there are m slots ) and take the floor of the result.
+`h(k) = floor(m (k mod 1))`
+eg:  m = 200, A = 0.543, k = 17;  h(k) = floor(200 * (17*0.543%1)) = floor(200 * 0.231) = floor(46.2) = 46
+
+#### 11.3.3 Universal hashing
+
+Malicious adersary could choose keys all hash to same spot if they know the fixed hash function. To avoid this we want to choose the hash function randomly in a way that is independent of the keys that are going to be stored. This way is called universal hashing. 
+
+A collection of hash function H is universal if for each pair of distinct keys a,b ; the number of hash functions for which h1(k) = h2(l) is at most H/m
+
+### 11.4 open addressing
+
