@@ -5,6 +5,9 @@
 
 // dynamic, generic
 // since vector is dynamic array, does not need to have max
+
+#define TABLE_SIZE = 10
+
 template<typename T>
 class better_stack {
 private:
@@ -188,6 +191,68 @@ public:
 		std::cout << std::endl;
 
 	}
+
+};
+
+// hashnode works like linked list in terms of data structure, except it does not need to support operations like insert and search
+template<typename K, typename V>
+class HashNode {
+private:
+	K key;
+	V value;
+	HashNode* next;
+public:
+	HashNode(K &key, V &value):
+		key(key), value(value), next(NULL) {
+	}
+
+	K getKey() const {
+		return key;
+	}
+
+	V getValue() const{
+		return value;
+	}
+
+	HashNode* getNext() const {
+		return next;
+	}
+
+	// key is get by hashfunction
+	void setKey(K key) {
+		this.key = key;
+	}
+
+	void setValue(V value) {
+		this.value = value;
+	}
+
+	void setNext(HashNode* next) {
+		this->next = next;
+	}
+};
+
+template <typename K>
+struct KeyHash {
+	unsigned long operator()(const K& key) const {
+		return reinterpret_cast<unsigned long>(key) % TABLE_SIZE;
+	}
+};
+
+
+// The hashtable class support various hash function, generic insert input (must be same type, here we ue char and int) and 
+template<typename K, typename V, typename F = KeyHash<K>>
+class HashTable {
+private:
+	HashNode<K, V> **table;
+	F hashFunc
+public:
+	HashTable() {
+		table = new HashNode<T>[TABLE_SIZE];
+	}
+
+
+
 
 };
 
