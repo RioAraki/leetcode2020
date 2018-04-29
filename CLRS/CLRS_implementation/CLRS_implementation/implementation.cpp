@@ -305,8 +305,30 @@ public:
 		}
 	}
 
-	void HashRemove(const K key) {
+	void remove(const K &key) {
 		unsigned long hashValue = hashFunc(key);
+		HashNode<K, V> *prev = NULL;
+		HashNode<K, V> *entry = table[hashValue];
+
+		while (entry != NULL && entry->getKey() != key) {
+			prev = entry;
+			entry = entry->getNext();
+		}
+
+		if (entry == NULL) {
+			// key not found
+			return;
+		}
+		else {
+			if (prev == NULL) {
+				// remove first bucket of the list
+				table[hashValue] = entry->getNext();
+			}
+			else {
+				prev->setNext(entry->getNext());
+			}
+			delete entry;
+		}
 	}
 
 };
