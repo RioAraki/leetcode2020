@@ -241,6 +241,9 @@ struct KeyHash {
 
 
 // The hashtable class support various hash function, generic insert input (must be same type, here we ue char and int) and 
+// The input must come along with a key and value (which is not always the case)
+// TODO: we could generate a key in long type given a value
+
 template<typename K, typename V, typename F = KeyHash<K>>
 class HashTable {
 private:
@@ -248,11 +251,63 @@ private:
 	F hashFunc
 public:
 	HashTable() {
-		table = new HashNode<T>[TABLE_SIZE];
+		table = new HashNode<K,V> *[TABLE_SIZE]();
 	}
 
+	~HashTable() {
+		for (int i =0; i < TABLE_SIZE; ++i) {
+			HashNode<K, V> *entry = table[i];
+			while (entry != NULL) {
+				HashNode<K, V> *prev = entry; // prev points to table[i] not entry
+				entry = entry->getNext(); // change entry does not affect prev
+				delete prev;
+			}
+			table[i] == NULL; // reassign back to null
+		}
 
+		delete[] table;
+	}
 
+	bool HashSearch(const K &key, V &value) {
+		unsigned long hashValue = hashFunc(key);
+		HashNode<K, V>* entry = table[hashValue];
+
+		while (entry != NULL) {
+			if (entry->getKey() == key && entry->getValue() == value){
+				return true;
+			}
+			entry = entry->getNext();
+		}
+		return false;
+	}
+
+	void HashInsert(const K &key, V &value) {
+		unsigned long hashValue = hashFunc(key);
+		HashNode<K, V>* entry = table[hashValue];
+		HashNode<K, V>* prev = NULL;
+
+		while (entry != NULL && entry->getKey() != key) {
+			prev = entry;
+			entry = entry->getNext();
+		}
+
+		if (entry == NULL) {
+			entry = new HashNode<K, V>(key, value);
+			if (prev == NULL) {
+				table[hashValue] = entry;
+			}
+			else {
+				prev->setNext(entry);
+			}
+		}
+		else { // update the value
+			entry->setValue(value);
+		}
+	}
+
+	void HashRemove(const K key) {
+		unsigned long hashValue = hashFunc(key);
+	}
 
 };
 
