@@ -1,6 +1,6 @@
 
 # CLRS Notes
-一些阅读笔记，因为已经上了很多算法课，很多基础的内容会十分简略，纯粹写给自己看的，不一定有参考价值，重在查漏补缺和所有pseudocode的实例化（python）。
+一些阅读笔记，因为已经上了很多算法课，很多基础的内容会十分简略，纯粹写给自己看的，不一定有参考价值，重在查漏补缺和所有pseudocode的实例化和data structure 的 implementation（python/ C++）。
 
 ## Chapter 1 Foundations
 ***
@@ -682,7 +682,7 @@ Dynamic set that supports only dictionary operations like `insert`, `search`, `d
 
 Works well when the universe U of keys is reasonably small. Let's say we need a dynamic set which each element has a key drawn from the universe U = {0,1,…,m-1}, m not too large. No two element has the same key. -> We use array, or direct-address table, in which each slot correspond a key.
 
-![direct_address_table]()
+![direct_address_table](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/img/direct-address-table.png)
 
 The direct-address table itself can hold the elements in the dynamic set (save space), so we don’t need object external to the direct-address table.
 
@@ -708,4 +708,37 @@ Sometiomes there are stronger properties we want to match, for example: keys tha
 
 A lot of hash function assume keys are numbers, so we want to kinda transfer key to numbers even they are not.
 
-#### The division method
+#### 11.3.1 The division method
+Say if we have m slots, `h(k) = k mod m`
+
+#### 11.3.2 The multiplication method
+Two steps:
+	1. multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of k A. 
+	2. Then multiply this value by m (there are m slots ) and take the floor of the result.
+`h(k) = floor(m (k mod 1))`
+eg:  m = 200, A = 0.543, k = 17;  h(k) = floor(200 * (17*0.543%1)) = floor(200 * 0.231) = floor(46.2) = 46
+
+#### 11.3.3 Universal hashing
+
+Malicious adersary could choose keys all hash to same spot if they know the fixed hash function. To avoid this we want to choose the hash function randomly in a way that is independent of the keys that are going to be stored. This way is called universal hashing. 
+
+A collection of hash function H is universal if for each pair of distinct keys a,b ; the number of hash functions for which h1(k) = h2(l) is at most H/m
+
+### 11.4 open addressing
+
+In open addressing, all elements occupy the hash table itself so no chaining and we avoid pointers altogether and it saves a lot of spaces. Instead of following pointers, we could **compute** the sequence of slots being examined. 
+
+Search:  systematically examine (some) table slots, it would follow the algorithm of hash function to avoid searching all slots and terminate the search when find an empty slot.
+
+Insertion: successively probe the hash table until we find an empty slot in which to put the key. The sequence of positions probed depends upon the key being inserted.
+
+Deletion: we cannot simply mark the slot as empty by storing NIL inside because when doing searching we mark the search as fail when meet an empty slot before finding the result. Instead we use special DELETE value.
+
+Probing techniques:
+
+#### Linear probing
+`h(k,i) = (h'(k) + i) mod m`
+
+#### Quadratic probing
+Uses a hash function of the form:
+h(k,i) = 
