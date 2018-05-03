@@ -6,7 +6,7 @@
 // dynamic, generic
 // since vector is dynamic array, does not need to have max
 
-#define TABLE_SIZE = 10
+#define TABLE_SIZE 10
 
 template<typename T>
 class better_stack {
@@ -248,7 +248,7 @@ template<typename K, typename V, typename F = KeyHash<K>>
 class HashTable {
 private:
 	HashNode<K, V> **table;
-	F hashFunc
+	F hashFunc;
 public:
 	HashTable() {
 		table = new HashNode<K,V> *[TABLE_SIZE]();
