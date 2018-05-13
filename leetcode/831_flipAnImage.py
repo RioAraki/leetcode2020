@@ -17,3 +17,17 @@ def flipAndInvertImage(self, A):
     # Python uses call by object, if you pass immutable arguments like ints, strings or tuples, act like call by value
     # If we pass mutable arguments, they can be changed in place in the function, call by reference.
     # https://www.python-course.eu/passing_arguments.php
+
+# Better solution
+# its inplace, not creating new list
+
+def flip_and_invert_image_better(A):
+    """
+    :type A: List[List[int]]
+    :rtype: List[List[int]]
+    """
+    for i in range(len(A)):
+        A[i] = [1 - x for x in A[i][::-1]]
+    return A
+
+    # Cheese to reverse list by [::-1]
