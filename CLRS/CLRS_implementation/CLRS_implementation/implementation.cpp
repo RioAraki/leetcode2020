@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 // stack implementation, easiest way, no dynamic, no pointer
 //# define MAX 1000;
 
@@ -202,7 +203,7 @@ private:
 	V value;
 	HashNode* next;
 public:
-	HashNode(K &key, V &value):
+	HashNode(const K &key,const V &value):
 		key(key), value(value), next(NULL) {
 	}
 
@@ -220,11 +221,11 @@ public:
 
 	// key is get by hashfunction
 	void setKey(K key) {
-		this.key = key;
+		HashNode::key = key;
 	}
 
 	void setValue(V value) {
-		this.value = value;
+		HashNode::value = value;
 	}
 
 	void setNext(HashNode* next) {
@@ -262,7 +263,7 @@ public:
 				entry = entry->getNext(); // change entry does not affect prev
 				delete prev;
 			}
-			table[i] == NULL; // reassign back to null
+			table[i] = NULL; // reassign back to null
 		}
 
 		delete[] table;
@@ -334,23 +335,51 @@ public:
 };
 
 
+struct MyKeyHash {
+	unsigned long operator()(const int& k) const
+	{
+		return k % 10;
+	}
+};
+
+
 int main() {
+
+	// test hashtable
+	HashTable<int, std::string, MyKeyHash> hmap;
+	std::string val1 = "val1";
+	std::string val2 = "val2";
+	std::string val3 = "val3";
+	hmap.HashInsert(1, val1);
+	hmap.HashInsert(2, val2);
+	hmap.HashInsert(3, val3);
+
+	std::string value;
+	hmap.HashInsert(2, value);
+	std::cout << value;
+	bool res = hmap.HashSearch(3, value);
+	if (res)
+		std::cout << value << std::endl;
+	hmap.remove(3);
+	res = hmap.HashSearch(3, value);
+	if (res)
+		std::cout << value << std::endl;
 
 	// test linked list
 
-	Node<char> a = Node<char>(1, 'a');
-	Node<char> b = Node<char>(5, 'b');
-	Node<char> c = Node<char>(2, 'c');
+	//Node<char> a = Node<char>(1, 'a');
+	//Node<char> b = Node<char>(5, 'b');
+	//Node<char> c = Node<char>(2, 'c');
 
-	Linkedlist<char> ll;
+	//Linkedlist<char> ll;
 
-	ll.LinkInsert(a);
-	ll.LinkInsert(b);
-	ll.LinkInsert(c);
-	ll.print();
-	ll.LinkSearch(5);
-	ll.LinkDelete(c);
-	ll.print();
+	//ll.LinkInsert(a);
+	//ll.LinkInsert(b);
+	//ll.LinkInsert(c);
+	//ll.print();
+	//ll.LinkSearch(5);
+	//ll.LinkDelete(c);
+	//ll.print();
 
 	// test stack
 	/*better_stack<char> stack;
