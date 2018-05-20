@@ -7,7 +7,7 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 ## Error table
 
 | Failure types   | nums    | Met in  |
-| -------------   |:-------:| -----:|
+| :-------------: |:-------:| :-----: |
 | wrong index     | 1       | 830 |
 | variable misuse | 1       | 830 |
 | corner case     | 1       | 830 |
