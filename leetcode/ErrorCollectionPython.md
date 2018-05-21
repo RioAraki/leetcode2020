@@ -11,3 +11,4 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 | wrong index     | 1       | 830 |
 | variable misuse | 1       | 830 |
 | corner case     | 1       | 830 |
+| logic error     | 1       | 831 |
