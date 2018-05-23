@@ -1,22 +1,19 @@
 # Interview_prep
-My preparation for potential 2019 interview
+My preparation for 2019 full time interview
 
-Review whole CLRS as a guidence + leetcode for normal and topical practice
+## General idea
+Review most CLRS as guidence (CSC263 + CSC373) + most leetcode questions (easy + medium, some hard maybe?) for practice.
 
-## [CLRS Notes](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/clrs.md)
+## CLRS
+[Notes](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/clrs.md)
 
-## By Topic
 
-### [Dynamic programming](https://github.com/RioAraki/Interview_prep/tree/master/dp)
+## Leetcode 
+Mainly work with python language, try to solve with C++ as well if I have time.
 
-### Hashmap
-	- #1. Two Sum
+### 1. By data structure (graph, tree, queue, hashtable, linked list, array, string, ...) and algorithms (DP, dfs, bfs, two pointers, union find, divide and conquer, trie, recursion, ... )
 
-## Leetcode
+### 2. First 150 questions as it covers most topics in algorithm
 
-### [Weekly contest 54 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest54)
-
-### [Weekly contest 55 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest55)
-
-### [Weekly contest 78 ](https://github.com/RioAraki/Interview_prep/tree/master/WeeklyContest78)
+### 3. Weekly contest for routinely practice
 
