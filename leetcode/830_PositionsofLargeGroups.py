@@ -11,13 +11,13 @@ class Solution:
 
         for i in range(len(S)):
             if cur != S[i]:
-                if i - beg >= 3:  # error 1: misuse of cur, should be beg
+                if i - beg >= 3:  # error 1: variable misuse, misuse of cur, should be beg
                     ret.append([beg, i - 1])
                 cur = S[i]
                 beg = i
 
-        # error2: forget to check tail
-        # error3: forget to use len - 1 to represent last one in list
+        # error2: logic error, forget to check tail
+        # error3: index error, forget to use len - 1 to represent last one in list
         if (len(S) - 1) - beg >= 2:
             ret.append([beg, len(S) - 1])
 

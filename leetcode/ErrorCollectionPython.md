@@ -8,7 +8,16 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 
 | Failure types   | nums    | Met in  |
 | :-------------: |:-------:| :-----: |
-| wrong index     | 1       | 830 |
+| wrong index     | 2       | 830, 11 |
 | variable misuse | 1       | 830 |
 | corner case     | 1       | 830 |
-| logic error     | 1       | 831 |
+| logic error     | 2       | 831, 11 |
+| TLE             | 1		| 11      |
+
+## Failure types detail
+
+1. Wrong index: all error caused by miscalculating index (use list[len(list)] as the last element, wrong use of range(a,b) to get element, ...
+2. variable misuse: use variable a when we actually need to use variable best
+3. corner case: forgot to consider corner case like when input is empty/ 0/ invalid/ initial case for a recursion/ ...
+4. logic error: wrong logic
+5. TLE: time limit exceeded, answer may be right but too inefficient
