@@ -8,16 +8,16 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 
 | Failure types   | nums    | Met in  |
 | :-------------: |:-------:| :-----: |
-| wrong index     | 2       | 830, 11 |
+| index error     | 3       | 830, 11, 64 |
 | variable misuse | 1       | 830 |
 | corner case     | 2       | 830, 63 |
-| logic error     | 4       | 831, 11, 16, 63 |
+| logic error     | 5       | 831, 11, 16, 63, 840 |
 | TLE             | 1		| 11      |
 | indent error    | 1       | 63      |
 
 ## Failure types detail
 
-1. Wrong index: all error caused by miscalculating index (use list[len(list)] as the last element, wrong use of range(a,b) to get element, ...
+1. Index error: all error caused by miscalculating index (use list[len(list)] as the last element, wrong use of range(a,b) to get element, ...
 2. variable misuse: use variable a when we actually need to use variable best
 3. corner case: forgot to consider corner case like when input is empty/ 0/ invalid/ initial case for a recursion/ ...
 4. logic error: wrong logic
