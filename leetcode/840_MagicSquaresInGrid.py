@@ -31,4 +31,4 @@ class Solution:
         return count
 
     # Error 1: dumb error: forget to add count as return value
-    # Error 2: logic error: mess up the number when trying to check if every subgrid has 1~9            
+    # Error 2: logic error: mess up the number when trying to check if every subgrid has 1~9
