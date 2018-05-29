@@ -8,13 +8,15 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 
 | Failure types   | nums    | Met in  |
 | :-------------: |:-------:| :-----: |
-| index error     | 3       | 830, 11, 64 |
+| index error     | 4       | 830, 11, 64, 842 |
 | variable misuse | 1       | 830 |
-| corner case     | 2       | 830, 63 |
+| corner case     | 3       | 830, 63, 841 |
 | logic error     | 5       | 831, 11, 16, 63, 840 |
 | TLE             | 1		| 11      |
 | indent error    | 1       | 63      |
-
+| misunderstanding| 2       | 841, 842     |
+| type error      | 1       | 842     |
+| syntax error    | 1       | 841     |
 ## Failure types detail
 
 1. Index error: all error caused by miscalculating index (use list[len(list)] as the last element, wrong use of range(a,b) to get element, ...

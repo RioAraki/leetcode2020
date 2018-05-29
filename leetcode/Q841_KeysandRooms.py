@@ -23,7 +23,7 @@ class Solution:
         return len(visited) == len(rooms)
 
     # Error 1: syntax error: Wrong way to init set, must be var = set()
-    # Error 2: Wrong intepretation: dont understand the question, forgot we dont need to go through room one by one
+    # Error 2: misunderstanding: dont understand the question, forgot we dont need to go through room one by one
     # Error 3: dummy error: used built in keyword next as variable name
     # Error 4: syntax error: use pop[0] but should be pop(0)
     # Error 5: corner case: forgot to do the same key check for first room
