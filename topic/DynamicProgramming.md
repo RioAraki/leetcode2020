@@ -32,4 +32,4 @@ A given problems has Optimal Substructure Property if **optimal solution of the 
 	Since we have decided the state and formulate state relationship, we just pick the most fit data structure and save state memoization data to each slot.
 
 ## Tabulation VS Memoizatation
-[]()
+![pic](https://github.com/RioAraki/Interview_prep/blob/master/topic/pics/Tabulation-vs-Memoization-1.png)
