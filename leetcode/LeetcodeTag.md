@@ -14,3 +14,5 @@ Q64 Minimum Path Sum: multidimensional array, dynamic programming, easy, same as
 Q840 Magic Squares In Grid: multidimensional array, easy
 Q841 Keys and Rooms: Multidimensional array, easy
 Q842 Split Array into Fibonacci Sequence: hard, TLE
+Q72: DP, hard, **WrongAlgo**
+Q87: DP, hard, **WrongAlgo**
