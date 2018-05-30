@@ -1,0 +1,9 @@
+# DP questions thought practice
+
+## Q63 Unique path ii: 
+	1. overlapping subproblem: how to reach finish from subset grid
+	2. state: the coordinate of current point
+	3. formula: start -> current + current -> finish = start -> finish
+	4. memo: 2d array, each represent number of paths
+
+## Q64 Mi
