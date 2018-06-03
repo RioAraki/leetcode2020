@@ -18,3 +18,4 @@ Q72: DP, string, hard, **WrongAlgo**
 Q87: DP, string, hard, **WrongAlgo**
 Q95: DP, BST, hard, **WrongAlgo**
 Q97: DP, string, medium
+Q844: string, easy
