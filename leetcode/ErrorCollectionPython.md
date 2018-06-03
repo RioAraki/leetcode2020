@@ -10,11 +10,11 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 | :-------------: |:-------:| :-----: |
 | index error     | 6       | 830, 11, 64, 842, 72, 97 |
 | variable misuse | 1       | 830 |
-| corner case     | 3       | 830, 63, 841 |
+| corner case     | 4       | 830, 63, 841, 845 |
 | logic error     | 6       | 831, 11, 16, 63, 840, 72 |
-| TLE             | 2	    | 11, 97      |
+| TLE             | 3	    | 11, 97, 845      |
 | indent error    | 2       | 63    |
-| misunderstanding| 2       | 841, 842     |
+| misunderstanding| 3       | 841, 842, 845     |
 | type error      | 1       | 842     |
 | syntax error    | 1       | 841     |
 ## Failure types detail
