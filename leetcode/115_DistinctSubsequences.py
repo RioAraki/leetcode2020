@@ -52,4 +52,26 @@ class Solution:
             print(s[i], dp, t_dp, ptr)
         return dp[-1]
 
-        # Error 1: Wrong logic: does not solve case like S="aaaaa", T="aa" 
+        # Error 1: Wrong logic: does not solve case like S="aaaaa", T="aa"
+
+
+# Better solution
+
+class Solution:
+    def numDistinct(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: int
+        """
+        s, t = ' ' + s, ' ' + t
+        dp = [[0 for x in range(len(s))] for y in range(len(t))]
+        dp[0] = [1 for x in range(len(s))]
+        for i in range(1, len(t)):
+            for j in range(1, len(s)):
+                if s[j] == t[i]:
+                    dp[i][j] = dp[i][j - 1] + dp[i - 1][j - 1]
+                else:
+                    dp[i][j] = dp[i][j - 1]
+
+        return dp[-1][-1]
