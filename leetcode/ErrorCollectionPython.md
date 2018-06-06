@@ -12,7 +12,7 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 | variable misuse | 1       | 830 |
 | corner case     | 4       | 830, 63, 841, 845 |
 | logic error     | 6       | 831, 11, 16, 63, 840, 72 |
-| TLE             | 3	    | 11, 97, 845      |
+| TLE             | 4	    | 11, 97, 845, 29      |
 | indent error    | 2       | 63    |
 | misunderstanding| 3       | 841, 842, 845     |
 | type error      | 1       | 842     |
