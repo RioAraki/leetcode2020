@@ -712,11 +712,15 @@ A lot of hash function assume keys are numbers, so we want to kinda transfer key
 Say if we have m slots, `h(k) = k mod m`
 
 #### 11.3.2 The multiplication method
+
 Two steps:
 	1. multiply the key k by a constant A in the range 0 < A < 1 and extract the fractional part of k A. 
 	2. Then multiply this value by m (there are m slots ) and take the floor of the result.
+
 `h(k) = floor(m (k mod 1))`
+
 eg:  m = 200, A = 0.543, k = 17;  h(k) = floor(200 * (17*0.543%1)) = floor(200 * 0.231) = floor(46.2) = 46
+
 
 #### 11.3.3 Universal hashing
 
@@ -741,4 +745,14 @@ Probing techniques:
 
 #### Quadratic probing
 Uses a hash function of the form:
-h(k,i) = 
+
+
+## Chapter 12 Binary Search Trees
+
+Search Tree supports: `search`, `minimum`, `maximum`, `predecessor`, `successor`, `insert`, `delete`
+
+### 12.1 What is binary search tree
+
+BST has: key, satellite data, each node contains attributes left, right, parent
+BST property:
+	x be a node in BST, if y is left child of x, y < x. If z is right child of x, z > x
