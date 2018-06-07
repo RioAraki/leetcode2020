@@ -22,3 +22,6 @@ Q844: string, easy
 Q845： string, medium, **Redo**
 Q32: DP, medium, string
 Q29: Maths, TLE, bit manipulation, **Redo**
+Q94: Tree, recursion, easy
+Q144: Tree, recursion, easy
+Q145: Tree, recursion, easy
