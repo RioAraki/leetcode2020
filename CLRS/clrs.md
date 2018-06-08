@@ -755,4 +755,11 @@ Search Tree supports: `search`, `minimum`, `maximum`, `predecessor`, `successor`
 
 BST has: key, satellite data, each node contains attributes left, right, parent
 BST property:
-	x be a node in BST, if y is left child of x, y < x. If z is right child of x, z > x
+	x be a node in BST, if y is left child of x, y < x. If z is right child of x, z > x.
+
+#### Tree traverse
+	
+Inorder tree walk: left -> root -> right
+preorder tree walk: root -> left -> right
+postorder tree walk: left -> right -> root
+
