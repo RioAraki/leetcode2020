@@ -25,3 +25,5 @@ Q29: Maths, TLE, bit manipulation, **Redo**
 Q94: Tree, recursion, easy
 Q144: Tree, recursion, easy
 Q145: Tree, recursion, easy
+Q848: String, medium, **Redo**
+Q849: Array, easy
