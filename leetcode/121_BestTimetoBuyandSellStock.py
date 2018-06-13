@@ -14,4 +14,4 @@ class Solution:
             minprice = min(minprice, prices[i])
             maxpro = max(maxpro, max(0, prices[i] - minprice))
 
-        return maxpro 
+        return maxpro
