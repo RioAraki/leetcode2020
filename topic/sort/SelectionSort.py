@@ -1,7 +1,7 @@
 # Given an array of integers, find the smallest item and put it into the beginning, then do the same thing to rest
 # of the list
 
-def InsertionSort(lst):
+def SelectionSort(lst):
     if len(lst) > 1:
         smallest_i = 0
         smallest = lst[0]
@@ -10,7 +10,7 @@ def InsertionSort(lst):
                 smallest_i = i
                 smallest = lst[i]
         lst[smallest_i] = lst[0]
-        return [smallest] + InsertionSort(lst[1:])
+        return [smallest] + SelectionSort(lst[1:])
     else:
         return [lst[0]]
 
@@ -18,5 +18,5 @@ def InsertionSort(lst):
 
 if __name__ == '__main__':
     lst = [1,2,1,5,1]
-    print (InsertionSort(lst))
+    print (SelectionSort(lst))
 
