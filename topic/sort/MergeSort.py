@@ -14,7 +14,7 @@ def merge_sorted(lst1, lst2):
             c2 += 1
     return merged
 
-def MergeSort(lst, mid=0):
+def MergeSort(lst):
     ret = []
     if len(lst) >= 2:
         mid = int(len(lst)/2)
