@@ -35,7 +35,7 @@ They may also be unstable, and stability is often a desirable property in a sort
 
 - Works by determining the largest (or smallest) element of the list, placing that at the end (or beginning) of the list, then continuing with the rest of the list, but accomplishes this task efficiently by using a data structure called a heap, a special type of binary tree. 
 
-Once the data list has been made into a heap, the root node is guaranteed to be the largest (or smallest) element. When it is removed and placed at the end of the list, the heap is rearranged so the largest element remaining moves to the root. Using the heap, finding the next largest element takes O(log n) time, instead of O(n) for a linear scan as in simple selection sort. 
+	Once the data list has been made into a heap, the root node is guaranteed to be the largest (or smallest) element. When it is removed and placed at the end of the list, the heap is rearranged so the largest element remaining moves to the root. Using the heap, finding the next largest element takes O(log n) time, instead of O(n) for a linear scan as in simple selection sort. 
 
 - Much more efficient version of selection sort. 
 
@@ -70,10 +70,19 @@ Simple but highly inefficient sorts.
 
 Distribution sort refers to any sorting algorithm where data are distributed from their input to multiple intermediate structures which are then gathered and placed on the output.
 
-### counting sort
+### Counting sort
+
+- Counting sort works well **only when inputs range is small and there are a lot of duplicate items.**
+
+- The algorithm loops over the items, computing a histogram of the number of times each key occurs within the input collection. 
+
+	It then performs a prefix sum computation (a second loop, over the range of possible keys) to determine, for each key, the starting position in the output array of the items having that key. 
+
+	Finally, it loops over the items again, moving each item into its sorted position in the output array.
+
+### Bucket sort
+
+- 
 
 
-### bucket sort
-
-
-### radix sort
+### Radix sort

@@ -1,8 +1,8 @@
 - brute force 
 
 - all sorting/ search
-	- Heapsort
-	- Quicksort
+	- Insertion sort/ Selection sort/ Bubble sort/ Heap sort/ Quick sort/ Counting sort/ Bucket sort/ Radix sort
+	- Linear search/ Binary search/ Search based on hash
 
 - Data structure
 	- Hashtables
