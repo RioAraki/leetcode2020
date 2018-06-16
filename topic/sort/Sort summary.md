@@ -70,7 +70,7 @@ Simple but highly inefficient sorts.
 
 Distribution sort refers to any sorting algorithm where data are distributed from their input to multiple intermediate structures which are then gathered and placed on the output.
 
-### Counting sort
+### [Counting sort](https://github.com/RioAraki/Interview_prep/blob/master/topic/sort/CountingSort.py)
 
 - Counting sort works well **only when inputs range is small and there are a lot of duplicate items.**
 
@@ -82,7 +82,7 @@ Distribution sort refers to any sorting algorithm where data are distributed fro
 
 ### Bucket sort
 
-- 
+- Distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm. 
 
 
 ### Radix sort
