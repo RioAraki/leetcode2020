@@ -23,7 +23,7 @@ class Solution:
         for rich in richer:
             dct[rich[1]].append(rich[0])
 
-        # save the max quietness and richer people for each people
+        # save the max `quietness and richer` people for each people
         dp = [-1 for x in range(len(quiet))]
         ret = [0 for x in range(len(quiet))]
         for key in dct:
