@@ -82,3 +82,34 @@ if __name__ == "__main__":
 ###############
 # Other people's solution with dp
 
+class Solution:
+    def kSimilarity(self, A, B, dic={}):
+        """
+        :type A: str
+        :type B: str
+        :rtype: int
+        """
+        # If sorted a, b not equal must be false
+        # Otherwise two strings are always k-similar
+        # DP? Can see same subproblem
+        # if at anytime A[x] and B[x] already the same, we could cut it out.
+        # and it is always safe to say we want to make A more and more partically looks like B until exactly the same
+
+        # helper function to check how many same chars at same position are there in two strings
+        if A == B:
+            return 0
+        if (A, B) in dic:
+            return dic[(A, B)]
+        if A[0] == B[0]:
+            ans = self.kSimilarity(A[1:], B[1:])
+            dic[(A, B)] = ans
+        else:
+            ans = 0xfffffff
+            for i in range(1, len(A)):
+                if A[i] == B[0]:
+                    newA = list(A)
+                    newA[i] = A[0]
+                    nA = ''.join(newA)
+                    ans = min(ans, 1 + self.kSimilarity(nA[1:], B[1:]))
+        dic[(A, B)] = ans
+        return ans
