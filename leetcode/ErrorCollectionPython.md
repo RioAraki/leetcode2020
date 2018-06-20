@@ -11,7 +11,7 @@ So far I could solve most of questions with 3-10 attempts, and a lot of times my
 | index error     | 7       | 830, 11, 64, 842, 72, 97, 849 |
 | variable misuse | 1       | 830 |
 | corner case     | 4       | 830, 63, 841, 845 |
-| logic error     | 8       | 831, 11, 16, 63, 840, 72, 849, 853 |
+| logic error     | 8       | 831, 11, 16, 63, 840, 72, 849, 853, 854 |
 | TLE             | 5	    | 11, 97, 845, 29, 848      |
 | indent error    | 2       | 63    |
 | misunderstanding| 3       | 841, 842, 845     |
