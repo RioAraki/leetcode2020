@@ -31,3 +31,5 @@ Q851 Loud and rich: DP, array, medium
 Q852 Peak Index in a Mountain Array: array, easy
 Q853 Car Fleet: array, hard, **Redo**
 Q854 K-Similar Strings: array, hard, dp, **Redo**
+Q1 Two Sum: Array, easy
+Q2 Add two numbers: Linked list, medium
