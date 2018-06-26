@@ -33,3 +33,6 @@ Q853 Car Fleet: array, hard, **Redo**
 Q854 K-Similar Strings: array, hard, dp, **Redo**
 Q1 Two Sum: Array, easy
 Q2 Add two numbers: Linked list, medium
+Q858 Mirror Reflection: Math, hard?, **redo**
+Q859 Buddy Strings: string, easy
+Q856 Score of Parentheses: string, medium
