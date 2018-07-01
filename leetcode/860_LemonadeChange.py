@@ -42,3 +42,38 @@
 #
 # 0 <= bills.length <= 10000
 # bills[i] will be either 5, 10, or 20.
+
+class Solution:
+    def lemonadeChange(self, bills):
+        """
+        :type bills: List[int]
+        :rtype: bool
+        """
+
+        # input 5 5 10 10 20 <- false
+
+        # record all 5 and 10s we have
+        # always change the larger bill first
+
+        # idx0 -> 5 change, 1 -> 10 change
+        change_dict = [0, 0]
+
+        for bill in bills:
+            if bill == 5:
+                change_dict[0] += 1
+            elif bill == 10:
+                if change_dict[0] > 0:
+                    change_dict[0] -= 1
+                    change_dict[1] += 1
+                else:
+                    return False
+            else:
+                if change_dict[0] > 0 and change_dict[1] > 0:
+                    change_dict[0] -= 1
+                    change_dict[1] -= 1
+                elif change_dict[0] >= 3:
+                    change_dict[0] -= 3
+                else:
+                    return False
+        return True
+
