@@ -21,3 +21,26 @@
 # Each node in the tree has unique values 0 <= node.val <= 500.
 # The target node is a node in the tree.
 # 0 <= K <= 1000.
+
+def distanceK(self, root, target, K):
+    """
+    :type root: TreeNode
+    :type target: TreeNode
+    :type K: int
+    :rtype: List[int]
+    """
+    ret = []
+
+    # find all nodes down from target node
+
+    def check_child(node, counter):
+        print (counter, K)
+        if counter == K:
+            ret.append(node.val)
+        if node.left:
+            check_child(node.left, counter + 1)
+        if node.right:
+            check_child(node.right, counter + 1)
+
+    check_child(target, 0)
+    print (ret)
