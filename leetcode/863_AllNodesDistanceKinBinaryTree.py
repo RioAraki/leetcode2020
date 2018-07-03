@@ -22,25 +22,35 @@
 # The target node is a node in the tree.
 # 0 <= K <= 1000.
 
-def distanceK(self, root, target, K):
-    """
-    :type root: TreeNode
-    :type target: TreeNode
-    :type K: int
-    :rtype: List[int]
-    """
-    ret = []
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
-    # find all nodes down from target node
+class Solution:
+    def distanceK(self, root, target, K):
+        """
+        :type root: TreeNode
+        :type target: TreeNode
+        :type K: int
+        :rtype: List[int]
+        """
 
-    def check_child(node, counter):
-        print (counter, K)
-        if counter == K:
-            ret.append(node.val)
-        if node.left:
-            check_child(node.left, counter + 1)
-        if node.right:
-            check_child(node.right, counter + 1)
+        dct = collections.defaultdict(list)
 
-    check_child(target, 0)
-    print (ret)
+        def conn(parent, child):
+            if parent and child:
+                dct[parent.val].append(child.val)
+                dct[child.val].append(parent.val)
+            if child.left: conn(child, child.left)
+            if child.right: conn(child, child.right)
+
+        conn(None, root)
+        bfs = [target.val]
+        seen = set(bfs)
+        for i in range(K):
+            bfs = [y for x in bfs for y in dct[x] if y not in seen]
+            seen |= set(bfs)
+        return bfs
