@@ -30,3 +30,32 @@ def convert(self, s, numRows):
 
     return ret
 
+# ac solution, add corner case optimization
+
+def convert(self, s, numRows):
+    """
+    :type s: str
+    :type numRows: int
+    :rtype: str
+    """
+    # corner case, but big optimization
+    if numRows == 1 or numRows >= len(s):
+        return s
+
+    zig = numRows * 2 - 2
+    ret = ""
+    for i in range(numRows):
+        row = i
+        if i == 0 or i == numRows - 1:
+            while i < len(s):
+                ret += s[i]
+                i += zig
+        else:
+            while i < len(s):
+                ret += s[i]
+                i += (zig - 2 * row)
+                if i < len(s):
+                    ret += s[i]
+                    i += 2 * row
+
+    return ret
