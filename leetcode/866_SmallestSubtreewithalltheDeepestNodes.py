@@ -64,12 +64,3 @@ class Solution:
                 return nodeSet.pop()
             else:
                 nodeSet = set()
-
-#         def conn(parent, child):
-#             if parent and child:
-#                 child.parent = parent
-#             if child.left: conn(child, child.left)
-#             if child.right: conn(child, child.right)
-
-#         conn(None, root)
-#         print(root.left.parent.val)
