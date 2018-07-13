@@ -1,7 +1,12 @@
 # Leetcode tag
 For better categorizing
 
-Redo all tags with **Redo** since I didn't manage to solve the issue without any help
+Redo all tags with **Redo** since I didn't manage to solve the issue without any help.
+TODO: Add the general thoughts of solving each problem
+
+Q1 Two Sum: two pointers, easy
+Q2 Add two numbers: linked list, **Redo**, medium
+Q3: Longest Substring Without Repeating Characters: two pointers, medium
 
 Q11: array, two pointers, easy, **Redo**
 Q417: multidimensional array, medium, unsolved
