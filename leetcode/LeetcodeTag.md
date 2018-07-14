@@ -8,7 +8,7 @@ Q1 Two Sum: two pointers, easy
 Q2 Add two numbers: linked list, **Redo**, medium
 Q3: Longest Substring Without Repeating Characters: two pointers, medium
 
-Q11: array, two pointers, easy, **Redo**
+Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: multidimensional array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
