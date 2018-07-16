@@ -19,3 +19,18 @@ def advantageCount(self, A, B):
             ret.append(min(A))
             A.remove(min(A))
     return ret
+
+# Better solution with almost same idea but optimized by using sort and defaultlist
+
+
+def advantageCount(self, A, B):
+    """
+    :type A: List[int]
+    :type B: List[int]
+    :rtype: List[int]
+    """
+    A = sorted(A)
+    take = collections.defaultdict(list)
+    for b in sorted(B)[::-1]:
+        if b < A[-1]: take[b].append(A.pop())
+    return [(take[b] or A).pop() for b in B]
