@@ -42,3 +42,21 @@ class Solution:
             return i
         changeValue(head)
         return head.next
+
+
+# standard solution, using fast and slow to find position of n in one loop
+    def removeNthFromEnd(self, head, n):
+        fast = slow = head
+        head.nodePrint(
+        # special case when n is the first element in linked list (n=5 in this case)
+        for _ in range(n):
+            fast = fast.next
+        if not fast:
+            return head.next
+
+        # already iterate fast n times, the real node needs to remove is total (length - n)
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+        slow.next = slow.next.next
+        return head
