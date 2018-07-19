@@ -6,7 +6,38 @@ TODO: Add the general thoughts of solving each problem
 
 Q1 Two Sum: two pointers, easy
 Q2 Add two numbers: linked list, **Redo**, medium
-Q3: Longest Substring Without Repeating Characters: two pointers, medium
+3: Longest Substring Without Repeating Characters: two pointers, medium
+
+12. Integer to Roman    
+	Each bit in integer would not affect each other to transform to roman, so just transfer it one by one according to the bit
+
+13. Roman to Integer
+	Reverse of **Q12** Integer to roman, increment all roman from left to right excecpt for those input[i] < input[i+1]  (eg: IV,XL), these are for 4s and 9s.
+
+14. Longest Common Prefix
+	**Easy** find the shortest string, iterate every string's char at index i, use enumerate for getting i in one line
+
+15. 3Sum
+	Same as **Q14** 2sum
+
+16. 3Sum Closest
+	Same ide as **Q14** **Q15** 3sum/ 2sum
+
+17. Letter Combinations of a Phone Number
+	**Redo**, use a lot of function programming and itertools (filter, itertools.product) to solve this question in a smart way.
+
+18. 4Sum:
+	**Redo**, same as **Q14** **Q15** **Q16** based on 3sum and 2sum. Need to do a lot of corner case check to avoid duplicate items, overloop and TLE
+
+19. Remove Nth Node From End of List:
+	**Redo**, should do it in one loop, use recursion to get the position of node that needs to be removed
+
+20. Valid Parentheses:
+	one-pass, same to most parentheses problems, use stack to check parentheses matches
+
+21. Merge Two Sorted Linked Lists:
+	**Redo**, Recursion on linked list
+
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: multidimensional array, medium, unsolved
