@@ -4,6 +4,10 @@ For better categorizing
 Redo all tags with **Redo** since I didn't manage to solve the issue without any help.
 TODO: Add the general thoughts of solving each problem
 
+# By topic
+Linked list: 
+
+
 Q1 Two Sum: two pointers, easy
 Q2 Add two numbers: linked list, **Redo**, medium
 3: Longest Substring Without Repeating Characters: two pointers, medium
@@ -30,13 +34,26 @@ Q2 Add two numbers: linked list, **Redo**, medium
 	**Redo**, same as **Q14** **Q15** **Q16** based on 3sum and 2sum. Need to do a lot of corner case check to avoid duplicate items, overloop and TLE
 
 19. Remove Nth Node From End of List:
-	**Redo**, should do it in one loop, use recursion to get the position of node that needs to be removed
+	**Redo**, **linked list**, should do it in one loop, use recursion to get the position of node that needs to be removed
 
 20. Valid Parentheses:
 	one-pass, same to most parentheses problems, use stack to check parentheses matches
 
 21. Merge Two Sorted Linked Lists:
-	**Redo**, Recursion on linked list
+	**Redo**, **linked list**, Recursion on linked list
+
+22. Generate Parentheses
+	**Redo**, **linked list**, use recursion to generate all combinations of parentheses.
+
+23. Merge k Sorted Linked Lists  
+	**Redo**, **linked list**, use priority queue to always find the linked list with smallest value
+
+24. Swap Nodes in Pairs:
+	**Redo**, **linked list**, understand the pattern of swapping and change the "next" pointer of each node accordingly
+
+25. Swap Nodes in k-group:
+	**Redo**, **linked list**, use a counter to find every reverse group, use recursion to do the swap from last group to first group
+
 
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
