@@ -89,3 +89,17 @@ Q2 Add two numbers: Linked list, medium
 Q858 Mirror Reflection: Math, hard?, **redo**
 Q859 Buddy Strings: string, easy
 Q856 Score of Parentheses: string, medium
+
+872. Leaf-similar Trees
+	**Tree**, easy, Write a function to return all leaves, then compare both trees
+
+873. Length of Longest Fibonacci Subsequence
+	**Redo**, medium, could use brute force with optimization or dp with 2d array saved data.
+
+
+874. Walking Robot Simulation
+	**Redo**, easy, algorithm is easy, but need to smartly implemnet rotation and obstacle.
+
+
+875. Koko Eating Bananas
+	**Redo**, medium, math?, No very smart algorithm to solve this one. Use binary search to quickly find the value of eat speed, since the search space is relatively small (1, max(piles)) it would be reasonably fast
