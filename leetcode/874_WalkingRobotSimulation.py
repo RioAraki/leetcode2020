@@ -1,77 +1,77 @@
 # my solution, got the idea, but somewhere is wrong, sad
 
-def robotSim(commands, obstacles):
-    """
-    :type commands: List[int]
-    :type obstacles: List[List[int]]
-    :rtype: int
-    """
-
-    curPos = [0, 0]
-    curDir = [0, 1]
-    def walk(curPos, curDir, dis, obstacles):
-        des = list(map(lambda x, y: x + y, curPos, list(map(lambda x: x * dis, curDir))))
-        stuck = checkObstacles(curPos, curDir, des, obstacles)
-        print("checkObs in walk: ", stuck)
-        if len(stuck) == 0:
-            print("direction:",curDir," distance:", dis, "now at:", des)
-            self.ret = max(self.ret, curPos[0] ** 2 + curPos[1] ** 2)
-            return des
-            print("now at:", stuck)
-        return stuck
-
-    def checkObstacles(curPos, curDir, des, obstacles):
-        if curDir == [0, 1]:
-            tmp = list(filter(lambda x: x[0] == curPos[0] and x[1] > curPos[1] and x[1] < des[1], obstacles))
-            if len(tmp) == 0: return []
-            obstacle = min(tmp, key=lambda x: x[1])
-            stuck = [obstacle[0], obstacle[1] - 1]
-        elif curDir == [0, -1]:
-            tmp = list(filter(lambda x: x[0] == curPos[0] and x[1] < curPos[1] and x[1] > des[1], obstacles))
-            if len(tmp) == 0: return []
-            obstacle = max(tmp, key=lambda x: x[1])
-            stuck = [obstacle[0], obstacle[1] + 1]
-        elif curDir == [1, 0]:
-            tmp = list(filter(lambda x: x[1] == curPos[1] and x[0] > curPos[0] and x[0] < des[0], obstacles))
-
-            if len(tmp) == 0: return []
-            stuck = [min(tmp)[0] - 1, min(tmp)[1]]
-        elif curDir == [-1, 0]:
-            tmp = list(filter(lambda x: x[1] == curPos[1] and x[0] < curPos[0] and x[0] > des[0], obstacles))
-            if len(tmp) == 0: return []
-            stuck = [max(tmp)[0] + 1, max(tmp)[1]]
-        return stuck
-
-    def turn(dir, curDir):
-        if curDir == [0, 1]:
-            if dir == -1:
-                return [1, 0]
-            else:
-                return [-1, 0]
-        elif curDir == [1, 0]:
-            if dir == -1:
-                return [0, -1]
-            else:
-                return [0, 1]
-        elif curDir == [0, -1]:
-            if dir == -1:
-                return [-1, 0]
-            else:
-                return [1, 0]
-        else:
-            if dir == -1:
-                return [0, 1]
-            else:
-                return [0, -1]
-
-
-    for i in commands:
-        if i < 0:
-            curDir = turn(i, curDir)
-            print("turns to:", curDir)
-        else:
-            curPos = walk(curPos, curDir, i, obstacles)
-    return
+# def robotSim(commands, obstacles):
+#     """
+#     :type commands: List[int]
+#     :type obstacles: List[List[int]]
+#     :rtype: int
+#     """
+#
+#     curPos = [0, 0]
+#     curDir = [0, 1]
+#     def walk(curPos, curDir, dis, obstacles):
+#         des = list(map(lambda x, y: x + y, curPos, list(map(lambda x: x * dis, curDir))))
+#         stuck = checkObstacles(curPos, curDir, des, obstacles)
+#         print("checkObs in walk: ", stuck)
+#         if len(stuck) == 0:
+#             print("direction:",curDir," distance:", dis, "now at:", des)
+#             self.ret = max(self.ret, curPos[0] ** 2 + curPos[1] ** 2)
+#             return des
+#             print("now at:", stuck)
+#         return stuck
+#
+#     def checkObstacles(curPos, curDir, des, obstacles):
+#         if curDir == [0, 1]:
+#             tmp = list(filter(lambda x: x[0] == curPos[0] and x[1] > curPos[1] and x[1] < des[1], obstacles))
+#             if len(tmp) == 0: return []
+#             obstacle = min(tmp, key=lambda x: x[1])
+#             stuck = [obstacle[0], obstacle[1] - 1]
+#         elif curDir == [0, -1]:
+#             tmp = list(filter(lambda x: x[0] == curPos[0] and x[1] < curPos[1] and x[1] > des[1], obstacles))
+#             if len(tmp) == 0: return []
+#             obstacle = max(tmp, key=lambda x: x[1])
+#             stuck = [obstacle[0], obstacle[1] + 1]
+#         elif curDir == [1, 0]:
+#             tmp = list(filter(lambda x: x[1] == curPos[1] and x[0] > curPos[0] and x[0] < des[0], obstacles))
+#
+#             if len(tmp) == 0: return []
+#             stuck = [min(tmp)[0] - 1, min(tmp)[1]]
+#         elif curDir == [-1, 0]:
+#             tmp = list(filter(lambda x: x[1] == curPos[1] and x[0] < curPos[0] and x[0] > des[0], obstacles))
+#             if len(tmp) == 0: return []
+#             stuck = [max(tmp)[0] + 1, max(tmp)[1]]
+#         return stuck
+#
+#     def turn(dir, curDir):
+#         if curDir == [0, 1]:
+#             if dir == -1:
+#                 return [1, 0]
+#             else:
+#                 return [-1, 0]
+#         elif curDir == [1, 0]:
+#             if dir == -1:
+#                 return [0, -1]
+#             else:
+#                 return [0, 1]
+#         elif curDir == [0, -1]:
+#             if dir == -1:
+#                 return [-1, 0]
+#             else:
+#                 return [1, 0]
+#         else:
+#             if dir == -1:
+#                 return [0, 1]
+#             else:
+#                 return [0, -1]
+#
+#
+#     for i in commands:
+#         if i < 0:
+#             curDir = turn(i, curDir)
+#             print("turns to:", curDir)
+#         else:
+#             curPos = walk(curPos, curDir, i, obstacles)
+#     return
 
 
 ## Better solution with a great understanding of turning: right -> (x,y => y,-x), left -> (x,y => -y, x)
