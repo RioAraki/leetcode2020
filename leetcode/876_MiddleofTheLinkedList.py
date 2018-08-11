@@ -25,5 +25,13 @@ def middleNode(head):
     return ret
 
 # Better solution:
-# def middleNodeBetter(head):
-#
+# slow and fast pointer
+def middleNodeBetter(head):
+    ret = tmp = head
+
+    # need tmp.next because last tmp does not have tmp.next.next
+    while tmp and tmp.next:
+        ret = ret.next
+        tmp = tmp.next.next
+
+    return ret
