@@ -21,3 +21,7 @@ class Solution:
             ret = ret.next
             counter += 1
         return ret
+
+# Better solution:
+
+
