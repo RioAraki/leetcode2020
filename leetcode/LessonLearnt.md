@@ -4,6 +4,15 @@
   3. 如果看了别人的答案，有没有学到什么（简洁的写法，骚操作，不知道的库 / api）
   4. 如果题目卡住了，为什么？犯了哪些错误。如果我的答案不高效，哪里的问题？为什么别人的更高效？
 
+Q888. Uncommon words from two sentences
+
+sub-operation: make a dictionary from a list which key is all non duplicate element from list and value is number of times key appears
+
+Python collections library -> counter
+
+The better solution has a better understanding on "uncommon words", eliminate comparison between two lists.
+======================================= 
+
 Q889. Spiral Matrix III
 
 之前学到的 turn 的简单实现：
