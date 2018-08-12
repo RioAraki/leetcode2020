@@ -25,16 +25,16 @@ class Shark:
             print("sShark")
 
         # Wrong, object has no attribute 'animal_gender'
-        if self.animal_gender == "male":
-            print("male")
+        # if self.animal_gender == "male":
+        #     print("male")
 
 x = 5
 
 def foobar():
+    x =10
     print(x)
 
-
 if __name__ == "__main__":
-    S = Shark()
-    S.dum()
+    # S = Shark()
+    # S.dum()
     foobar()

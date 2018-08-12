@@ -52,6 +52,8 @@ class Shark:
 2. Python scoping rules
 LEGB Rule.
 
+https://stackoverflow.com/questions/291978/short-description-of-the-scoping-rules
+
 L, Local — Names assigned in any way within a function (def or lambda)), and not declared global in that function.
 
 E, Enclosing-function locals — Name in the local scope of any and all statically enclosing functions (def or lambda), from inner to outer.
@@ -84,6 +86,68 @@ In what order would x() found?
 
 **x will never be found in code2**
 
+Beyond the 4 basic scope LEGB, there is a special scope the **class body**, which does not comprise an enclosing scope for methods defined within the class. Any assignments within the class body make the variable from there on be bound in the class body.
+
+Especially, no block statement, besides def and class, create a variable scope. In Python 2 the list comprehension does not create a variable scope, however in Python 3 the **loop variable** is created in a new scope.
+
+```
+x = 0
+class X(object):
+    y = x
+    x = x + 1 # x is now a variable 
+    z = x
+
+    def method(self):
+        print(self.x) # -> 1
+        print(x)      # -> 0, the global x
+        print(y)      # -> NameError: global name 'y' is not defined
+
+inst = X()
+print(inst.x, inst.y, inst.z, x) # -> (1, 0, 1, 0)
+```
+
+If a name is ever assigned to in the current scope (except in the class scope), it will be considered belonging to that scope, otherwise it will be considered to belonging to any enclosing scope that assigns to the variable (it might not be assigned yet, or not at all), or finally the global scope. If the variable is considered local, but it is not set yet, or has been deleted, reading the variable value will result in UnboundLocalError, which is a subclass of NameError.
+
+```
+x = 5
+def foobar():
+    print(x)  # causes UnboundLocalError!
+    x += 1    # because assignment here makes x a local variable within the function, no error if without x+=1
+
+# call the function
+foobar()
+```
+
+In python 2 there is no easy way to modify the value in the enclosing scope; usually this is simulated by having a mutable value, such as a list with length of 1:
+
+```
+def make_closure():
+    value = [0]
+    def get_next_value():
+        value[0] += 1
+        return value[0]
+
+    return get_next_value
+
+get_next = make_closure()
+print(get_next()) # -> 1
+print(get_next()) # -> 2
+```
+
+In python3, we have **nonlocal**
+
+```
+def make_closure():
+    value = 0
+    def get_next_value():
+        nonlocal value
+        value += 1
+        return value
+    return get_next_value
+
+get_next = make_closure() # identical behavior to the previous example.
+
+```
 
 问：为什么 function in class 要有 self parameter，没有会怎么样？
 
