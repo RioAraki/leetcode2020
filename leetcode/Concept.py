@@ -30,11 +30,25 @@ class Shark:
 
 x = 5
 
+class Example:
+
+    def __init__(self):
+        self.ex1 = "dum"
+
+    def dum(self):
+        ex1 = "bad"
+        self.ex2 = "ex2"
+        # print(ex1)
+
 def foobar():
-    x =10
+    x = 10
     print(x)
 
 if __name__ == "__main__":
     # S = Shark()
     # S.dum()
     foobar()
+    E = Example()
+    # E.dum()
+    print(E.ex1)
+    print(E.ex2)

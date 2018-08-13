@@ -11,6 +11,7 @@ sub-operation: make a dictionary from a list which key is all non duplicate elem
 Python collections library -> counter
 
 The better solution has a better understanding on "uncommon words", eliminate comparison between two lists.
+
 ======================================= 
 
 Q889. Spiral Matrix III
@@ -30,13 +31,14 @@ def turnRight(self):
 
 问： 不确定 class 的 variable，里面的function能否直接看到并修改？
 
-这个问题可以拆成两个相关方面 
+这个问题可以拆成两个相关方面:
+
 	1. class 和 variable
 	2. variable in different scope 
 
 1. 有关 class 和 variable
 
-OOP 中 variable可以有 class level, instance level.
+OOP 中 variable 可以有 class level, instance level.
 
 Class variables -> class level, variable consistent across instances.
 
@@ -47,9 +49,9 @@ class Shark:
     followers = 5
 ```
 
-Defined within class construction, they are owned by class itself, sharted by all instances of the class.
+Defined within class construction, they are owned by class itself, shared by all instances of the class.
 
-Instance variables -> may change significantly across instances.
+Instance variables -> may change significantly across instances. Usually defined inside a class with `self.` in `__init__` method. One can also define an instance variable out of `__init__` method though it is not a good habit.
 
 ```
 class Shark:
@@ -157,6 +159,13 @@ def make_closure():
 get_next = make_closure() # identical behavior to the previous example.
 
 ```
+
+
+More about class and self keyword:
+
+self: class里`__init__`的第一参数永远是`self`，事实上所有 class 里定义的 function 第一参数都是表示 class instance 的变量 `self`,调用时，不用传递该参数，python 解释器会把实例变量传进去。
+
+functions inside class always
 
 问：为什么 function in class 要有 self parameter，没有会怎么样？
 
