@@ -53,6 +53,8 @@ Defined within class construction, they are owned by class itself, shared by all
 
 Instance variables -> may change significantly across instances. Usually defined inside a class with `self.` in `__init__` method. One can also define an instance variable out of `__init__` method though it is not a good habit.
 
+https://stackoverflow.com/questions/25158898/why-is-defining-an-object-variable-outside-of-init-frowned-upon
+
 ```
 class Shark:
     def __init__(self, name, age):
@@ -170,3 +172,17 @@ functions inside class always
 问：为什么 function in class 要有 self parameter，没有会怎么样？
 
 问：如果 create a class instance 不带括号意味着什么？
+
+
+
+===============================
+
+Q33. Search in Rotated Sorted Array
+```
+Sub operation:
+Binary search:
+lo, hi = 0, len(nums) -1
+mid = lo + hi // 2
+if nums[mid] > nums[hi]: lo = mid + 1
+else: hi = mid
+```
