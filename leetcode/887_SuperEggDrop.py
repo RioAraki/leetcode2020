@@ -35,7 +35,7 @@ class Solution:
         return dp[N][K]
 
 
-# Use bottom up instead of top down, saves a lot of unnecessary entries filled in the 2d array.
+# Change the saved data, now n means number of trial, entries mean floor
 
 class Solution:
     def superEggDrop(self, K, N):
@@ -44,7 +44,7 @@ class Solution:
         :type N: int
         :rtype: int
         """
-        # 2d array, k -> egg; n -> num of moves; value ->
+        # 2d array, k -> egg; n -> num of moves(trial); value -> num of floor
         dp = [[0] * (K + 1) for i in range(N + 1)]
 
         for m in range(1, N + 1):

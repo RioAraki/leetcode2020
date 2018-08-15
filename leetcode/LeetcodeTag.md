@@ -54,7 +54,8 @@ Q2 Add two numbers: linked list, **Redo**, medium
 25. Swap Nodes in k-group:
 	**Redo**, **linked list**, use a counter to find every reverse group, use recursion to do the swap from last group to first group
 
-
+33. Search in Rotated Sorted Array
+	**Redo**, **binary search**, **string**, Set lo and hi, binary search to find the point where rotate begins. Binary search to find where target locates by comparing rotating point and middle index.
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: multidimensional array, medium, unsolved
@@ -103,3 +104,15 @@ Q856 Score of Parentheses: string, medium
 
 875. Koko Eating Bananas
 	**Redo**, medium, math?, No very smart algorithm to solve this one. Use binary search to quickly find the value of eat speed, since the search space is relatively small (1, max(piles)) it would be reasonably fast
+
+886. Possible Bipartition
+	**Bipartite**, **graph**, **dfs**
+	Draw a graph, regard people as vertices, dislike relation as edges. Unable to do the partition if we could find cycle with odd edges.
+
+888. Uncommon Words from Two Sentences
+	String, easy, collections.counter do a lot of jobs. Combine two strings together would make the algo much more efficient
+
+
+889. Spiral Matrix III
+	**Redo**, medium, 2d array, simulate the spiral isnt easy, efficient turn like 874
+
