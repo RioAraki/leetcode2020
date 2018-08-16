@@ -55,7 +55,10 @@ Q2 Add two numbers: linked list, **Redo**, medium
 	**Redo**, **linked list**, use a counter to find every reverse group, use recursion to do the swap from last group to first group
 
 33. Search in Rotated Sorted Array
-	**Redo**, **binary search**, **string**, Set lo and hi, binary search to find the point where rotate begins. Binary search to find where target locates by comparing rotating point and middle index.
+	**Redo**, **binary search**, Set lo and hi, binary search to find the point where rotate begins. Binary search to find where target locates by comparing rotating point and middle index.
+
+34. Find First and Last Position of Element in Sorted Array
+    **Redo**, **binary search**, do binary search two time, first time for start point, second time set mid = (lo+hi)//2+1 for right biased mid to find end point
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: multidimensional array, medium, unsolved
