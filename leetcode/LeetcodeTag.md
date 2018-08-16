@@ -106,8 +106,15 @@ Q856 Score of Parentheses: string, medium
 	**Redo**, medium, math?, No very smart algorithm to solve this one. Use binary search to quickly find the value of eat speed, since the search space is relatively small (1, max(piles)) it would be reasonably fast
 
 886. Possible Bipartition
-	**Bipartite**, **graph**, **dfs**
-	Draw a graph, regard people as vertices, dislike relation as edges. Unable to do the partition if we could find cycle with odd edges.
+	**Bipartite**, **graph**, **dfs**, **Redo**
+	Draw a graph (each people as key, dislike relation as value), regard people as vertices, dislike relation as edges. Unable to do the partition if we could find cycle with odd edges.
+
+887. Super Egg Drop
+	**Redo**, **DP**, 
+	Saved data: 2d array, rows -> eggs; columns -> nums of moves (floors?); value -> num of trials
+
+	Transform equaltion: superEggDrop(N,x) = 1 + max(superEggDrop(N-1, x), superEggDrop(N, K-x))
+
 
 888. Uncommon Words from Two Sentences
 	String, easy, collections.counter do a lot of jobs. Combine two strings together would make the algo much more efficient
