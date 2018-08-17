@@ -195,3 +195,22 @@ mid = lo + hi // 2 + 1
 if nums[mid] > nums[hi]: lo = mid + 1
 else: hi = mid
 ```
+
+================================
+
+How do I check if there are duplicates in a flat list in a decent way?
+
+    Use set() to remove duplicates if all values are hashable:
+
+    >>> your_list = ['one', 'two', 'one']
+    >>> len(your_list) != len(set(your_list))
+    True
+
+
+Python How to get every first element in 2 Dimensional List
+https://stackoverflow.com/questions/30062429/python-how-to-get-every-first-element-in-2-dimensional-list
+
+You can get the index [0] from each element in a list comprehension
+
+>>> [i[0] for i in a]
+[4.0, 3.0, 3.5]
