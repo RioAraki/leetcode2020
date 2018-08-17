@@ -27,7 +27,9 @@ def isValidSudoku(board):
 # string recording: iterate through each element in the sudoku, use three ways to record each value and
 # check if anytime duplicate is found
 
-def isValidSudoku(board):
+# though it only requires one full loop, the int-to-str process actually takes some time and the overall performance
+# is worse than first solution
+def betterIsValidSudoku(board):
     """
     :type board: List[List[str]]
     :rtype: bool
