@@ -186,3 +186,12 @@ mid = lo + hi // 2
 if nums[mid] > nums[hi]: lo = mid + 1
 else: hi = mid
 ```
+
+Q34. Find First and Last Position of Element in Sorted Array
+Binary search, right biased
+```
+lo, hi = 0, len(nums) -1
+mid = lo + hi // 2 + 1
+if nums[mid] > nums[hi]: lo = mid + 1
+else: hi = mid
+```

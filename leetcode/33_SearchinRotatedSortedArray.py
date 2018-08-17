@@ -6,6 +6,7 @@ def search(nums, target):
     :type target: int
     :rtype: int
     """
+    # find index where rotate begins
     lo, hi = 0, len(nums) - 1
     while (lo < hi):
         mid = (lo + hi) // 2
@@ -14,7 +15,6 @@ def search(nums, target):
         else:
             hi = mid
 
-    # index where rotate begins
     ro = lo;
     lo, hi = 0, len(nums) - 1
 

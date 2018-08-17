@@ -8,6 +8,7 @@ def searchRange(nums, target):
     :type target: int
     :rtype: List[int]
     """
+    if nums == []: return [-1, -1]
     lo, hi = 0, len(nums) - 1
     ret = [-1, -1]
     while (lo < hi):
