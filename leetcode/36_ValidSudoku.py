@@ -1,6 +1,6 @@
 # check if each row, column, square have duplicate
 
-def isValidSudoku(self, board):
+def isValidSudoku(board):
     """
     :type board: List[List[str]]
     :rtype: bool
@@ -24,3 +24,23 @@ def isValidSudoku(self, board):
     return True
 
 
+# string recording: iterate through each element in the sudoku, use three ways to record each value and
+# check if anytime duplicate is found
+
+def isValidSudoku(board):
+    """
+    :type board: List[List[str]]
+    :rtype: bool
+    """
+    seen = set()
+
+    for i in range(9):
+        for j in range(9):
+            if board[i][j] != ".":
+                tmp = "(%s)" % board[i][j]
+                if tmp + str(i) in seen or str(j) + tmp in seen or str(i // 3) + tmp + str(j // 3) in seen:
+                    return False
+                seen.add((tmp + str(i)))
+                seen.add(str(j) + tmp)
+                seen.add(str(i // 3) + tmp + str(j // 3))
+    return True
