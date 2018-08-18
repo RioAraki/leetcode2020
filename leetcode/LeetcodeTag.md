@@ -83,9 +83,13 @@ Q2 Add two numbers: linked list, **Redo**, medium
 
 37. Sudoku Solver
 	**TODO**
-	This question is big, I prefer to do some review on csc384 before solving it
+	This question is too big, I prefer to do some review on csc384 before solving it
 
-38. Count and Say    
+38. Count and Say
+	 **string **
+	 write a helper function given the previous input, return the next count and say output.
+
+39. 
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: 2d array, medium, unsolved
