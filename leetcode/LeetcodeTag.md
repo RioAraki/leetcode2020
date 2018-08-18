@@ -89,7 +89,11 @@ Q2 Add two numbers: linked list, **Redo**, medium
 	 **string **
 	 write a helper function given the previous input, return the next count and say output.
 
-39. 
+39. Combination Sum
+	**dp**
+	use 1d array length equal to range(target), saved all combination sums up to the value of each index. Return the dp[-1]
+
+	looks like there are some other ways like dfs, backtracking, will research more.
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: 2d array, medium, unsolved
