@@ -54,22 +54,49 @@ Q2 Add two numbers: linked list, **Redo**, medium
 25. Swap Nodes in k-group:
 	**Redo**, **linked list**, use a counter to find every reverse group, use recursion to do the swap from last group to first group
 
+32. Longest Valid Parentheses
+	**string**, **stack**, **dp**, dp: 1d array, dp[i] records longest valid parentheses end at S[i]
+
+	make sure left ( always > 0. when meet right parenthesis, valid count = valid parenthesis count from previous parenthesis + 2
+	We want to recursively fond previous valid parenthesis until it hits beginning of dp.
+
 33. Search in Rotated Sorted Array
 	**Redo**, **binary search**, Set lo and hi, binary search to find the point where rotate begins. Binary search to find where target locates by comparing rotating point and middle index.
 
 34. Find First and Last Position of Element in Sorted Array
     **Redo**, **binary search**, do binary search two time, first time for start point, second time set mid = (lo+hi)//2+1 for right biased mid to find end point
 
+35. Search Insert Position    
+	**binary search**
+	for better efficiency, always check if the element checked is exactly at the position we want to insert before doing next step of binary search
+
+	or check all elements bigger than the target you want to insert, though its o(n) compare to binary search's o(log(n))
+
+36. Valid Sudoku
+	**2d array**, **hash table**
+	Count each row, column and square, use filter, and set - list compare to exclude dot, and check duplicate
+
+	Or give every position three unique formats corresponding to row, col and square. Use a set to save and check duplicate
+	- '4' in row 7 is encoded as "(4)7".
+	- '4' in column 7 is encoded as "7(4)".
+	- '4' in the top-right block is encoded as "0(4)2".
+
+37. Sudoku Solver
+	**TODO**
+	This question is big, I prefer to do some review on csc384 before solving it
+
+38. Count and Say    
+
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
-Q417: multidimensional array, medium, unsolved
+Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
-Q831: multidimensional array, medium
+Q831: 2d array, medium
 Q16: array, two pointers, medium, **Redo**
-Q63 Unique Paths II: multidimensional array, dynamic programming, easy
-Q64 Minimum Path Sum: multidimensional array, dynamic programming, easy, same as Q63
-Q840 Magic Squares In Grid: multidimensional array, easy
-Q841 Keys and Rooms: Multidimensional array, easy
+Q63 Unique Paths II: 2d array, dp, easy
+Q64 Minimum Path Sum: 2d array, dp, easy, same as Q63
+Q840 Magic Squares In Grid: 2d array, easy
+Q841 Keys and Rooms: 2d array, easy
 Q842 Split Array into Fibonacci Sequence: hard, TLE
 Q72: DP, string, hard, **Redo**
 Q87: DP, string, hard, **Redo**
