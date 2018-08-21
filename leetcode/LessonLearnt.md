@@ -207,10 +207,52 @@ How do I check if there are duplicates in a flat list in a decent way?
     True
 
 
-Python How to get every first element in 2 Dimensional List
+Python How to get every xth element in 2 Dimensional List
 https://stackoverflow.com/questions/30062429/python-how-to-get-every-first-element-in-2-dimensional-list
 
-You can get the index [0] from each element in a list comprehension
+You can get the index [x] from each element in a list comprehension
 
->>> [i[0] for i in a]
+>>> [i[x] for i in a]
 [4.0, 3.0, 3.5]
+
+
+Q40. Combination Sum II
+swap two element in a list like this: a[0], a[a[0]] = a[a[0]], a[0]. Asked a question on sof:
+
+https://stackoverflow.com/questions/51950193/python-a-b-b-a-implementation-how-is-it-different-from-c-swap-function/51950307#51950307
+
+duplicate:
+
+https://stackoverflow.com/questions/40272594/python-multiple-assignment-issue-list
+
+1. Trivial answer:
+a[a[0]], a[0] = a[0], a[a[0]] works,
+a[0], a[a[0]] = a[a[0]], a[0] does not.
+
+2. How to write this in python: (though i should not do it):
+```
+p, q, a[p], a[q] = index0, index1, a[q], a[p]
+
+# where index0 and index1 may be any expression involving a[i], a[a[i]], a[a[a[i]]] or anything similar. For example
+
+p, q,  a[p], a[q] = a[0], a[a[0]],  a[q], a[p]
+```
+3. Know how to use dis lib to interpret your code to assembly
+
+4. It is related to: Multiple assignment and evaluation order in Python
+
+https://stackoverflow.com/questions/8725673/multiple-assignment-and-evaluation-order-in-python
+
+In an assignment statement, the right-hand side is always evaluated fully before doing the actual setting of variables.
+
+5. and related to passing variable by reference:
+
+https://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference/986145#986145
+
+Partial solution here:
+https://docs.python.org/3/faq/programming.html#how-do-i-write-a-function-with-output-parameters-call-by-reference
+
+Best and most clear article I have ever read about python call by value/ call by reference
+https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/
+
+
