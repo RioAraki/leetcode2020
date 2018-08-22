@@ -5,12 +5,12 @@ def firstMissingPositive(nums):
     """
     n = len(nums)
     for i in range(n):
-        if 0 < nums[i] <= n:
+        print(nums)
+        while 0 < nums[i] <= n and nums[nums[i]-1] != nums[i]:
             if nums[i] != i + 1:
                 # order matters
                 nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i]-1]
-        else:
-            nums[i] = 0
+
 
     for i in range(n):
         if nums[i] != i+1:
@@ -24,8 +24,9 @@ if __name__ == "__main__":
     nums3 = [2,2]
     nums4 = [-3,-2,0,9,1,2]
     nums5 = [1,2,3,4,5,6,9,8]
-
-    test = [nums1, nums2, nums3, nums4, nums5]
+    nums6 = [3,4,-1,1]
+    nums7 = [1,2,0]
+    test = [nums6,nums7]
 
     for case in test:
         print(firstMissingPositive(case))
