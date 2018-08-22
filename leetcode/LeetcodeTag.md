@@ -86,14 +86,29 @@ Q2 Add two numbers: linked list, **Redo**, medium
 	This question is too big, I prefer to do some review on csc384 before solving it
 
 38. Count and Say
-	 **string **
+	 **string**
 	 write a helper function given the previous input, return the next count and say output.
 
 39. Combination Sum
-	**dp**
+	**dp**, **dfs**, **backtrack**
 	use 1d array length equal to range(target), saved all combination sums up to the value of each index. Return the dp[-1]
 
 	looks like there are some other ways like dfs, backtracking, will research more.
+
+40. Combination Sum ii
+    **dp**, **dfs**, **backtrack** **TODO: Use backtrack to solve**
+    Similar but different from 39, all candidates could be used once this time. Use the recursion way (dfs) to deal with it,
+    Most solutions from 39 could also be applied on 40 with little modificationb
+
+41. First Missing Positive
+    **array**
+    Tricky, **run in O(n) time and uses constant extra space**. The first missing positive must be in range[1, len(nums)+1].
+    Loop through the list, if nums[index] != index + 1 (eg: nums[0] != 1), swap nums[nums[index]-1] with nums[index] until
+    nums[index] is in its right place or some value not in 1 ~ len(nums) is returned.
+    Then loop the list again and check the first element does not equal to index + 1.
+
+42. 
+
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
 Q417: 2d array, medium, unsolved
