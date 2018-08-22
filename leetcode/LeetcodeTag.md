@@ -107,7 +107,7 @@ Q2 Add two numbers: linked list, **Redo**, medium
     nums[index] is in its right place or some value not in 1 ~ len(nums) is returned.
     Then loop the list again and check the first element does not equal to index + 1.
 
-42. 
+42.
 
 
 Q11: array, two pointers, easy, **Redo**, **Redone** pass
