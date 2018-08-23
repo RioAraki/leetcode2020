@@ -116,7 +116,9 @@ Linked list:
     Check from left to right and right to left, if height > previous, update highest, else: save water += highest - current height.
     Recursively do it until left and right meet together at highest height.
     
-43. 
+43. Multiply Strings
+    **string**, **math**
+    multiply algorithm implementation
 
 
 
