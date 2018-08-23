@@ -12,8 +12,11 @@ def trap(height):
     while (left <= right):
         # make sure both side meets and stop at the rightmost highest column
         if (height[left] <= height[right]):
+            # if current left > recorded max left, no water being added
             if (height[left] >= maxleft):
                 maxleft = height[left]
+            # else, add water equals to recorded max - current height
+
             else:
                 res += maxleft - height[left]
             left += 1
