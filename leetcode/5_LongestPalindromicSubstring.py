@@ -1,6 +1,6 @@
 # my solution
 
-def longestPalindrome(self, s):
+def longestPalindrome(s):
     """
     :type s: str
     :rtype: str

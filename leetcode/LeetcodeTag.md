@@ -20,7 +20,15 @@ Linked list:
     Find out the index of median. Set two pointers as the index of two lists, compare both `list[pointer]` find the smaller
     one, increment pointer for that list by 1, until index reaches median
 5. Longest Palindrome Substring  
-    **string**,
+    **string**, **dynamic programming**  
+    Write a function to find palindrome: select left and right index, see if string[left-1] == string[right+1], update the index accordingly
+    Execute this function n times, n = length of string
+
+    DP:   
+        saved data: 2d array, dp[i,j] -> if string[i,j] could form a palindrome (put the length inside)
+    
+    
+        
     
 
 11. Container With Most Water    
