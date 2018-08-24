@@ -11,9 +11,18 @@ Linked list:
 1. Two Sum  
    **two pointers**, easy
 2. Add two numbers  
-   **linked list**, **Redo**, medium
+   **linked list**, **Redo**, medium  
+   Count sum + carry bit as the value of linked list. Carry bit may create one extra node for result.
 3. Longest Substring Without Repeating Characters:  
    **two pointers**, medium
+4. Median of Two Sorted Arrays  
+    **array**,
+    Find out the index of median. Set two pointers as the index of two lists, compare both `list[pointer]` find the smaller
+    one, increment pointer for that list by 1, until index reaches median
+5. Longest Palindrome Substring  
+    **string**,
+    
+
 11. Container With Most Water    
     **array**, **two pointers**, easy, **Redo**, **Redone** pass
 12. Integer to Roman    
