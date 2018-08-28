@@ -208,11 +208,21 @@ Q856 Score of Parentheses: string, medium
     **2d array**, **geometry**  
     Count each "pillar"'s surface area, delete the area covered by previous pillar.
     
-893. Groups of special-Equivalent Strings  
-    **string**  
+893. Groups of special-Equivalent Strings    
+    **string**   
     Helper function to decide if two strings are special-equivalent, remember that in order to let two strings to be
     special equivalent, you can do **any** number of switches with both odd indices and even indices. In order words,
     if stringA odd == stringB odd and stringA even == stringB even they must be special equivalenet.
     
     Then try to split strings into group.
-    
+  
+895.Maximum Frequency Stacks   
+    **collections**, **stack**, **hash table**   
+    The answer uses python's collections library elegantly, so that the answer overall is very concise.
+    `collections.counter` is used to count elements and num of elements appeared.    
+    `defaultlist(list)` is used as the "stack" with `freq[x]` (number of x appeared) as key. This part is fantastic cuz 
+    it matches the requirement of pop the most frequent and closest to the top. 
+    `maxf` is used to save the current max number of element appeared.  
+    `push` would update `freq` by 1 and `maxf` accordingly. Then append x to m[freq[x]].  
+    `pop` would find `maxf`,  pop `m[maxf]` to find the latest number, decrease `maxf` by 1 if the last number in `m[maxf]`
+     is being poped  and lastly decrease `freq[maxf]` by 1.
