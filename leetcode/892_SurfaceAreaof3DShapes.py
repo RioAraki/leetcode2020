@@ -19,6 +19,11 @@ def surfaceArea(self, grid):
                 ret -= min(grid[i][j - 1], grid[i][j]) * 2
     return ret
 
+# Add all pillars together to get sum, zip(*grid), the * here would regard all entries in grid as multiple input.
+
+def trickySurfaceArea(self, grid):
+    return sum(v * 4 + 2 for row in grid for v in row if v) - sum(min(a,b)*2 for row in grid +zip(*grid) for a, b in zip(row, row[1:]))
+
 
 if __name__ == "__main__":
     pass

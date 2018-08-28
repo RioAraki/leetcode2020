@@ -32,8 +32,20 @@ def numSpecialEquivGroups(self, A):
             ret.append(tmp)
     return len(ret)
 
+import collections
+
+# smart way to split even and odd: x[0::2], x[1::2]
+# defaultdict(int), int is the default factory parameter, it would automatically set every value of the key to 0
+
+
+
+def betterNumSpecialEquivGroups(self, A):
+    d = collections.defaultdict(int)
+    for w in A:
+        even = "".join(sorted(w[0::2]))
+        odd = "".join(sorted(w[1::2]))
+        d[(even, odd)] += 1
+    return len(d)
+
 if __name__ == "__main__":
     test = ["couxuxaubw", "zsptcwcghr", "kkntvvhbcc", "nkhtcvvckb", "crcwhspgzt"]
-    for i in range(len(test)):
-        for j in range(i+1, len(test)):
-            print(test[i], test[j], SES(test[i],test[j]))
