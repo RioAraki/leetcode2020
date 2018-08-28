@@ -1,5 +1,8 @@
 # correct but TLE
 
+# A dictionary to keep track of the num of elements in the stack
+# A list to keep track of the index of elements in the stack
+
 import operator
 class TLEFreqStack:
 
@@ -17,6 +20,12 @@ class TLEFreqStack:
             self.dct[x] = 1
         self.lst.append(x)
 
+# find max val in the dict
+# find key with the max val that has largest index
+# pop this key from list and decrement the value of it by 1
+
+# how to improve:
+# better data structure? priority queue?
 
     def pop(self):
         """

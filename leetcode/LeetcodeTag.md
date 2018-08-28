@@ -200,7 +200,19 @@ Q856 Score of Parentheses: string, medium
 888. Uncommon Words from Two Sentences  
 	String, easy, collections.counter do a lot of jobs. Combine two strings together would make the algo much more efficient
 
-
 889. Spiral Matrix III  
-	**Redo**, medium, 2d array, simulate the spiral isnt easy, efficient turn like 874
+	**Redo**  
+	medium, 2d array, simulate the spiral isnt easy, efficient turn like 874
 
+892. Surface area of 3d shapes  
+    **2d array**, **geometry**  
+    Count each "pillar"'s surface area, delete the area covered by previous pillar.
+    
+893. Groups of special-Equivalent Strings  
+    **string**  
+    Helper function to decide if two strings are special-equivalent, remember that in order to let two strings to be
+    special equivalent, you can do **any** number of switches with both odd indices and even indices. In order words,
+    if stringA odd == stringB odd and stringA even == stringB even they must be special equivalenet.
+    
+    Then try to split strings into group.
+    
