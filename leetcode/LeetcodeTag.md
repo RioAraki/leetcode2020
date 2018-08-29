@@ -138,17 +138,23 @@ Linked list:
     multiply algorithm implementation
 
 44. Wildcard Matching  
-    **dp**  
+    **dp**, **greedy**, **redo with other method**
     2d array -> `dp[i][j]` means if `s[:i+1]` would match `p[:j+1]`, to deal with `*` is the hardest part.
     Draw out the array and think about different cases about *
     like when it appears at beginning, when it counts as nothing, 1 char or multiple chars.
 
 45. Jump Game II  
-    **dp**  
+    **dp**, **redo with other method**
     dp with number of jumps.  
     1d array, index i maintains max position with i jump, max position = i+nums[i]  
     return i as long as i >= len(nums)-1  
 
+46. Permutation  
+    **DFS**, **recursion**, **iteraive**, **redo with other method**  
+    put each element from nums in a list, then for each list append one of the rest element from nums, recursively do it
+     until there is no number in the nums left, append the result to `return` 
+    
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy

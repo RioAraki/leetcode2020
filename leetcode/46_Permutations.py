@@ -20,14 +20,28 @@ def permute(nums, cur = [], ret = []):
     dfs(nums, ret, [])
     return ret
 
-
-def onePermute(self, nums):
+# dfs with oneline, use enumerate as slicer later
+def oneLinePermute(nums):
     """
     :type nums: List[int]
     :rtype: List[List[int]]
     """
-    return [[n] + p for i,n in enumerate(nums) for p in self.permute(nums[:i]+nums[i+1:])] or [[]]
+    return [[n] + p for i,n in enumerate(nums) for p in permute(nums[:i]+nums[i+1:])] or [[]]
+
+# iterative solution:
+def iterPermute(nums):
+    perms = [[]]
+    for n in nums:
+        new_perms = []
+        for perm in perms:
+            for i in range(len(perm)+1):
+                new_perms.append(perm[:i] + [n] + perm[i:])   ###insert n
+                print(new_perms)
+        perms = new_perms
+    return perms
+
+
 
 test = [1,2,3]
 
-print(permute(test))
+print(iterPermute(test))
