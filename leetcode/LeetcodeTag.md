@@ -143,6 +143,11 @@ Linked list:
     Draw out the array and think about different cases about *
     like when it appears at beginning, when it counts as nothing, 1 char or multiple chars.
 
+45. Jump Game II  
+    **dp**  
+    dp with number of jumps.  
+    1d array, index i maintains max position with i jump, max position = i+nums[i]  
+    return i as long as i >= len(nums)-1  
 
 Q417: 2d array, medium, unsolved
 Q829: math, medium
