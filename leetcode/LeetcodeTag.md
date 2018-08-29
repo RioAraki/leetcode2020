@@ -137,6 +137,11 @@ Linked list:
     **string**, **math**
     multiply algorithm implementation
 
+44. Wildcard Matching  
+    **dp**  
+    2d array -> `dp[i][j]` means if `s[:i+1]` would match `p[:j+1]`, to deal with `*` is the hardest part.
+    Draw out the array and think about different cases about *
+    like when it appears at beginning, when it counts as nothing, 1 char or multiple chars.
 
 
 Q417: 2d array, medium, unsolved
