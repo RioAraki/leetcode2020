@@ -1,12 +1,10 @@
-
-
 def jump(nums):
     """
     :type nums: List[int]
     :rtype: int
     """
     # dp with number of jumps?
-    # 1d array, index i maintains max position with i jump, max position = i+nums[i]  
+    # 1d array, index i maintains max position with i jump, max position = i+nums[i]
     # return i as long as i >= len(nums)-1
     if len(nums) <= 1: return 0
 
