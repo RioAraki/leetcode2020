@@ -255,4 +255,56 @@ https://docs.python.org/3/faq/programming.html#how-do-i-write-a-function-with-ou
 Best and most clear article I have ever read about python call by value/ call by reference
 https://jeffknupp.com/blog/2012/11/13/is-python-callbyvalue-or-callbyreference-neither/
 
+Q46. Permutation
 
+A lot of things learned in terms of append, +, and so on.
+The dfs part for the solution is:
+
+```
+def dfs(nums, ret, path):
+    print(ret)
+    if not nums:
+        ret.append(path)
+    for i in range(len(nums)):
+        dfs(nums[:i] + nums[i + 1:], ret, path+[nums[i]])
+    dfs(nums, ret, [])
+    return ret
+```
+I am wondering why I cant do:
+```
+def dfs(nums, ret, path):
+    print(ret)
+    if not nums:
+        ret.append(path)
+    for i in range(len(nums)):
+        dfs(nums[:i] + nums[i + 1:], ret, path.append(nums[i]))
+    dfs(nums, ret, [])
+    return ret
+```
+The answer is that `list.append()` does not create and **return** a new list.
+So the parameter `path.append(nums[i])` is `None`. Then the next question is why
+I cannot do this:
+```
+...
+for i in range(len(nums)):
+    path = path.append(nums[i])
+        dfs(nums[:i] + nums[i + 1:], ret, path)
+...
+```
+The answer is that `path = path.append(nums[i])` always points to the original `path`.  
+That is to say after we finish one iteration and ready to start a new one, we want to 
+keep the `path` as the iteration didn't changed it. Since `path+nums[i]` creates a new
+ list, the original one leaves unchanged when we start a new iteration and want to use
+ it again. Then lastly, Why I cannot do this:
+```
+...
+for i in range(len(nums)):
+    path += [nums[i]]
+        dfs(nums[:i] + nums[i + 1:], ret, path)
+...
+
+```
+Same as the previous one, this way always mofidy the original list and does not create a
+new one for each iteration. Remind that `path += [nums[i]]` != `path+nums[i]`. As mentioned,
+the former one keeps the same variable while the latter one creates a new variable even they 
+are same in value.
