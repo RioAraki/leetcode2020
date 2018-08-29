@@ -20,6 +20,14 @@ def permute(nums, cur = [], ret = []):
     dfs(nums, ret, [])
     return ret
 
+
+def onePermute(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: List[List[int]]
+    """
+    return [[n] + p for i,n in enumerate(nums) for p in self.permute(nums[:i]+nums[i+1:])] or [[]]
+
 test = [1,2,3]
 
 print(permute(test))
