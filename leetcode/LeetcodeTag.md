@@ -161,7 +161,18 @@ Linked list:
     the idea is to change list to another immutable type and change it back when return it. 
     I choose string, but tuple should also be fine.
     
+48. Rotate Image  
+    **array**  
+    the nature of right turn 90 degree (x,y) = (-y, x).    
+    Loop through `range(n//2)` and `range(n-n//2)`, we cannot do `(n//2)` two times cuz it would miss the middle entries  
+    Use `~` in python -> 2 complemnt 1 => -2 ; 10 => -11. In this way we can do:  
+    ```
+    A[i][j], A[~j][i], A[~i][~j], A[j][~i] = \
+                         A[~j][i], A[~i][~j], A[j][~i], A[i][j]
+                         ```
+      
     
+
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
