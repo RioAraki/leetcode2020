@@ -170,7 +170,18 @@ Linked list:
     A[i][j], A[~j][i], A[~i][~j], A[j][~i] = \
                          A[~j][i], A[~i][~j], A[j][~i], A[i][j]
                          ```
-      
+49. Group Anagrams  
+    **string**, **hash table**  
+    create a `defaultdict(list)`, loop through list, set sorted(element in list) as dict's key, append element in dict's value.  
+    Return all value in the dict
+    
+50. Pow(x,n)
+    **recursion**, **iteration**, **bit manipulation**   
+    Multiple ways could solve this one, here I would show recursion.  
+    return 1 when n is 0.  
+    when n is even, we return pow() with x = x*x and n = n//2  
+    when n is odd, we return x*pow() with x unchanged, n = n -1  
+    when n is negative, we return 1/pow() with x unchanged, n = -n  
     
 
 Q417: 2d array, medium, unsolved
