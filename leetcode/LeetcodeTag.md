@@ -154,6 +154,13 @@ Linked list:
     put each element from nums in a list, then for each list append one of the rest element from nums, recursively do it
      until there is no number in the nums left, append the result to `return` 
     
+47. Permutation II  
+    **DFS**, **recursion**, **iteraive**  
+    same idea as 46. permutation, use set() to avoid duplicate. 
+    However, set does not accept list as key since it is not hashable because list is mutable.
+    the idea is to change list to another immutable type and change it back when return it. 
+    I choose string, but tuple should also be fine.
+    
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
