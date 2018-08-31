@@ -186,8 +186,15 @@ Linked list:
 51. TODO after review 384  
 52. TODO after review 384   
 
-
-
+53. Maximum Subarray
+    **array**, **dp**  
+    loop through the list  
+    if the next element i > current sum + i,let i = new current sum  
+    if the next element i < current sum + i, current sum = current sum + i  
+    always record the current highest      
+    
+    
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
