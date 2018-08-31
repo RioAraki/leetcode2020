@@ -201,6 +201,13 @@ Linked list:
     **dp**
     Same as Q45
     
+56. Merge Intervals  
+    **array**  
+    Sort the interval, Create return list, put `interval[0]` by default.
+    Loop through the interval, if the `entry[0] <  return[-1][0]`,
+     we may update `return[-1][1] = max(return[-1][1], entry[1])`.  
+    Remember to use the `Interval` class.
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
