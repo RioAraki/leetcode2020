@@ -193,7 +193,13 @@ Linked list:
     if the next element i < current sum + i, current sum = current sum + i  
     always record the current highest      
     
+54. Spiral Matrix  
+    **2d array**  
+    Understand the pattern about the spiral turning. Two elements: Direction (turning right), steps.
     
+55. Jump game
+    **dp**
+    Same as Q45
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
