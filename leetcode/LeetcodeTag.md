@@ -176,13 +176,17 @@ Linked list:
     Return all value in the dict
     
 50. Pow(x,n)
-    **recursion**, **iteration**, **bit manipulation**   
+    **recursion**, **iteration**, **bit manipulation**, **math**, **binary search**   
     Multiple ways could solve this one, here I would show recursion.  
     return 1 when n is 0.  
     when n is even, we return pow() with x = x*x and n = n//2  
     when n is odd, we return x*pow() with x unchanged, n = n -1  
     when n is negative, we return 1/pow() with x unchanged, n = -n  
     
+51. TODO after review 384  
+52. TODO after review 384   
+
+
 
 Q417: 2d array, medium, unsolved
 Q829: math, medium
