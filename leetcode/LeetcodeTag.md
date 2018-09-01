@@ -222,6 +222,11 @@ Linked list:
 59. Spiral Matrix II
     Same structure as Q55, understand how spiral works.
     
+60. Permutation Sequence
+    Given number from 1~n, we could get kth permutation directly.
+    
+61. 
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
