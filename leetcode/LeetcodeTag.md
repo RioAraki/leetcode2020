@@ -223,9 +223,10 @@ Linked list:
     Same structure as Q55, understand how spiral works.
     
 60. Permutation Sequence
-    Given number from 1~n, we could get kth permutation directly.
+    Given number from 1~n, we could get kth permutation directly. Could use recursion to find each position's number and
+     concatenate them together
     
-61. 
+61. Rotate List
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium

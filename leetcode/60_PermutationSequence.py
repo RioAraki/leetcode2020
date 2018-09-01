@@ -1,3 +1,5 @@
+import math
+
 def getPermutation(n, k):
     """
     :type n: int
