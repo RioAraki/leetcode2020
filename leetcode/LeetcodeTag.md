@@ -219,14 +219,22 @@ Linked list:
     **string**  
     strip by " " to clean blank space, split by " " to get the last word
     
-59. Spiral Matrix II
+59. Spiral Matrix II  
+    **2d array**  
     Same structure as Q55, understand how spiral works.
     
-60. Permutation Sequence
+60. Permutation Sequence  
+    **math**, **string**  
     Given number from 1~n, we could get kth permutation directly. Could use recursion to find each position's number and
      concatenate them together
     
-61. Rotate List
+61. Rotate List  
+    **linked list**
+    loop through the ll to get length  
+    let k < length of ll  
+    function to turn right ll by 1, execute k times
+    Better: use two pointers, fast one would go through to the end while slow one would go forward len - k times
+        
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
