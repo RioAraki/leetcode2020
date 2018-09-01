@@ -208,6 +208,13 @@ Linked list:
      we may update `return[-1][1] = max(return[-1][1], entry[1])`.  
     Remember to use the `Interval` class.
     
+57. Insert Interval  
+    **array**  
+    Relate to Q56. set list `left` (if new.start > i.end) and `right`(if new.end < i.start) to put those intervals 
+    that wont be affected.
+    If the interval meets neither of the condition, it must be affected by the newinterval, so we want to update the 
+    start and end of it.
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
