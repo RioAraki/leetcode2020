@@ -215,6 +215,10 @@ Linked list:
     If the interval meets neither of the condition, it must be affected by the newinterval, so we want to update the 
     start and end of it.
     
+58. Length of Last Word
+    **string**  
+    strip by " " to clean blank space, split by " " to get the last word
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
