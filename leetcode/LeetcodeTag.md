@@ -219,6 +219,9 @@ Linked list:
     **string**  
     strip by " " to clean blank space, split by " " to get the last word
     
+59. Spiral Matrix II
+    Same structure as Q55, understand how spiral works.
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
