@@ -242,6 +242,16 @@ Linked list:
 63. Unique Paths II  
     **2d array**, **dp**  
     DP so save number of paths up to `dp[i][j]` which i, j is the corresponding index
+
+64. Minimum Path Sum    
+    **dp**
+    Similar to 63
+    
+65. Valid Number    
+    **FSN**  
+    The question is quite ambiguous. Basically it accepts a lot of different formats, we need to find out how many 
+    formats it accepts and give each pattern a state.
+        
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
