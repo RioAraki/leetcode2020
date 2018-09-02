@@ -234,14 +234,21 @@ Linked list:
     let k < length of ll  
     function to turn right ll by 1, execute k times
     Better: use two pointers, fast one would go through to the end while slow one would go forward len - k times
-        
+
+62. Unique Path
+    **2d array**, **dp**  
+    refer to 63
+
+63. Unique Paths II  
+    **2d array**, **dp**  
+    DP so save number of paths up to `dp[i][j]` which i, j is the corresponding index
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
 Q831: 2d array, medium
 Q16: array, two pointers, medium, **Redo**
-Q63 Unique Paths II: 2d array, dp, easy
+
 Q64 Minimum Path Sum: 2d array, dp, easy, same as Q63
 Q840 Magic Squares In Grid: 2d array, easy
 Q841 Keys and Rooms: 2d array, easy
