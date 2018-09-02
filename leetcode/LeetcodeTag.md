@@ -330,3 +330,9 @@ Q856 Score of Parentheses: string, medium
     `push` would update `freq` by 1 and `maxf` accordingly. Then append x to m[freq[x]].  
     `pop` would find `maxf`,  pop `m[maxf]` to find the latest number, decrease `maxf` by 1 if the last number in `m[maxf]`
      is being poped  and lastly decrease `freq[maxf]` by 1.
+     
+897. Increasing Order Search Tree
+    **BST**
+    Implement an inorder search. Whenever treenode.val is returned, append it to the returned tree's right child. 
+    I use `yield` when doing the inorder search do I dont need to add the result tree in parameter (looks like its
+    not accepted by OJ). 
