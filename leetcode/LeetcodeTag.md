@@ -251,7 +251,15 @@ Linked list:
     **FSN**  
     The question is quite ambiguous. Basically it accepts a lot of different formats, we need to find out how many 
     formats it accepts and give each pattern a state.
-        
+
+66. Plus one  
+    **array**, **math**  
+    reverse the list and add 1, remind the carry bit, especially at case like "999".  
+    
+67. Add Binary  
+    **math**, **string**  
+    do the binary calculation directly or  
+    transfer it to decimal by `int(x, 2)` then transfer back to binary by `bin()`
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
