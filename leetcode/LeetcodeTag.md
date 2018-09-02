@@ -320,19 +320,23 @@ Q856 Score of Parentheses: string, medium
     
     Then try to split strings into group.
   
-895.Maximum Frequency Stacks   
+895. Maximum Frequency Stacks   
     **collections**, **stack**, **hash table**   
     The answer uses python's collections library elegantly, so that the answer overall is very concise.
     `collections.counter` is used to count elements and num of elements appeared.    
     `defaultlist(list)` is used as the "stack" with `freq[x]` (number of x appeared) as key. This part is fantastic cuz 
     it matches the requirement of pop the most frequent and closest to the top. 
     `maxf` is used to save the current max number of element appeared.  
-    `push` would update `freq` by 1 and `maxf` accordingly. Then append x to m[freq[x]].  
+    `push` would update `freq` by 1 and `maxf` accordingly. Then append x to `m[freq[x]]`.  
     `pop` would find `maxf`,  pop `m[maxf]` to find the latest number, decrease `maxf` by 1 if the last number in `m[maxf]`
      is being poped  and lastly decrease `freq[maxf]` by 1.
-     
-897. Increasing Order Search Tree
-    **BST**
+
+896. Monotonic Array  
+    **array**  
+    Monotonic could be decreasing or increasing, compare array with sorted array and reversely sorted array.
+
+897. Increasing Order Search Tree  
+    **BST**  
     Implement an inorder search. Whenever treenode.val is returned, append it to the returned tree's right child. 
     I use `yield` when doing the inorder search do I dont need to add the result tree in parameter (looks like its
     not accepted by OJ). 
