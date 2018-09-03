@@ -1,4 +1,4 @@
-# Newton's method, all about maths, just remember it.
+# Newton's method, all about maths, just memorize it.
 
 def mySqrt(x):
     r = x

@@ -264,7 +264,10 @@ Linked list:
 68. Text Justification  
     **string**  
     Algorithm is straightforward. You just need to consider a lot of cases and write it carefully.   
-    
+
+69. Sqrt(x)  
+    **math**  
+    Newton's method, all about maths, just memorize it.
 
 Q417: 2d array, medium, unsolved
 Q829: math, medium
