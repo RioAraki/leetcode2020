@@ -269,6 +269,9 @@ Linked list:
     **math**  
     Newton's method, all about maths, just memorize it.
 
+70. Climbing Stairs  
+    **dp**  
+    Same as fibonacci sequence
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
