@@ -260,7 +260,12 @@ Linked list:
     **math**, **string**  
     do the binary calculation directly or  
     transfer it to decimal by `int(x, 2)` then transfer back to binary by `bin()`
+
+68. Text Justification  
+    **string**  
+    Algorithm is straightforward. You just need to consider a lot of cases and write it carefully.   
     
+
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
