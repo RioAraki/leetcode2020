@@ -270,8 +270,16 @@ Linked list:
     Newton's method, all about maths, just memorize it.
 
 70. Climbing Stairs  
-    **dp**  
+    **dp**   
     Same as fibonacci sequence
+    
+71. Simplify Path  
+    **string**, **stack**  
+    Understand the rules of unix pathing.  
+    Use a stack to record all content in the paths split by '/'.  
+    If it is .., pop the last element in the stack.   
+    Finally, return a string contains element in the stack + '/'.  
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
