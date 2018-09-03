@@ -285,7 +285,11 @@ Linked list:
     2d array with each row and col the char in word1 and word2. `dp[i][j]` means the number of edits required to 
     make `word1[:i+1] == word2[:j+1]`.  
 
-
+73. Set Matrix Zeroes  
+    **2d array**  
+    In order to do it in-place, whenever we meet `matrix[i][j] = 0`, set `matrix[i][0] = 0, matrix[0][j] = 0`.  
+    But we cannot do this to the first row and col cuz it would affect our result, so we need to check first row and col
+    and update them lastly.  
 
 Q417: 2d array, medium, unsolved
 Q829: math, medium
