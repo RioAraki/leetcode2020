@@ -279,7 +279,14 @@ Linked list:
     Use a stack to record all content in the paths split by '/'.  
     If it is .., pop the last element in the stack.   
     Finally, return a string contains element in the stack + '/'.  
-    
+
+72. Edit Distance  
+    **dp**  
+    2d array with each row and col the char in word1 and word2. `dp[i][j]` means the number of edits required to 
+    make `word1[:i+1] == word2[:j+1]`.  
+
+
+
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy
