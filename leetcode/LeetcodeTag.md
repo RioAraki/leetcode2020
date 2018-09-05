@@ -290,6 +290,14 @@ Linked list:
     In order to do it in-place, whenever we meet `matrix[i][j] = 0`, set `matrix[i][0] = 0, matrix[0][j] = 0`.  
     But we cannot do this to the first row and col cuz it would affect our result, so we need to check first row and col
     and update them lastly.  
+    
+74. 
+
+75. Sorting colors   
+    **sort**  
+    use counting sort or   
+    since we know there are only three numbers to track, we can set the index of the ending for each number and update
+    it accordingly.
 
 Q417: 2d array, medium, unsolved
 Q829: math, medium
