@@ -5,7 +5,7 @@ Redo all tags with **Redo** since I didn't manage to solve the issue without any
 TODO: Add the general thoughts of solving each problem
 
 # By topic
-Linked list: 
+Combination and permutation: 46, 47, 60, 17, 39, 40, 77, 216, 377, 31, 266, 267, 484, 567, 784
 
 
 1. Two Sum  
@@ -119,7 +119,7 @@ Linked list:
 40. Combination Sum ii  
     **dp**, **dfs**, **backtrack** **TODO: Use backtrack to solve**
     Similar but different from 39, all candidates could be used once this time. Use the recursion way (dfs) to deal with it,
-    Most solutions from 39 could also be applied on 40 with little modificationb
+    Most solutions from 39 could also be applied on 40 with little modification
 
 41. First Missing Positive  
     **array**， **redo**
@@ -223,11 +223,11 @@ Linked list:
     **2d array**  
     Same structure as Q55, understand how spiral works.
     
+
 60. Permutation Sequence  
     **math**, **string**  
-    Given number from 1~n, we could get kth permutation directly. Could use recursion to find each position's number and
-     concatenate them together
-    
+    Given number from 1 to n, we could get kth permutation directly. Could use recursion to find each positions number and concatenate them together.  
+
 61. Rotate List  
     **linked list**
     loop through the ll to get length  
@@ -305,7 +305,10 @@ Linked list:
     **hash table**, **two pointers**  
     Use a dict to store all chars in target, and a variable `missing` to record missing chars in t. When `missing == 0`
     it means we have found all t in s, then trying to slide the window by truncate unneeded char in window.  
-    
+
+77. Combinations  
+    **recursion**, **iteration**  
+    Use recursion.  
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
