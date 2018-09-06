@@ -291,7 +291,9 @@ Linked list:
     But we cannot do this to the first row and col cuz it would affect our result, so we need to check first row and col
     and update them lastly.  
     
-74. 
+74. Search a 2D Matrix   
+    **2d array**  
+    Do binary search normally. Note that: mid // n -> row, mid % n -> col  
 
 75. Sorting colors   
     **sort**  
