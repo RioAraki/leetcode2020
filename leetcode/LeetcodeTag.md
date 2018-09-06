@@ -301,6 +301,12 @@ Linked list:
     since we know there are only three numbers to track, we can set the index of the ending for each number and update
     it accordingly.
 
+76. Minimum Window Substring  
+    **hash table**, **two pointers**  
+    Use a dict to store all chars in target, and a variable `missing` to record missing chars in t. When `missing == 0`
+    it means we have found all t in s, then trying to slide the window by truncate unneeded char in window.  
+    
+    
 Q417: 2d array, medium, unsolved
 Q829: math, medium
 Q830: string, easy

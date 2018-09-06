@@ -6,7 +6,7 @@ def minWindow(self, s, t):
     for c in t:
         need[c] += 1
     missing = len(t)
-    
+
     MAX = float('inf')
     a, b = 0, MAX
 
