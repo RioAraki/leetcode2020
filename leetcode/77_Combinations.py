@@ -1,6 +1,6 @@
 # recursion
 
-def combine(n, k):
+def rcombine(n, k):
     """
     :type n: int
     :type k: int
@@ -9,4 +9,18 @@ def combine(n, k):
     if k == 0:
         return [[]]
 
-    return [pre + [i] for i in range(k, n + 1) for pre in combine(i - 1, k - 1)]
+    return [pre + [i] for i in range(k, n + 1) for pre in rcombine(i - 1, k - 1)]
+
+# iteration
+def icombine(self, n, k):
+    """
+    :type n: int
+    :type k: int
+    :rtype: List[List[int]]
+    """
+    combs = [[]]
+    for x in range(k):
+        # in the first loop, c is empty, so i would be in range(1, n+1)
+        # in the latter loop, i would always be in range(1, c[0]-1)
+        combs = [[i] + c for c in combs for i in range(1, c[0] if c else n + 1)]
+        print(x, combs)

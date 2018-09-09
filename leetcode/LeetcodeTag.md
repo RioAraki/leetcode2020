@@ -27,10 +27,6 @@ Combination and permutation: 46, 47, 60, 17, 39, 40, 77, 216, 377, 31, 266, 267,
     DP:   
         saved data: 2d array, dp[i,j] -> if string[i,j] could form a palindrome (put the length inside)
     
-    
-        
-    
-
 11. Container With Most Water    
     **array**, **two pointers**, easy, **Redo**, **Redone** pass
 12. Integer to Roman    
