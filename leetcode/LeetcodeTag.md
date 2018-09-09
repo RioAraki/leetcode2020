@@ -5,7 +5,7 @@ Redo all tags with **Redo** since I didn't manage to solve the issue without any
 TODO: Add the general thoughts of solving each problem
 
 # By topic
-Combination and permutation: 46, 47, 60, 17, 39, 40, 77, 216, 377, 31, 266, 267, 484, 567, 784
+Combination and permutation: 46, 47, 60, 17, 39, 40, 77, 78, 216, 377, 31, 266, 267, 484, 567, 784
 
 
 1. Two Sum  
@@ -305,6 +305,9 @@ Combination and permutation: 46, 47, 60, 17, 39, 40, 77, 216, 377, 31, 266, 267,
 77. Combinations  
     **recursion**, **iteration**  
     Use recursion.  
+
+78. Subsets  
+    **recursion**, **iteration**  
     
 Q417: 2d array, medium, unsolved
 Q829: math, medium
