@@ -1,6 +1,6 @@
 import collections
 
-def removeDuplicates(self, nums):
+def removeDuplicates(nums):
     """
     :type nums: List[int]
     :rtype: int
@@ -23,3 +23,16 @@ def removeDuplicates(self, nums):
             nums[idx] = x
             idx += 1
     return ret
+
+def betterRemoveDuplicates(nums):
+    if len(nums) < 2:
+        return len(nums)
+
+    next_idx = 2  # next index to be filled with result
+
+    for index in range(2, len(nums)):
+        if nums[index] != nums[next_idx - 2]:  # result does not contain 2 copies of this num
+            nums[next_idx] = nums[index]
+            next_idx += 1
+
+    return next_idx
