@@ -2,6 +2,7 @@
 # 2. this would cause index problem when using two pointer method which is the most efficient
 
 # 2018-07 1152ms
+# O(n^2)
 
 class Solution:
     def twoSum(self, nums, target):
@@ -21,7 +22,8 @@ class Solution:
                         # index error: range(i+1, len(nums)), not range(i, len(nums))
 
 
-# 2018-12-6 52ms
+# 2018-12-6 52ms 
+# two pointer method O(n)
 
 def twoSum(self, nums, target):
   """
@@ -43,3 +45,16 @@ def twoSum(self, nums, target):
       i+=1
     else:
       return [nums[i][0],nums[j][0]]
+
+# hash map -> dictionary() key: list's value; value: index
+def twoSum(self, nums, target):
+
+  complement = 0
+  hash_map = dict()
+  for count, elem in enumerate(nums, start = 0):
+    complement = target - elem
+    if complement in hash_map:
+      first = hasp_map.get(complement, 0) # ther might be multiple number 
+      return first, count
+    else:
+      hash_map[elem] = count
