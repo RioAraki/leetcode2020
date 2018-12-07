@@ -406,3 +406,10 @@ Q856 Score of Parentheses: string, medium
     Implement an inorder search. Whenever treenode.val is returned, append it to the returned tree's right child. 
     I use `yield` when doing the inorder search do I dont need to add the result tree in parameter (looks like its
     not accepted by OJ). 
+
+945. Minimum Increment to make array unique
+    **Array**
+    Ideally the array should looks like [1,2,3,4,5...], we could set the need and ret variable:
+        ret += max(need - num, 0)
+        need = max(need+1, num + 1)
+    
