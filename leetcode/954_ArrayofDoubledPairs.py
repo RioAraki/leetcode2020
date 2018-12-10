@@ -21,7 +21,7 @@ def canReorderDoubled(self, A):
                 return False
     return True
 
-# 2018-12-08
+# solution: 2018-12-08
 # I have similar idea with standard solution, but didnt use dict which is more efficient
 
 def canReorderDoubled(self, A):
@@ -33,3 +33,25 @@ def canReorderDoubled(self, A):
         count[2*x] -= 1
 
     return all(v == 0 for v in count.values())
+
+
+# 2018-12-09 redo
+def canReorderDoubled(self, A):
+    """
+    :type A: List[int]
+    :rtype: bool
+    """ 
+    
+    cnt = collections.Counter(A)
+    
+    for x in sorted(A):
+        if cnt[x] == 0: continue
+        if x >= 0:
+            if cnt[x*2] == 0: return False
+            cnt[x*2] -=1
+        else:
+            if cnt[x/2] == 0: return False
+            cnt[x/2] -= 1
+        cnt[x] -= 1
+        
+    return sum(cnt.values()) == 0

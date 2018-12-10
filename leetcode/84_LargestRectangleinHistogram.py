@@ -1,3 +1,7 @@
+# need to review the solution
+
+# 2018-12-08: O(n^2) TLE
+
 def largestRectangleArea(self, heights):
     """
     :type heights: List[int]
@@ -22,4 +26,4 @@ def largestRectangleArea(self, heights):
             dp[i][j] = max(dp_tmp, heights[i], rect)
     return max((max(x) for x in dp))
     
-        
+# 2018-12-09: solution using stack
