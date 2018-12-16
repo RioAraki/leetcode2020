@@ -1,3 +1,5 @@
+# 2018-12-16 one time pass
+
 # logic:
 # create two empty nodes, one for smaller, one for equal or larger
 # loop through original nodes, append each node to the two nodes we created
