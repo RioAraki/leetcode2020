@@ -14,3 +14,18 @@ def partition(self, head, x):
     :type x: int
     :rtype: ListNode
     """
+    
+    small = s_tmp = ListNode(0) 
+    large = l_tmp = ListNode(0)
+    
+    while head:
+        if head.val < x:
+            small.next = ListNode(head.val)
+            small = small.next
+        else:
+            large.next = ListNode(head.val)
+            large = large.next
+        head = head.next
+    small.next = l_tmp.next
+        
+    return s_tmp.next
