@@ -1,9 +1,11 @@
+# 2018-12-09: wrong idea, the delete does not have to be linear ordered. You can delete any random line.
+
 def minDeletionSize(self, A):
     """
     :type A: List[str]
     :rtype: int
     """
-    # wrong idea, the delete does not have to be linear ordered. You can delete any random line.
+    # 
     
     # compare ajacent words, make sure they are sorted
         # if A[i-1][x] > A[i][x]
