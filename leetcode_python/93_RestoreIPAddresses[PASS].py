@@ -1,4 +1,4 @@
-# idea: very similar to those questions about combination and permutation subset of a string
+# idea: DFS, very similar to those questions about combination and permutation subset of a string
 # recursively find all possiblities, if last number not valid then the whole thing is not valid
     
     # corner cases:
