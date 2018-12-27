@@ -1,6 +1,11 @@
+#2018-12-26: need to redo, also it is not fast enough
+
 # in order traverse, output should be sorted.
 # use pred and first to record when output is not sorted
 # there should be two times output is not sorted, record the nodes and change their value
+
+
+
 def inorderIter(root):
     if root:
         for node in inorderIter(root.left): 
