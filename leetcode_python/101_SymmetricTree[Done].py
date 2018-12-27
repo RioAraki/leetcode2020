@@ -31,3 +31,5 @@ class Solution(object):
             return root.left == root.right
         elif root.left and root.right:
             return sym(root.left, root.right)
+
+# iteration + queue
