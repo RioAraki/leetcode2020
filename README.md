@@ -30,11 +30,13 @@ A lot of solutions are a mix of multiple topics, one question could also have di
   - Heap sort
   - Quick sort
   - Binary search
-
-- Hash tables
-
-- Linked list
-
+  - Two pointer  
+    Q: 1
+- Hash tables  
+  Q: 1
+- Linked list  
+  Leetcode provides specific API for linked list data structure, so you do not need to implement a linked list even though it is good to do so. Most linked list refers to singly linked list  
+  Q: 2
 - Stack and Queue
 
 - Tree
@@ -75,7 +77,18 @@ A lot of solutions are a mix of multiple topics, one question could also have di
   - Geometry
   - Bit manipulation
 
+Related questions:
+
+1 - two sums  
+15 - 3Sum
+16 - 3Sum Closest  
+18 - 4Sum  
+
+12 - Integer to Roman  
+13 - Roman to integer
+
 ## Language
+
 
 ### Python  
 Basic
