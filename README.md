@@ -44,12 +44,28 @@ A lot of solutions are a mix of multiple topics, one question could also have di
 
 - Tree
   - Tree traverse
-  - BST
+  - BST (binary search tree)
+
+  binary search tree  
+  Implement an BST:  
+    Supported operations:  
+    - insertion
+    - deletion
+    **TODO**
   - AVL tree  
-  AVL tree is a **elf-balancing Binary Search Tree (BST)** where the **difference between heights of left and right subtrees cannot be more than one for all nodes**.
+
+  AVL tree is a **self-balancing Binary Search Tree (BST)** where the **difference between heights of left and right subtrees cannot be more than one for all nodes**.
   
   Its **insertion** and **deletion** operations are the most interesting ones. 
 
+  Implement an AVL tree:
+    Supported operations:
+    - left rotate / right rotate
+    - insertion
+    - deletion
+    **TODO**
+
+  Questions:
     - 108 - Convert Sorted Array to Binary Search Tree
     - 109 - Convert Sorted List to Binary Search Tree (good for understand property and operations of AVL tree like insertion)
 
