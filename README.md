@@ -27,22 +27,32 @@ Language:
 A lot of solutions are a mix of multiple topics, one question could also have different solutions based on different methods. The following lists are based on my own solution and experience.
 
 - Sorting / search
-  - Heap sort
-  - Quick sort
-  - Binary search
+  - Heap sort  
+  - Quick sort  
+  - Binary search  
+
   - Two pointer  
-    Q: 1
+    - 1 - Two Sum  
+
 - Hash tables  
-  Q: 1
+    - 2 - Add Two Numbers  
+
 - Linked list  
-  Leetcode provides specific API for linked list data structure, so you do not need to implement a linked list even though it is good to do so. Most linked list refers to singly linked list  
-  Q: 2
+  Leetcode provides specific API for linked list data structure, so you do not need to implement a linked list even though it is good to do so. Most linked list refers to singly linked list
+    - 2 - Add Two Numbers  
 - Stack and Queue
 
 - Tree
   - Tree traverse
   - BST
-  - AVL tree
+  - AVL tree  
+  AVL tree is a **elf-balancing Binary Search Tree (BST)** where the **difference between heights of left and right subtrees cannot be more than one for all nodes**.
+  
+  Its **insertion** and **deletion** operations are the most interesting ones. 
+
+    - 108 - Convert Sorted Array to Binary Search Tree
+    - 109 - Convert Sorted List to Binary Search Tree (good for understand property and operations of AVL tree like insertion)
+
   - Red black trees
   - B trees
   - Heaps
@@ -80,7 +90,7 @@ A lot of solutions are a mix of multiple topics, one question could also have di
 Related questions:
 
 1 - two sums  
-15 - 3Sum
+15 - 3Sum  
 16 - 3Sum Closest  
 18 - 4Sum  
 
