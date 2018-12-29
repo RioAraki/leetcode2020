@@ -1,56 +1,88 @@
-# Interview_prep
-My plan to prepare for 2019 full time interview algorithm questions.
+# Interview preparation 
+My preparation for technical interview
 
-## General idea
-Review most CLRS as guidence (CSC263 + CSC373) + most leetcode questions (easy + medium, some hard maybe?) covering all topics for practice 
+## Algorithms
 
-## CLRS
+
+### CLRS reading notes
 [Notes](https://github.com/RioAraki/Interview_prep/blob/master/CLRS/clrs.md)
 
 
-## Leetcode 
-Mainly work with python language, try to solve with C++ as well if I have time.
+### Leetcode 
 
-1. By [Topics](https://github.com/RioAraki/Interview_prep/blob/master/topic/topics.md)
-    - brute force 
+Goal:
 
-    - all sorting/ search
-      - Heapsort
-      - Quicksort
+- Solve the first 150 questions
+- Solve questions with different difficulties based on different topics
+- Solve latest released questions routinely
 
-    - Hashtables
-    - Linked list
-    - Stack and Queue
+Language:
 
-    - Tree
-      - Tree traverse
-      - BST
-      - AVL tree
-      - Red black trees
-      - B trees
+- Python: easiest, fastest,
+- C++: more useful since A lot of jobs I pursue requires C++ skills
 
-    - dynamic programming 
-     - divide and conquer 
-     - recursion
-    - Greedy
 
-    - Binomial heaps
-    - Disjoint sets
+[Topics](https://github.com/RioAraki/Interview_prep/blob/master/topic/topics.md)
 
-    - DFS/ BFS
-    - MST (Medium spanning tree)
-    - Network flow
-     - Single source shortest paths
-     - All-pairs shortest paths
-     - Maximum flow
+A lot of solutions are a mix of multiple topics, one question could also have different solutions based on different methods. The following lists are based on my own solution and experience.
 
-    - Linear programming
+- Sorting / search
+  - Heap sort
+  - Quick sort
+  - Binary search
 
-    - Maths
-      - Geometry
-    - Bit manipulation
+- Hash tables
 
-2. First 150 questions as it covers most topics in algorithm
+- Linked list
 
-3. Weekly contest for routinely practice
+- Stack and Queue
+
+- Tree
+  - Tree traverse
+  - BST
+  - AVL tree
+  - Red black trees
+  - B trees
+  - Heaps
+
+- Recursion
+
+- Greedy
+
+- Divide and conquer 
+
+- Dynamic programming 
+
+
+
+   
+- Graph  
+  A lot of methods from graph theory like BFS and DFS can be applied widely in various questions. 
+
+  - BFS (breath first search)
+  - DFS (depth first search)
+  - MST (Medium spanning tree)
+  - Disjoint sets
+
+- Network flow
+  - Single source shortest paths
+  - All-pairs shortest paths
+  - Maximum flow
+  
+- Linear programming
+
+- Maths
+  - Geometry
+  - Bit manipulation
+
+## Language
+
+### Python  
+Basic
+
+
+
+
+### C++
+
 
