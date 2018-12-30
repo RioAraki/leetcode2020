@@ -19,3 +19,18 @@ def hasPathSum(self, root, sum):
         right = self.hasPathSum(root.right, sum-root.val)
     
     return left or right
+
+def hasPathSum(self, root, sum):
+    """
+    :type root: TreeNode
+    :type sum: int
+    :rtype: bool
+    """
+    
+    if root is None:
+        return False
+    
+    if root.left is None and root.right is None:
+        return root.val == sum
+    
+    return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
