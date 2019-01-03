@@ -39,7 +39,16 @@ A lot of solutions are a mix of multiple topics, one question could also have di
 
 - Linked list  
   Leetcode provides specific API for linked list data structure, so you do not need to implement a linked list even though it is good to do so. Most linked list refers to singly linked list
-    - 2 - Add Two Numbers  
+
+  Common trick: use a fast pointer and a slow pointer to get the middle point of linked list
+  ```
+  while fast and fast.next:
+    slow = slow.next
+    fast = fast.next.next
+  ```
+
+    - 2 - Add Two Numbers
+    - 109 - Convert Sorted List to Binary Search Tree
 - Stack and Queue
 
 - Tree
@@ -52,6 +61,11 @@ A lot of solutions are a mix of multiple topics, one question could also have di
     - insertion
     - deletion
     **TODO**
+
+  Questions:
+    - 111 - Minimum Depth of Binary Tree
+
+
   - AVL tree  
 
   AVL tree is a **self-balancing Binary Search Tree (BST)** where the **difference between heights of left and right subtrees cannot be more than one for all nodes**.
@@ -61,15 +75,16 @@ A lot of solutions are a mix of multiple topics, one question could also have di
   Implement an AVL tree:
     Supported operations:
     - left rotate / right rotate
+    - check if balanced
     - insertion
     - deletion
+
     **TODO**
 
   Questions:
     - 108 - Convert Sorted Array to Binary Search Tree
     - 109 - Convert Sorted List to Binary Search Tree (good for understand property and operations of AVL tree like insertion)
-
-  - Red black trees
+    - 110 - Balanced Binary Tree (implementation of check balanced operations)
   - B trees
   - Heaps
 
