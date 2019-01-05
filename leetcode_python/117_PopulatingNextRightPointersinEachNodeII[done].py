@@ -54,3 +54,27 @@ def connect(self, root):
                 if not sibling:
                     print(root.right.val, "->", "None")
                     root.right.next = None
+
+
+
+def connect(self, root):
+	# initate empty tree
+    prekid = kid = TreeLinkNode(0)
+    # loop through all depth
+    while root:
+    	# loop each depth
+        while root:
+            kid.next = root.left
+            # if left exists, set kid to left, else remain unchanged
+            kid = kid.next or kid
+
+            # link left to right
+            kid.next = root.right
+            kid = kid.next or kid
+
+            # do this recursively so that same level's nodes connect together
+            root = root.next
+
+        # root becomes the first node in next level
+        # kid becomes empty tree node
+        root, kid = prekid.next, prekid
