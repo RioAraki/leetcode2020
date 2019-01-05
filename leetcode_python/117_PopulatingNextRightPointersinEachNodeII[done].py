@@ -55,7 +55,7 @@ def connect(self, root):
                     print(root.right.val, "->", "None")
                     root.right.next = None
 
-
+# [REDO] very smart and elegant bfs, regard the tree based on depth
 
 def connect(self, root):
 	# initate empty tree
