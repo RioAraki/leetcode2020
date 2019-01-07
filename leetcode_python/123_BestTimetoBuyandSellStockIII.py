@@ -45,3 +45,37 @@ class Solution:
                 tmpMax = max(tmpMax, dp[l - 1][i] - prices[i])
 
         return dp[-1][-1]
+
+
+
+def maxProfit(self, prices):
+    """
+    :type prices: List[int]
+    :rtype: int
+    """
+    # use the algo. from 121 to find the two dates for first buy and sell, delete the range between two dates
+    # use the same algo. and new date list to find the second one
+    
+    def oneProMax(prices):
+        
+        
+        minPrice = prices[0]
+        maxPro = 0
+        mindate = 0
+        maxdate = 0
+        
+        for i in range(len(prices)):
+            if prices[i] < minPrice:
+                minPrice = prices[i]
+                mindate = i
+            
+            if prices[i] - minPrice > maxPro:
+                maxPro = prices[i] - minPrice
+                maxdate = i
+        
+        new_prices = prices[:mindate] + prices[maxdate+1:]
+        
+        
+        
+        
+        return profic, new_prices
