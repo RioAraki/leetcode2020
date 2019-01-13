@@ -1,5 +1,0 @@
-﻿  1_TwoSum.cpp
-c:\github\interview_prep\leetcode_c++\leetcode\leetcode\1_twosum.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\github\interview_prep\leetcode_c++\leetcode\leetcode\1_twosum.cpp(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\github\interview_prep\leetcode_c++\leetcode\leetcode\1_twosum.cpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Leetcode.vcxproj -> C:\github\Interview_prep\leetcode_c++\Leetcode\x64\Debug\Leetcode.exe
