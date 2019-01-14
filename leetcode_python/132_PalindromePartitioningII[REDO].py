@@ -1,3 +1,5 @@
+# need to redo
+
 def minCut(self, s):
     """
     :type s: str
