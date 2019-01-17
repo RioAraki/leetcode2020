@@ -131,7 +131,11 @@ Related questions:
 121 - Best Time to Buy and Sell Stock  
 122 - Best Time to Buy and Sell Stock II    
 123 - Best Time to Buy and Sell Stock III    
+DP
 
+136 - Single number
+127 - Single number II
+Sum difference, bit manipulation (xor all bits), hash table
 
 ### Trivial
 
