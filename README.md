@@ -132,6 +132,11 @@ Related questions:
 122 - Best Time to Buy and Sell Stock II    
 123 - Best Time to Buy and Sell Stock III    
 
+
+### Trivial
+
+28 - implement Strstr(): KMP algorithm O(m+n)
+
 ## Language
 
 
