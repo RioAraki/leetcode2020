@@ -1,7 +1,7 @@
 // 2018-12-15 pass 4ms
 
 #include <vector>;
-#include <unordered_map>
+#include <unordered_map>;
 #include <stdio.h>;
 #include <iostream>;
 
@@ -30,11 +30,4 @@ std::vector<int> twoSum(std::vector<int>& nums, int target) {
 };
 
 
-int main() {
-  std::vector<int> nums;
-  nums.resize(4);
-  nums = { 2, 7, 11, 15 };
-  int target = 9;
-  twoSum(nums, target);
-  return 0;
-}
+
