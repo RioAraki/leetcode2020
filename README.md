@@ -39,16 +39,7 @@ A lot of solutions are a mix of multiple topics, one question could also have di
 
 - Linked list  
   Leetcode provides specific API for linked list data structure, so you do not need to implement a linked list even though it is good to do so. Most linked list refers to singly linked list
-
-  Common trick: use a fast pointer and a slow pointer to get the middle point of linked list
-  ```
-  while fast and fast.next:
-    slow = slow.next
-    fast = fast.next.next
-  ```
-
-    - 2 - Add Two Numbers
-    - 109 - Convert Sorted List to Binary Search Tree
+    - 2 - Add Two Numbers  
 - Stack and Queue
 
 - Tree
@@ -61,11 +52,6 @@ A lot of solutions are a mix of multiple topics, one question could also have di
     - insertion
     - deletion
     **TODO**
-
-  Questions:
-    - 111 - Minimum Depth of Binary Tree
-
-
   - AVL tree  
 
   AVL tree is a **self-balancing Binary Search Tree (BST)** where the **difference between heights of left and right subtrees cannot be more than one for all nodes**.
@@ -75,16 +61,15 @@ A lot of solutions are a mix of multiple topics, one question could also have di
   Implement an AVL tree:
     Supported operations:
     - left rotate / right rotate
-    - check if balanced
     - insertion
     - deletion
-
     **TODO**
 
   Questions:
     - 108 - Convert Sorted Array to Binary Search Tree
     - 109 - Convert Sorted List to Binary Search Tree (good for understand property and operations of AVL tree like insertion)
-    - 110 - Balanced Binary Tree (implementation of check balanced operations)
+
+  - Red black trees
   - B trees
   - Heaps
 
@@ -131,6 +116,11 @@ Related questions:
 121 - Best Time to Buy and Sell Stock  
 122 - Best Time to Buy and Sell Stock II    
 123 - Best Time to Buy and Sell Stock III    
+188 - Best Time to Buy and Sell Stock IV    
+309 - Best Time to Buy and Sell Stock with Cooldown   
+714 - Best Time to Buy and Sell Stock with Transaction Fee
+
+The best time to buy and sell stock series 
 
 ## Language
 
