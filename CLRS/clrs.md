@@ -16,7 +16,7 @@
 
 **实现一个 insertion sort**:
 
-```
+```python
 def insertion_sort(lst):
     for idx in range(1, len(lst)):
         position = idx
@@ -41,7 +41,7 @@ lst[position-1[ 的部分始终是 sorte d的。loop invariant 有**三个重要
 **2.2 exercise**
 
 2.2-2: **实现一个 selection sort**:
-```
+```python
 def selection_sort(lst):
     for idx in range(len(lst)-1):
         min = idx
@@ -59,7 +59,7 @@ def selection_sort(lst):
 ##### 2.3.1 The divide-and-conquer approach
 
 Divide and conquer 的思路： **Divide** problems into numbers of smaller subproblems, **Conquer** each subproblems recursively, **Combine** solutions of subproblems into original problem. 以 merge sort为例：
-```
+```python
 def merge(A,p,q,r):
     n1 = q-p+1
     n2 = r-q
@@ -81,7 +81,7 @@ def merge(A,p,q,r):
     return A
 ```
 注意这里的 merge 算法只有在 A[p:q] 和 A[q:r] 本身就是 sorted 的情况下才有效。有了 merge 这一 function 之后就可以用 divide-and-conquer 思想实现 merge sort 了：
-```
+```python
 def merge_sort(A, p, r):
     if p < r:
         q = math.floor((p+r)/2)
@@ -125,7 +125,7 @@ Omit floor/ ceiling/ boundary conditions，这些内容从宏观层面来说对�
 
 用 divide-and-conquer 思路解答这个问题：maximum-subarray 一定存在于这个 array 的左半边/ 右半边/ 横穿两边。考虑这三种情况，在左半边/ 右半边的情况就是 recursive case 了，因为你要做的事情是一样的，只不过 array 本身长度变成了一半。而位于中间时则是一个不同的问题，从中间的点开始不断朝左右延展找到最大的差值。最后比较三种情况，并取其最大者作为答案。
 
-```
+```python
 def find_max_crossing_subarray(A, low, mid, high):
     left_sum, right_sum = -float("inf"), -float("inf")
     sum_ = 0
@@ -143,7 +143,7 @@ def find_max_crossing_subarray(A, low, mid, high):
     return (max_left, max_right, left_sum + right_sum)
 ```
 在 python 里 range(0:4) 只包含 [0,1,2,3]，非常容易搞错。无论如何以上实现了从中间一点查找两边的 max subarray的情况。接下来则是 recursion 部分：
-```
+```python
 def find_maximum_subarray(A,low,high):
     if high == low:
         return (low, high, A[low])
@@ -168,7 +168,7 @@ def find_maximum_subarray(A,low,high):
 #### 4.2 Strassen's algorithm for matrix multiplication
 
 如何计算两个方形矩阵相乘，按照矩阵相乘的数学原理来看：
-```
+```python
 def square_matrix_multiplicy(A, B):
     n = len(A)
     C = [[0 for x in range(n)] for y in range(n)]
@@ -195,7 +195,7 @@ def square_matrix_multiplicy(A, B):
 
 按照这个思路，我们可以写出：
 
-```
+```python
 
 def matrix_add(A, B):
     n = len(A)
@@ -233,7 +233,7 @@ def square_matrix_multiply_recursive(A, B):
 **4.2 Exercise**
 
 4.2-2 是说 strassen's algorithm 的算法实现，如下：
-```
+```python
 def matrix_add(A, B):
     n = len(A)
     C = [[0 for x in range(n)] for y in range(n)]
@@ -314,7 +314,7 @@ Probabilitistic analysis and randomized algorithms，需要有概率学基础。
 
 See question [here](https://en.wikipedia.org/wiki/Secretary_problem), 最基础的算法实现：
 
-```
+```python
 # assume n is a list of numbers, the larger the number the better the people would be
 def hire_assistant(n):
     best = -1
@@ -356,7 +356,7 @@ We call an algorithm **randomized** if its behavior is determined not only by it
 #### 5.3 Randomized algorithms
 
 首先要强调的是，**probabilistic analysis 和 randomized algorithms 是连个完全不同的概念。** 具体来说，在我们做 probabilistic analysis 时，我们会先把 input 做随机处理，而算法本身是稳定的，所以在 input 不变的前提下，算法得出的结果也是不变的，。而 randomized algorithm 则强调在算法**内部**去做random，而不是把 input 先 random 好再输入给算法。所以我们每次 run 这个算法时，得到的结果可能都是不一样的。以 hiring problem 为例，我们先在算法中随机排列所有的候选人，然后再进行挑选。书中提供了两种随机排列所有候选人的方法，并作出了十分详细的证明，这里只给出代码示例：
-```
+```python
 def permute_by_sorting(A):
     n = len(A)
     P = [0 for x in range(n)]
@@ -375,7 +375,7 @@ def randomize_in_place(A):
     return A
 ```
 有了这两种方法后，我们可以真正实现 randomized algorithm:
-```
+```python
 def randomized_hire_assistant(n):
     n = randomize_in_place(n)
     # or:
@@ -415,7 +415,7 @@ Heap: heap 的实质就是一个 array，但可以以二叉树的形式的去理
 
 还有一个算是性质的是，作为二叉树我们可以很轻松的算出 parent node 和 left/ right child 之间 index 的关系，从上面的图也是可以轻易看出来的:
 
-```
+```python
 left_child = parent*2
 right_child = parent*2+1
 ```
@@ -426,7 +426,7 @@ Heap 分为 max/min heap 两种，分别满足 **max/min heap property：for all
 
 让一个 array 中的某一个特定 index 的 element 满足 max heap property，保证把这个 index 的 element 放到 array 中正确的位置上:
 
-```
+```python
 # A -> a list of number
 # i -> index i 
 def max_heapify(A, i):
@@ -449,7 +449,7 @@ runtime 分析，这是一个典型的 recursion，用 master theorem 可得 T(n
 
 之前的 max-heapify 算法保证针对某一个 element 可以把它调整到 array 中正确的位置，那如果对所有 element 施行 max-heapify 就可以保证整个 array 都满足 max heap property 了。而实际上，并不需要对**所有** element 进行 max-heapify 也能达到 整个 array 满足 max heap property 的效果， 因为所有的 leaves 没有 children node，所以自动满足 max heap property （记得 max heap property 的定义是 parent node >= child node，而 leaf 是没有 child node 的）。那只需要对所有非 leaf 的 node 进行 max-heapify 就行了，代码如下：
 
-```
+```python
 # A -> list of number
 def build_max_heap(A):
     size = len(A)
@@ -463,7 +463,7 @@ Running time 是 O(n)，书上有详细的证明
 
 首先不能搞混的是，满足 max (min) heap property 的 array 不一定是 sorted 的，只有root是最大的这一点可以肯定。所以哪怕我们有了一个 max/min heap，依然要对其进行 sort，只不过这个过程简单了不少，因为我们知道 root永远是最大的，只要把 root 和末尾 exchange，把末尾排除出 heap，再对第一位进行 max-heapify 就能保证新的 heap 的 root 又是最大的，再将其排除。如此反复，便得到一个由小到大排列的 array 了。代码如下:
 
-```
+```python
 # A -> list of number
 def heapsort(A):
     build_max_heap(A)
@@ -482,21 +482,21 @@ heap 作为一种 data structure 在很多地方可以用到，比如作为 prio
 **A priority queue is a data structure for maintaining a set S of elements, each with an associated value called a key.** 正常来说一个 priority queue 需要支持一下操作：
 
   - insert(S,x): 把 element x insert 到 set S 里，runtime 为 O (logn)
-```
+```python
 def max_heap_insert(A, key):
     A.append(-float("inf"))
     heap_increase_key(A, len(A)-1, key)
 ```
   - maximum(S): return largest key in S，runtime 为 O (1)
 
-```
+```python
 def heap_maximum(A):
     return A[0]
 ```
 
   - extract-max(S): 把拥有最大 key 的 element 抽出来并保证剩下部分的 list 还是 max heap，runtime 为 O (logn)
 
-```
+```python
 def heap_extract_max(A):
     if len(A) < 1:
         return False
@@ -509,7 +509,7 @@ def heap_extract_max(A):
 
   - increase-key(S, x, k): increase the value of element x's key to a new value k，runtime 为 O (logn)
 
-```
+```python
 def heap_increase_key(A,i,key):
     if key < A[i]:
         return False
@@ -528,7 +528,7 @@ worst case 的 runtime 只有 O(n<sup>2</sup>)，但在实践中往往是最好�
 也用 divide and conquer，具体步骤：
 
   * divide: 把 array A[p .. r] 分成两个 subarray A[p .. **q-1**] 所有 element 小于 A[q], A[**q+1** .. r] 所有 element 大于 A[q].
-```
+```python
 def partition(A,p,r):
     x = A[r]
     i = p-1
@@ -544,7 +544,7 @@ def partition(A,p,r):
   * conquer: recursively sort two subarrays by quick sort
 
   * combine: 两个 subarray 已处于 sorted 状态，所以整个 array 也是 sorted 的。
-```
+```python
 def quicksort(A, p, r):
     if p < r:
         q = partition(A, p, r)
@@ -569,7 +569,7 @@ def quicksort(A, p, r):
 #### 7.3 A randomized version of quicksort
 
 和之前 5.3 一样的思想，之前的 quicksort 有一个问题在于一直取最后一位作为 pivot 可能会一直处于 unbalanced 的状态，为了避免这一情况，我们随机取 array 里的一个数并和最后一位交换，再作为 pivot 做 partition 操作。
-```
+```python
 def random_partition(A, p, r):
     i = random.randint(p,r)
     A[r], A[i] = A[i], A[r]

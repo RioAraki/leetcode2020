@@ -122,6 +122,16 @@ Related questions:
 
 The best time to buy and sell stock series 
 
+DP
+
+136 - Single number
+127 - Single number II
+Sum difference, bit manipulation (xor all bits), hash table
+
+### Trivial
+
+28 - implement Strstr(): KMP algorithm O(m+n)
+
 ## Language
 
 
