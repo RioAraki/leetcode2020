@@ -1,5 +1,7 @@
 # 2019-02-21: Pass most test, does not solve the float precision problem
 
+# To avoid precision problem, need to 
+
 class Point(object):
     def __init__(self, a=0, b=0):
         self.x = a
