@@ -54,6 +54,17 @@ def nextLargerNodes1(head):
         head = head.next
     return ret
 
+# @profile_each_line
+def nextLargerNodes2(head):
+    res, stack = [], []
+    while head:
+        while stack and stack[-1][1] < head.val:
+            res[stack.pop()[0]] = head.val
+        stack.append([len(res), head.val])
+        res.append(0)
+        head = head.next
+    return res
+
 if __name__ == "__main__":
     ll = llcopy = ListNode(999990156)
 
@@ -64,6 +75,6 @@ if __name__ == "__main__":
 
     start = time.time()
 
-    nextLargerNodes(ll)
+    nextLargerNodes2(ll)
     end = time.time()
     print(end - start)
