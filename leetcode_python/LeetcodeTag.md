@@ -412,4 +412,7 @@ Q856 Score of Parentheses: string, medium
     Ideally the array should looks like [1,2,3,4,5...], we could set the need and ret variable:
         ret += max(need - num, 0)
         need = max(need+1, num + 1)
-    
+
+1017. Convert to Base -2
+    **Math**, **bit manipulation**
+    Understand how binary works, how the convertion works. Understand bitwise operation like shift and bitwise or
