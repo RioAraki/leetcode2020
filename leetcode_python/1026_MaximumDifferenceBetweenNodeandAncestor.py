@@ -16,7 +16,7 @@ def maxAncestorDiff(self, root: TreeNode) -> int:
         ret = max(ret, max(lst) - min(lst))
     return ret
 
-# better answer mingle the find difference into the DFS
+# better answer: mingle the find difference into the DFS
 
 def maxAncestorDiff(self, root, mx=0, mn=10000):
     return max(mx - root.val, root.val - mn, \
