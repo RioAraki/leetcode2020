@@ -12,7 +12,7 @@ def longestConsecutive(self, nums):
     
     mx = 0
     for i in nums:
-        # begin of streak
+        # we want to find the beginning of streak
         if i-1 not in set_nums:
             streak = 0
             while i in set_nums:
@@ -20,3 +20,4 @@ def longestConsecutive(self, nums):
                 i += 1
             mx = max(mx, streak)
     return mx
+            
