@@ -18,7 +18,7 @@ def eventualSafeNodes(graph):
         if visited[i] == -1: explore(i)
     return sorted(res)
 
- 
+
 if __name__ == "__main__":
     graph = [[1,2],[2,3],[5],[0],[5],[],[]]
     eventualSafeNodes(graph)
