@@ -10,7 +10,6 @@ def numSmallerByFrequency(queries, words):
 
     q = [funcF(x) for x in queries]
     w = [funcF(w) for w in words]
-    print(q,w)
     ret = []
     for query in q:
         cnt = 0
@@ -24,6 +23,5 @@ def numSmallerByFrequency(queries, words):
 
 if __name__ == "__main__":
     queries =["bba","abaaaaaa","aaaaaa","bbabbabaab","aba","aa","baab","bbbbbb","aab","bbabbaabb"]
-
     words = ["aaabbb","aab","babbab","babbbb","b","bbbbbbbbab","a","bbbbbbbbbb","baaabbaab","aa"]
     print(numSmallerByFrequency(queries, words))
