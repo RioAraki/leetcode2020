@@ -1,5 +1,5 @@
 # TLE
-
+import collections
 def canMakePaliQueries(s, queries):
     """
     :type s: str
