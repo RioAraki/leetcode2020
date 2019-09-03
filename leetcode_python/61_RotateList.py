@@ -82,3 +82,47 @@ def betterRotateRight(self, head, k):
     head = temp
 
     return head
+
+
+#2019-09-03 redo:
+# one loop to count the length of linked list, at the end of the ll, link it to the head
+# find the tail since we know the length, set the tail's next to none. tail's next is the new head.
+
+def rotateRight(self, head, k):
+    """
+    :type head: ListNode
+    :type k: int
+    :rtype: ListNode
+    """
+    
+    
+    
+    # corner case
+    if not head:
+        return head
+    
+    start = head
+    length = 1
+    while head.next:
+        length += 1
+        head = head.next
+        
+    if k % length == 0:
+        return start
+    
+    head.next = start
+    
+    
+    
+    tail = (length - k) % length
+    cur = 1
+    while cur < tail:
+        start = start.next
+        cur += 1
+    ret = start.next
+    start.next = None
+    
+    return ret
+    
+    
+        
