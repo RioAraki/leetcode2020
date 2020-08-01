@@ -28,3 +28,6 @@ class Solution {
         }
     }
 }
+
+// Count captical: true if all captical/ none captical / only first letter capital, otherwise false
+// regex: return word.matches("[A-Z]* | [a-z]* | [A-Z][a-z]*")
