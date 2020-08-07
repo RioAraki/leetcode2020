@@ -73,3 +73,5 @@ class WordDictionary {
  * obj.addWord(word);
  * boolean param_2 = obj.search(word);
  */
+
+// need to use trie, understand trie!
