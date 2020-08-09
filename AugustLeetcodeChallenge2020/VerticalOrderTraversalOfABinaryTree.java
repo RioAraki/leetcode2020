@@ -1,3 +1,5 @@
+// need x and y axis
+
 class Solution {
     public void traverse(TreeNode root, int X, int Y, HashMap<Integer, Map<Integer, List<Integer>>> map){
         if(root == null) return ;
