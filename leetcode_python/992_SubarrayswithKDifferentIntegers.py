@@ -13,6 +13,8 @@ def subarraysWithKDistinct(nums: List[int], k: int) -> int:
                 if cnt[nums[left]] == 0:
                     k += 1
                 left += 1
+            # Everytime a new valid window is confirmed, it = old window + one new element
+            # so this new window would generate size of new window number of new subarrays
             res += right - left + 1
             right += 1
         return res
