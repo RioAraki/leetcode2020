@@ -40,3 +40,27 @@ class Solution:
         return ret
 
 # Made several mistakes during implementing the algorithm, need to **redo**
+
+# 2021-05-30:
+
+def fourSum(nums: List[int], target: int) -> List[List[int]]:
+    res = set()
+    # first second are actual value, nums is sorted
+    def twoSum(first, second, nums, target):
+        ptr1, ptr2 = 0, len(nums)-1
+        while ptr1 < ptr2:
+            if nums[ptr1] + nums[ptr2] == target:
+                res.add((first, second, nums[ptr1], nums[ptr2]))
+                ptr1 += 1
+            elif nums[ptr1] + nums[ptr2] < target:
+                ptr1 += 1
+            else:
+                ptr2 -= 1
+                            
+    nums.sort()
+    for i in range(len(nums)-3):
+        for j in range(i+1, len(nums)):
+            twoSum(nums[i], nums[j], nums[j+1:],target-nums[i]-nums[j])
+            
+    # transfer set and tuple back to list
+    return [list(x) for x in res]    
