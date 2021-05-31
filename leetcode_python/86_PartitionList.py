@@ -31,3 +31,20 @@ def partition(self, head, x):
     small.next = l_tmp.next
         
     return s_tmp.next
+
+# 2021-05-30
+
+def partition(head: ListNode, x: int) -> ListNode:
+    ptr1 = newList1 = ListNode(0)
+    ptr2 = newList2 = ListNode(0)
+    while head:
+        if head.val < x:
+            ptr1.next = ListNode(head.val)
+            ptr1 = ptr1.next
+        else:
+            ptr2.next = ListNode(head.val)
+            ptr2 = ptr2.next
+        head = head.next
+    ptr1.next = newList2.next
+    return newList1.next
+    
