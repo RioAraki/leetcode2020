@@ -27,3 +27,28 @@ def trap(height):
                 res += maxright - height[right]
             right -= 1
     return res
+
+
+# 2021-06-02
+def trap(height: List[int]) -> int:
+    right = []
+    left = []
+    if len(height) == 0: return 0
+    leftMax, rightMax = height[0], height[-1]
+    for i in range(len(height)):
+        if height[i] > leftMax:
+            leftMax = height[i]
+            left.append(0)
+        else:
+            left.append(leftMax-height[i])
+    for j in range(len(height)-1, -1, -1):
+        if height[j] > rightMax:
+            rightMax = height[j]
+            right.append(0)
+        else:
+            right.append(rightMax-height[j])
+    right = right[::-1]
+    ans = 0
+    for i in range(len(left)):
+        ans += min(left[i], right[i])
+    return ans
