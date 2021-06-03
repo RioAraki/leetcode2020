@@ -34,3 +34,23 @@ def sortColors(self, nums):
     for i in cnt:
         nums[idx:idx + cnt[i]] = [i] * (cnt[i])
         idx += cnt[i]
+
+    
+# 2021-06-02 two pointer
+
+def sortColors(nums: List[int]) -> None:
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    zeroIdx, twoIdx = 0, len(nums)-1
+    i = 0
+    while i <= twoIdx:
+        if nums[i] == 0:
+            nums[zeroIdx], nums[i] = nums[i], nums[zeroIdx]
+            zeroIdx += 1
+            i += 1
+        elif nums[i] == 2:
+            nums[twoIdx], nums[i] = nums[i], nums[twoIdx]
+            twoIdx -= 1
+        else:
+            i += 1
