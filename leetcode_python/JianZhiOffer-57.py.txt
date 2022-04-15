@@ -1,0 +1,18 @@
+def findContinuousSequence(self, target: int) -> List[List[int]]:
+    start, end, curSum = 1, 2, 3
+    res = []
+    if target < 3: return []
+
+    while start < end:
+        if curSum > target:
+            curSum -= start
+            start += 1
+        elif curSum < target:
+            end += 1
+            curSum += end
+        else:
+            res.append([x for x in range(start, end+1)]) 
+            end += 1
+            curSum += end
+
+    return res
